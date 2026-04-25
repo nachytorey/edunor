@@ -1,29 +1,34 @@
-import Image from "next/image"
-import Link from "next/link"
-import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from "react-icons/fa"
-import { MapPin, Mail, Phone } from "lucide-react"
-import { siteConfig, locations, whatsappLink, mapsLink } from "@/lib/site"
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+  FaWhatsapp,
+} from 'react-icons/fa';
+import { MapPin, Mail, Phone } from 'lucide-react';
+import { siteConfig, locations, whatsappLink, mapsLink } from '@/lib/site';
+import { EdunorLogo } from './edunor-logo';
 
 export function Footer() {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
 
   return (
     <footer className="relative border-t border-border bg-background">
       <div className="container-luxe py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
-            <Link href="/" aria-label={siteConfig.name} className="inline-block">
-              <Image
-                src="/images/edunor-logo.png"
-                alt="Edunor Náutica"
-                width={160}
-                height={70}
-                className="h-14 w-auto"
-              />
+            <Link
+              href="/"
+              aria-label={siteConfig.name}
+              className="inline-block"
+            >
+             <EdunorLogo />
             </Link>
             <p className="mt-5 text-sm text-foreground/60 leading-relaxed text-pretty max-w-sm">
-              Empresa familiar fundada en {siteConfig.foundedYear}, dedicada a la Náutica, Camping
-              y Outdoor. Service oficial, repuestos originales y más de 60 años de experiencia.
+              Empresa familiar fundada en {siteConfig.foundedYear}, dedicada a
+              la Náutica, Camping y Outdoor. Service oficial, repuestos
+              originales y más de 60 años de experiencia.
             </p>
 
             <div className="mt-6 flex items-center gap-3">
@@ -67,10 +72,15 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="text-xs uppercase tracking-[0.3em] text-primary mb-5">Navegación</h3>
+            <h3 className="text-xs uppercase tracking-[0.3em] text-primary mb-5">
+              Navegación
+            </h3>
             <ul className="flex flex-col gap-3 text-sm">
               <li>
-                <Link href="/" className="text-foreground/70 hover:text-primary transition-colors">
+                <Link
+                  href="/"
+                  className="text-foreground/70 hover:text-primary transition-colors"
+                >
                   Inicio
                 </Link>
               </li>
@@ -133,7 +143,7 @@ export function Footer() {
                 {loc.phones.map((p) => (
                   <li key={p}>
                     <a
-                      href={`tel:${p.replace(/\s/g, "")}`}
+                      href={`tel:${p.replace(/\s/g, '')}`}
                       className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors"
                     >
                       <Phone className="h-4 w-4 text-primary flex-shrink-0" />
@@ -141,21 +151,17 @@ export function Footer() {
                     </a>
                   </li>
                 ))}
-                {loc.id === "temperley" && (
-                  <li>
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors"
-                    >
-                      <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                      <span>{siteConfig.email}</span>
-                    </a>
-                  </li>
-                )}
               </ul>
             </div>
           ))}
         </div>
+        <a
+          href={`mailto:${siteConfig.email}`}
+          className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors"
+        >
+          <Mail className="h-4 w-4 text-primary flex-shrink-0" />
+          <span>{siteConfig.email}</span>
+        </a>
       </div>
 
       <div className="border-t border-border">
@@ -169,5 +175,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

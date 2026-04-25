@@ -85,7 +85,7 @@ export function Testimonials() {
               type="button"
               onClick={scrollPrev}
               aria-label="Testimonio anterior"
-              className="h-11 w-11 inline-flex items-center justify-center border border-border rounded-full text-foreground/70 hover:text-primary hover:border-primary transition-colors"
+              className="h-11 w-11 inline-flex items-center justify-center border border-border rounded-sm text-foreground/70 hover:text-primary hover:border-primary transition-colors"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -93,7 +93,7 @@ export function Testimonials() {
               type="button"
               onClick={scrollNext}
               aria-label="Siguiente testimonio"
-              className="h-11 w-11 inline-flex items-center justify-center border border-border rounded-full text-foreground/70 hover:text-primary hover:border-primary transition-colors"
+              className="h-11 w-11 inline-flex items-center justify-center border border-border rounded-sm text-foreground/70 hover:text-primary hover:border-primary transition-colors"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
@@ -129,7 +129,7 @@ export function Testimonials() {
                       &ldquo;{t.quote}&rdquo;
                     </blockquote>
                     <footer className="mt-8 pt-6 border-t border-border flex items-center gap-4">
-                      <div className="h-11 w-11 rounded-full bg-primary/10 border border-primary/30 text-primary flex items-center justify-center text-sm font-medium tracking-wider">
+                      <div className="h-11 w-11 rounded-sm bg-primary/10 border border-primary/30 text-primary flex items-center justify-center text-sm font-medium tracking-wider">
                         {initials}
                       </div>
                       <div>
@@ -153,7 +153,7 @@ export function Testimonials() {
               type="button"
               aria-label={`Ir al testimonio ${i + 1}`}
               onClick={() => emblaApi?.scrollTo(i)}
-              className={`h-1 rounded-full transition-all ${
+              className={`h-1 rounded-sm transition-all ${
                 selected === i ? "bg-primary w-8" : "bg-foreground/20 w-4"
               }`}
             />

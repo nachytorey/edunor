@@ -1,31 +1,36 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import Script from "next/script"
-import { notFound } from "next/navigation"
-import { ArrowLeft, ChevronRight, Mail } from "lucide-react"
-import { FaWhatsapp } from "react-icons/fa"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { ProductGallery } from "@/components/product-gallery"
-import { ProductCard } from "@/components/product-card"
-import { getProductById, getRelatedProducts, products, categoryColor } from "@/lib/products"
-import { siteConfig, whatsappLink } from "@/lib/site"
-import { cn } from "@/lib/utils"
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Script from 'next/script';
+import { notFound } from 'next/navigation';
+import { ArrowLeft, ChevronRight, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { Navbar } from '@/components/navbar';
+import { Footer } from '@/components/footer';
+import { ProductGallery } from '@/components/product-gallery';
+import { ProductCard } from '@/components/product-card';
+import {
+  getProductById,
+  getRelatedProducts,
+  products,
+  categoryColor,
+} from '@/lib/products';
+import { siteConfig, whatsappLink } from '@/lib/site';
+import { cn } from '@/lib/utils';
 
 export function generateStaticParams() {
-  return products.map((p) => ({ id: p.id }))
+  return products.map((p) => ({ id: p.id }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params
-  const product = getProductById(id)
+  const { id } = await params;
+  const product = getProductById(id);
 
   if (!product) {
-    return { title: "Producto no encontrado" }
+    return { title: 'Producto no encontrado' };
   }
 
   return {
@@ -35,10 +40,10 @@ export async function generateMetadata({
       title: `${product.name} — ${siteConfig.name}`,
       description: product.shortDescription,
       images: [{ url: product.images[0], alt: product.name }],
-      type: "website",
+      type: 'website',
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: product.name,
       description: product.shortDescription,
       images: [product.images[0]],
@@ -46,45 +51,45 @@ export async function generateMetadata({
     alternates: {
       canonical: `/productos/${product.id}`,
     },
-  }
+  };
 }
 
 export default async function ProductDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = await params
-  const product = getProductById(id)
+  const { id } = await params;
+  const product = getProductById(id);
 
   if (!product) {
-    notFound()
+    notFound();
   }
 
-  const related = getRelatedProducts(product)
+  const related = getRelatedProducts(product);
 
   const productJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
+    '@context': 'https://schema.org',
+    '@type': 'Product',
     name: product.name,
     description: product.description,
     image: product.images.map((img) => `${siteConfig.url}${img}`),
     category: product.category,
-    brand: { "@type": "Brand", name: siteConfig.name },
+    brand: { '@type': 'Brand', name: siteConfig.name },
     offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      priceCurrency: "ARS",
-      price: "0",
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      priceCurrency: 'ARS',
+      price: '0',
       url: `${siteConfig.url}/productos/${product.id}`,
     },
-  }
+  };
 
-  const whatsappMsg = `Hola! Me interesa el producto ${product.name}. Me gustaría recibir más información.`
-  const emailSubject = encodeURIComponent(`Consulta: ${product.name}`)
+  const whatsappMsg = `Hola! Me interesa el producto ${product.name}. Me gustaría recibir más información.`;
+  const emailSubject = encodeURIComponent(`Consulta: ${product.name}`);
   const emailBody = encodeURIComponent(
     `Hola,\n\nMe gustaría recibir más información sobre ${product.name}.\n\nGracias.`,
-  )
+  );
 
   return (
     <>
@@ -103,14 +108,19 @@ export default async function ProductDetailPage({
                 <ChevronRight className="h-3 w-3" />
               </li>
               <li>
-                <Link href="/productos" className="hover:text-primary transition-colors">
+                <Link
+                  href="/productos"
+                  className="hover:text-primary transition-colors"
+                >
                   Productos
                 </Link>
               </li>
               <li aria-hidden>
                 <ChevronRight className="h-3 w-3" />
               </li>
-              <li className="text-foreground/80 normal-case tracking-normal">{product.name}</li>
+              <li className="text-foreground/80 normal-case tracking-normal">
+                {product.name}
+              </li>
             </ol>
           </nav>
 
@@ -130,7 +140,7 @@ export default async function ProductDetailPage({
             <div className="lg:col-span-2">
               <span
                 className={cn(
-                  "inline-block text-[10px] uppercase tracking-[0.25em] px-3 py-1 rounded-full border",
+                  'inline-block text-[10px] uppercase tracking-[0.25em] px-3 py-1 rounded-full border',
                   categoryColor(product.category),
                 )}
               >
@@ -148,23 +158,25 @@ export default async function ProductDetailPage({
                   Precio
                 </div>
                 <div className="font-serif text-3xl text-primary">
-                  {product.price === "Consultar" ? "Consultar precio" : product.price}
+                  {product.price === 'Consultar'
+                    ? 'Consultar precio'
+                    : product.price}
                 </div>
               </div>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <div className="mt-8 flex flex-col gap-3">
                 <a
                   href={whatsappLink(whatsappMsg)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] rounded-sm hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] rounded-full hover:bg-primary/90 transition-colors"
                 >
                   <FaWhatsapp className="h-4 w-4" />
                   Consultar por WhatsApp
                 </a>
                 <a
                   href={`mailto:${siteConfig.email}?subject=${emailSubject}&body=${emailBody}`}
-                  className="inline-flex items-center justify-center gap-2 h-12 px-6 border border-foreground/30 text-foreground text-xs uppercase tracking-[0.25em] rounded-sm hover:border-primary hover:text-primary transition-colors"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 border border-foreground/30 text-foreground text-xs uppercase tracking-[0.25em] rounded-full hover:border-primary hover:text-primary transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   Contactar
@@ -183,7 +195,9 @@ export default async function ProductDetailPage({
                       className="flex items-center justify-between py-3 text-sm"
                     >
                       <dt className="text-foreground/60">{key}</dt>
-                      <dd className="text-foreground font-medium text-right">{value}</dd>
+                      <dd className="text-foreground font-medium text-right">
+                        {value}
+                      </dd>
                     </div>
                   ))}
                 </dl>
@@ -200,7 +214,8 @@ export default async function ProductDetailPage({
                     — Relacionados
                   </span>
                   <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl leading-tight text-balance">
-                    Productos <span className="text-primary italic">relacionados</span>
+                    Productos{' '}
+                    <span className="text-primary italic">relacionados</span>
                   </h2>
                 </div>
               </div>
@@ -221,5 +236,5 @@ export default async function ProductDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
     </>
-  )
+  );
 }

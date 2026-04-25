@@ -29,7 +29,7 @@ export const locations: Location[] = [
     id: "temperley",
     name: "Sucursal Témperley",
     address: "Av. Antártida Argentina 101",
-    city: "Témperley, Partido de Lomas de Zamora",
+    city: "Témperley, Lomas de Zamora",
     region: "Provincia de Buenos Aires",
     phones: ["4298 9291", "4231 5663"],
     mapsQuery: "Av. Antártida Argentina 101, Témperley, Lomas de Zamora, Buenos Aires",
@@ -40,7 +40,7 @@ export const locations: Location[] = [
     address: "Mariano Castex 560",
     city: "B1842 Canning",
     region: "Provincia de Buenos Aires",
-    phones: [],
+    phones: ["4298 9291", "4231 5663"],
     mapsQuery: "Mariano Castex 560, B1842 Canning, Buenos Aires",
   },
 ]

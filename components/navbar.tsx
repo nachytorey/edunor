@@ -66,7 +66,7 @@ export function Navbar() {
 
         <Link
           href="/productos"
-          className="hidden lg:inline-flex items-center justify-center h-10 px-5 text-xs uppercase tracking-[0.2em] border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors rounded-sm"
+          className="hidden lg:inline-flex items-center justify-center h-10 px-5 text-xs uppercase tracking-[0.2em] border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors rounded-full"
         >
           Ver Catálogo
         </Link>
@@ -109,7 +109,7 @@ export function Navbar() {
               ))}
               <Link
                 href="/productos"
-                className="inline-flex items-center justify-center h-11 px-5 text-xs uppercase tracking-[0.2em] border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors rounded-sm mt-2"
+                className="inline-flex items-center justify-center h-11 px-5 text-xs uppercase tracking-[0.2em] border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors rounded-full mt-2"
               >
                 Ver Catálogo
               </Link>

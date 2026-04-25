@@ -30,7 +30,7 @@ export function Locations() {
               className="flex flex-col gap-4"
             >
               <article className="group relative overflow-hidden rounded-sm border border-border bg-card p-8 md:p-10 hover:border-primary/50 transition-colors flex-shrink-0">
-                <div className="absolute top-0 right-0 h-24 w-24 bg-primary/5 blur-3xl rounded-full" />
+                <div className="absolute top-0 right-0 h-24 w-24 bg-primary/5 blur-3xl rounded-sm" />
 
                 <div className="relative">
                   <div className="flex items-start justify-between gap-4">
@@ -42,7 +42,7 @@ export function Locations() {
                         {loc.name}
                       </h3>
                     </div>
-                    <div className="h-11 w-11 inline-flex items-center justify-center rounded-full border border-primary/30 text-primary flex-shrink-0">
+                    <div className="h-11 w-11 inline-flex items-center justify-center rounded-sm border border-primary/30 text-primary flex-shrink-0">
                       <MapPin className="h-5 w-5" />
                     </div>
                   </div>

@@ -40,7 +40,7 @@ export function ProductCard({ product, index = 0, priority = false }: ProductCar
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-80" />
           <span
             className={cn(
-              "absolute top-4 left-4 text-[10px] uppercase tracking-[0.25em] px-3 py-1 rounded-full border backdrop-blur-md",
+              "absolute top-4 left-4 text-[10px] uppercase tracking-[0.25em] px-3 py-1 rounded-sm border backdrop-blur-md",
               categoryColor(product.category),
             )}
           >

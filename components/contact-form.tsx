@@ -18,7 +18,7 @@ function SubmitButton() {
     >
       {pending ? (
         <>
-          <span className="h-4 w-4 border-2 border-primary-foreground/40 border-t-primary-foreground rounded-full animate-spin" />
+          <span className="h-4 w-4 border-2 border-primary-foreground/40 border-t-primary-foreground rounded-sm animate-spin" />
           Enviando…
         </>
       ) : (

@@ -31,7 +31,7 @@ export function Contact() {
                 href={`tel:${siteConfig.phone.replace(/\s/g, "")}`}
                 className="group flex items-center gap-4 text-foreground/80 hover:text-primary transition-colors"
               >
-                <span className="h-12 w-12 inline-flex items-center justify-center rounded-full border border-border group-hover:border-primary transition-colors">
+                <span className="h-12 w-12 inline-flex items-center justify-center rounded-sm border border-border group-hover:border-primary transition-colors">
                   <Phone className="h-4 w-4" />
                 </span>
                 <span>
@@ -47,7 +47,7 @@ export function Contact() {
                 href={`mailto:${siteConfig.email}`}
                 className="group flex items-center gap-4 text-foreground/80 hover:text-primary transition-colors"
               >
-                <span className="h-12 w-12 inline-flex items-center justify-center rounded-full border border-border group-hover:border-primary transition-colors">
+                <span className="h-12 w-12 inline-flex items-center justify-center rounded-sm border border-border group-hover:border-primary transition-colors">
                   <Mail className="h-4 w-4" />
                 </span>
                 <span>
@@ -65,7 +65,7 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 text-foreground/80 hover:text-primary transition-colors"
               >
-                <span className="h-12 w-12 inline-flex items-center justify-center rounded-full border border-border group-hover:border-primary transition-colors">
+                <span className="h-12 w-12 inline-flex items-center justify-center rounded-sm border border-border group-hover:border-primary transition-colors">
                   <FaWhatsapp className="h-4 w-4" />
                 </span>
                 <span>
@@ -77,7 +77,7 @@ export function Contact() {
               </a>
             </li>
             <li className="flex items-center gap-4 text-foreground/80">
-              <span className="h-12 w-12 inline-flex items-center justify-center rounded-full border border-border">
+              <span className="h-12 w-12 inline-flex items-center justify-center rounded-sm border border-border">
                 <Clock className="h-4 w-4" />
               </span>
               <span>

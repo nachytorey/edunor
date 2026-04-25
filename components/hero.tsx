@@ -73,14 +73,14 @@ export function Hero() {
           >
             <Link
               href="/productos"
-              className="group inline-flex items-center justify-center gap-2 h-12 px-7 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] rounded-sm hover:bg-primary/90 transition-colors"
+              className="group inline-flex items-center justify-center gap-2 h-12 px-7 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] rounded-full hover:bg-primary/90 transition-colors"
             >
               Ver Productos
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/#sucursales"
-              className="inline-flex items-center justify-center h-12 px-7 border border-foreground/30 text-foreground text-xs uppercase tracking-[0.25em] rounded-sm hover:border-primary hover:text-primary transition-colors"
+              className="inline-flex items-center justify-center h-12 px-7 border border-foreground/30 text-foreground text-xs uppercase tracking-[0.25em] rounded-full hover:border-primary hover:text-primary transition-colors"
             >
               Nuestras Sucursales
             </Link>
@@ -96,7 +96,6 @@ export function Hero() {
         aria-hidden
       >
         <div className="flex flex-col items-center gap-2 text-foreground/40">
-          <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
