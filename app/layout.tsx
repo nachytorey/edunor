@@ -44,28 +44,34 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Edunor Náutica" }],
   creator: "Edunor Náutica",
+  icons: {
+    icon: "/images/favicon.png",
+    shortcut: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
   openGraph: {
     type: "website",
     locale: "es_AR",
     url: "https://edunornautica.com",
     siteName: "Edunor Náutica",
-    title: "Edunor Náutica — Náutica, Camping y Outdoor desde 1963",
+    title: "Edunor Náutica | Náutica, camping y outdoor",
     description:
-      "Empresa familiar fundada en 1963. Representantes oficiales de las mejores marcas. Service oficial, showroom de 1500m² en Témperley y Canning.",
+      "Representantes oficiales de Zodiac, Mercury, Yamaha, Sea Doo y Polaris. Showrooms en Témperley y Canning.",
     images: [
       {
-        url: "/images/hero.jpg",
+        url: "/images/edunor-logo.png",
         width: 1200,
         height: 630,
-        alt: "Edunor Náutica",
+        alt: "Logo de Edunor Náutica",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edunor Náutica — Náutica, Camping y Outdoor desde 1963",
-    description: "Empresa familiar fundada en 1963. Service oficial de las mejores marcas.",
-    images: ["/images/hero.jpg"],
+    title: "Edunor Náutica | Náutica, camping y outdoor",
+    description:
+      "Representantes oficiales de Zodiac, Mercury, Yamaha, Sea Doo y Polaris. Showrooms en Témperley y Canning.",
+    images: ["/images/edunor-logo.png"],
   },
   robots: {
     index: true,
