@@ -4,12 +4,13 @@ import type { Card } from "@/lib/landing"
 type ImageCardProps = Card & {
   sizes: string
   priority?: boolean
+  aspect?: string
 }
 
-export function ImageCard({ title, tag, image, sizes, priority }: ImageCardProps) {
+export function ImageCard({ title, tag, image, sizes, priority, aspect = "aspect-[4/3]" }: ImageCardProps) {
   return (
     <article className="group flex flex-col gap-3">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-black/10">
+      <div className={`relative ${aspect} overflow-hidden rounded-lg bg-black/10`}>
         <Image
           src={image}
           alt={title}

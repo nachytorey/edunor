@@ -19,9 +19,9 @@ export function SiteHeader() {
         <a href="#" className="font-display text-2xl tracking-tight">
           Edunor<sup className="text-xs">®</sup>
         </a>
-        <ul className="flex gap-5 md:gap-8">
+        <ul className="flex gap-4 sm:gap-6 md:gap-8">
           {links.map((link) => (
-            <li key={link.href} className="hidden first:block sm:block">
+            <li key={link.href}>
               <a href={link.href} className="opacity-70 transition-opacity hover:opacity-100">
                 {link.label}
               </a>
@@ -47,7 +47,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.25 + i * 0.12, ease }}
           >
-            <ImageCard {...card} sizes="(max-width: 640px) 100vw, 33vw" priority />
+            <ImageCard {...card} sizes="(max-width: 640px) 100vw, 33vw" aspect="aspect-[3/2]" priority />
           </motion.div>
         ))}
       </div>

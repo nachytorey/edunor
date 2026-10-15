@@ -79,29 +79,25 @@
   }
 }
 
-@layer utilities {
-  .font-display {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-variation-settings: "opsz" 144;
-    letter-spacing: -0.035em;
-    line-height: 0.92;
-  }
-  /* Título gigante del header y de cada sección */
-  .text-giant {
-    font-size: clamp(3.25rem, 11vw, 11.5rem);
-  }
-  .text-statement {
-    font-size: clamp(1.5rem, 3.2vw, 2.75rem);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-  .text-balance {
-    text-wrap: balance;
-  }
-  .text-pretty {
-    text-wrap: pretty;
-  }
+/* En Tailwind v4 las clases custom se declaran con @utility,
+   si van en @layer utilities el compilador las descarta */
+@utility font-display {
+  font-family: var(--font-display);
+  font-weight: 640;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+/* Título gigante del header y de cada sección */
+@utility text-giant {
+  font-size: clamp(3rem, 9.5vw, 10rem);
+}
+
+@utility text-statement {
+  font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 @media (prefers-reduced-motion: reduce) {

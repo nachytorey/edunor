@@ -55,7 +55,7 @@ export function CategorySection({ category }: { category: Category }) {
           <div className="grid grid-cols-2 gap-5 lg:grid-cols-4 md:gap-8">
             {category.cards.map((card, i) => (
               <Reveal key={card.title} delay={0.1 + i * 0.08}>
-                <ImageCard {...card} sizes="(max-width: 1024px) 50vw, 25vw" />
+                <ImageCard {...card} sizes="(max-width: 1024px) 50vw, 25vw" aspect="aspect-video" />
               </Reveal>
             ))}
           </div>
