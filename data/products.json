@@ -1,0 +1,209 @@
+[
+  {
+    "id": "bote-open-250",
+    "name": "Open 250 Sport",
+    "slug": "bote-open-250",
+    "category": "Botes",
+    "featured": true,
+    "price": "Consultar",
+    "shortDescription": "Lancha open de alto rendimiento para pesca y recreación con propulsor Mercury 200HP.",
+    "description": "La Open 250 Sport combina performance, confort y diseño en una embarcación pensada para quienes buscan lo mejor del agua. Construida en fibra de vidrio de alta resistencia, cuenta con un casco en V profunda que asegura navegación estable incluso en condiciones exigentes. Ideal para jornadas de pesca deportiva, paseos familiares o actividades recreativas con amigos.",
+    "specs": {
+      "Eslora": "7.5 m",
+      "Motor": "Mercury 200HP Verado",
+      "Capacidad": "8 personas",
+      "Material": "Fibra de vidrio",
+      "Combustible": "200 L",
+      "Velocidad máx.": "45 nudos"
+    },
+    "images": [
+      "/images/products/bote-open-250.jpg",
+      "/images/products/bote-open-250.jpg",
+      "/images/products/bote-open-250.jpg"
+    ]
+  },
+  {
+    "id": "bote-cruiser-320",
+    "name": "Cruiser 320 Luxury",
+    "slug": "bote-cruiser-320",
+    "category": "Botes",
+    "featured": true,
+    "price": "Consultar",
+    "shortDescription": "Yacht de cabina con interiores de lujo y doble propulsión para travesías prolongadas.",
+    "description": "El Cruiser 320 Luxury redefine el concepto de navegación premium. Con cabina equipada, cocina, baño y camarote doble, es la opción perfecta para quienes buscan disfrutar del mar con todas las comodidades. Su doble motor Volvo Penta garantiza potencia y eficiencia, mientras que el diseño exterior combina elegancia atemporal con líneas deportivas.",
+    "specs": {
+      "Eslora": "9.8 m",
+      "Motor": "2x Volvo Penta 300HP",
+      "Capacidad": "12 personas",
+      "Material": "Fibra de vidrio reforzada",
+      "Combustible": "450 L",
+      "Dormitorios": "2"
+    },
+    "images": [
+      "/images/products/bote-cruiser-320.jpg",
+      "/images/products/bote-cruiser-320.jpg",
+      "/images/products/bote-cruiser-320.jpg"
+    ]
+  },
+  {
+    "id": "bote-pescador-180",
+    "name": "Pescador 180 Aluminio",
+    "slug": "bote-pescador-180",
+    "category": "Botes",
+    "featured": false,
+    "price": "Consultar",
+    "shortDescription": "Bote utilitario en aluminio, liviano, resistente y ideal para pesca en ríos y lagos.",
+    "description": "El Pescador 180 es la elección confiable para quienes buscan una embarcación práctica, liviana y durable. Fabricado en aluminio naval soldado, resiste las condiciones más exigentes. Incluye asientos rebatibles, pedestales para caña y amplios espacios de guardado. Su bajo consumo lo hace ideal para largas jornadas de pesca.",
+    "specs": {
+      "Eslora": "5.5 m",
+      "Motor": "Yamaha 60HP",
+      "Capacidad": "5 personas",
+      "Material": "Aluminio naval",
+      "Peso": "320 kg",
+      "Casco": "Semi-V"
+    },
+    "images": [
+      "/images/products/bote-pescador-180.jpg",
+      "/images/products/bote-pescador-180.jpg",
+      "/images/products/bote-pescador-180.jpg"
+    ]
+  },
+  {
+    "id": "utv-ranger-1000",
+    "name": "Ranger 1000 XP",
+    "slug": "utv-ranger-1000",
+    "category": "UTVs",
+    "featured": true,
+    "price": "Consultar",
+    "shortDescription": "UTV utilitario con tracción 4x4, caja de carga reforzada y motor de 82HP.",
+    "description": "El Ranger 1000 XP es la herramienta definitiva para trabajo y aventura. Con motor ProStar de 82HP, tracción en las cuatro ruedas y capacidad de carga de 450 kg, supera los terrenos más exigentes. Su cabina insonorizada, dirección asistida y suspensión de largo recorrido lo hacen tan cómodo como capaz.",
+    "specs": {
+      "Motor": "ProStar 999cc 82HP",
+      "Tracción": "4x4 AWD",
+      "Capacidad": "3 personas",
+      "Carga útil": "450 kg",
+      "Velocidad máx.": "105 km/h",
+      "Suspensión": "Independiente doble A"
+    },
+    "images": [
+      "/images/products/utv-ranger-1000.jpg",
+      "/images/products/utv-ranger-1000.jpg",
+      "/images/products/utv-ranger-1000.jpg"
+    ]
+  },
+  {
+    "id": "utv-maverick-x3",
+    "name": "Maverick X3 Turbo",
+    "slug": "utv-maverick-x3",
+    "category": "UTVs",
+    "featured": false,
+    "price": "Consultar",
+    "shortDescription": "UTV deportivo de alto rendimiento con motor turbo de 195HP y suspensión de competición.",
+    "description": "Pura adrenalina sobre cuatro ruedas. El Maverick X3 Turbo entrega 195HP con su motor Rotax turboalimentado, capaz de acelerar de 0 a 100 en menos de 4.9 segundos. Su chasis de acero cromoly, suspensión Fox de competición y tren de aterrizaje racing lo convierten en el rey de las dunas y los circuitos off-road.",
+    "specs": {
+      "Motor": "Rotax 900 ACE Turbo",
+      "Potencia": "195 HP",
+      "Tracción": "4x4 seleccionable",
+      "Capacidad": "2 personas",
+      "Suspensión": "Fox Podium RC2",
+      "Recorrido susp.": "61 cm"
+    },
+    "images": [
+      "/images/products/utv-maverick-x3.jpg",
+      "/images/products/utv-maverick-x3.jpg",
+      "/images/products/utv-maverick-x3.jpg"
+    ]
+  },
+  {
+    "id": "utv-general-xp",
+    "name": "General XP 1000",
+    "slug": "utv-general-xp",
+    "category": "UTVs",
+    "featured": false,
+    "price": "Consultar",
+    "shortDescription": "UTV híbrido entre trabajo y deporte, ideal para aventuras familiares y expediciones.",
+    "description": "El General XP 1000 combina lo mejor de dos mundos: la performance de un deportivo y la utilidad de un vehículo de trabajo. Con 100HP, suspensión de 35cm de recorrido y capacidad para 4 pasajeros, es perfecto para recorrer caminos difíciles con toda la familia o el equipo de trabajo.",
+    "specs": {
+      "Motor": "ProStar 1000 100HP",
+      "Tracción": "4x4 AWD",
+      "Capacidad": "4 personas",
+      "Carga útil": "270 kg",
+      "Velocidad máx.": "110 km/h",
+      "Bauls": "Delantero y trasero"
+    },
+    "images": [
+      "/images/products/utv-general-xp.jpg",
+      "/images/products/utv-general-xp.jpg",
+      "/images/products/utv-general-xp.jpg"
+    ]
+  },
+  {
+    "id": "quad-sportsman-850",
+    "name": "Sportsman 850 XP",
+    "slug": "quad-sportsman-850",
+    "category": "Cuatriciclos",
+    "featured": true,
+    "price": "Consultar",
+    "shortDescription": "Cuatriciclo utilitario con tracción AWD automática y motor de 78HP.",
+    "description": "El Sportsman 850 XP es el cuatriciclo más completo de su segmento. Con 78HP, tracción AWD/2WD seleccionable y sistema de frenado en motor activo, ofrece control total en cualquier terreno. Cuenta con bauleras integradas, dirección asistida y suspensión independiente para máximo confort en jornadas largas.",
+    "specs": {
+      "Motor": "850 ProStar Twin 78HP",
+      "Tracción": "AWD/2WD",
+      "Peso": "324 kg",
+      "Capacidad de carga": "260 kg",
+      "Tanque": "18 L",
+      "Suspensión trasera": "Brazo oscilante IRS"
+    },
+    "images": [
+      "/images/products/quad-sportsman-850.jpg",
+      "/images/products/quad-sportsman-850.jpg",
+      "/images/products/quad-sportsman-850.jpg"
+    ]
+  },
+  {
+    "id": "quad-outlander-650",
+    "name": "Outlander 650 DPS",
+    "slug": "quad-outlander-650",
+    "category": "Cuatriciclos",
+    "featured": false,
+    "price": "Consultar",
+    "shortDescription": "Cuatriciclo deportivo con 62HP, dirección asistida dinámica y chasis SST G2.",
+    "description": "El Outlander 650 DPS combina agilidad y potencia en un paquete inigualable. Su motor Rotax V-Twin de 62HP y su chasis SST G2 brindan respuesta precisa y estabilidad excepcional. La dirección asistida tri-modal y el sistema Visco-Lok auto-locking lo hacen capaz en senderos, barro y terrenos mixtos.",
+    "specs": {
+      "Motor": "Rotax 650 V-Twin 62HP",
+      "Tracción": "4x4 Visco-Lok",
+      "Peso": "298 kg",
+      "Capacidad de carga": "240 kg",
+      "Tanque": "20.5 L",
+      "Dirección": "DPS tri-modal"
+    },
+    "images": [
+      "/images/products/quad-outlander-650.jpg",
+      "/images/products/quad-outlander-650.jpg",
+      "/images/products/quad-outlander-650.jpg"
+    ]
+  },
+  {
+    "id": "accesorio-kit-navegacion",
+    "name": "Kit de Navegación Premium",
+    "slug": "accesorio-kit-navegacion",
+    "category": "Accesorios",
+    "featured": false,
+    "price": "Consultar",
+    "shortDescription": "GPS chartplotter, radio VHF y sonar integrado para navegación profesional.",
+    "description": "Kit completo de electrónica marina profesional. Incluye chartplotter táctil Garmin de 9\", radio VHF con DSC, transductor multihaz y antena GPS de alta sensibilidad. Todo pre-configurado y listo para instalar. La solución definitiva para quienes exigen navegación precisa y comunicación confiable en el agua.",
+    "specs": {
+      "Display": "9\" táctil multitouch",
+      "GPS": "10 Hz alta precisión",
+      "Sonar": "CHIRP ClearVü",
+      "Radio": "VHF 25W con DSC",
+      "Garantía": "3 años",
+      "Resistencia": "IPX7"
+    },
+    "images": [
+      "/images/products/accesorio-kit-navegacion.jpg",
+      "/images/products/accesorio-kit-navegacion.jpg",
+      "/images/products/accesorio-kit-navegacion.jpg"
+    ]
+  }
+]
