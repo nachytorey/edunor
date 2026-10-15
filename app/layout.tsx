@@ -3,7 +3,6 @@ import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import "./globals.css"
-import { WhatsAppButton } from "@/components/whatsapp-button"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -130,7 +129,6 @@ export default function RootLayout({
     <html lang="es" className={`${inter.variable} ${playfair.variable} bg-background`}>
       <body className="font-sans antialiased bg-background text-foreground">
         {children}
-        <WhatsAppButton />
         <Script
           id="ld-json-business"
           type="application/ld+json"
