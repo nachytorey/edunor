@@ -4,38 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Luxury nautical dark theme */
-  --background: #0a0a0a;
-  --foreground: #f5f5f5;
-  --card: #111111;
-  --card-foreground: #f5f5f5;
-  --popover: #111111;
-  --popover-foreground: #f5f5f5;
-  --primary: #c9a84c;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #f5f5f5;
-  --muted: #1a1a1a;
-  --muted-foreground: #888888;
-  --accent: #c9a84c;
-  --accent-foreground: #0a0a0a;
-  --destructive: #b91c1c;
-  --destructive-foreground: #f5f5f5;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.08);
-  --ring: #c9a84c;
-  --radius: 0.5rem;
+  /* Base neutra y clara, los colores de marca viven en cada sección */
+  --background: oklch(0.975 0.004 90);
+  --foreground: oklch(0.16 0.005 90);
+  --card: oklch(0.99 0.003 90);
+  --card-foreground: oklch(0.16 0.005 90);
+  --popover: oklch(0.99 0.003 90);
+  --popover-foreground: oklch(0.16 0.005 90);
+  --primary: oklch(0.16 0.005 90);
+  --primary-foreground: oklch(0.975 0.004 90);
+  --secondary: oklch(0.93 0.005 90);
+  --secondary-foreground: oklch(0.16 0.005 90);
+  --muted: oklch(0.93 0.005 90);
+  --muted-foreground: oklch(0.45 0.005 90);
+  --accent: oklch(0.93 0.005 90);
+  --accent-foreground: oklch(0.16 0.005 90);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.975 0.004 90);
+  --border: oklch(0.16 0.005 90 / 0.15);
+  --input: oklch(0.16 0.005 90 / 0.15);
+  --ring: oklch(0.16 0.005 90 / 0.4);
+  --radius: 0.75rem;
 
-  /* Category badge colors */
-  --category-botes: #3b82f6;
-  --category-utvs: #c9a84c;
-  --category-cuatriciclos: #ef4444;
-  --category-accesorios: #10b981;
+  --footer: oklch(0.21 0.005 90);
+  --footer-foreground: oklch(0.93 0.005 90);
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), 'Inter Fallback', system-ui, sans-serif;
-  --font-serif: var(--font-playfair), 'Playfair Display Fallback', Georgia, serif;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -56,6 +53,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-footer: var(--footer);
+  --color-footer-foreground: var(--footer-foreground);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -75,17 +74,27 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
   ::selection {
-    background: var(--primary);
-    color: var(--primary-foreground);
+    background: var(--foreground);
+    color: var(--background);
   }
 }
 
 @layer utilities {
-  .font-serif {
-    font-family: var(--font-serif);
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
   }
-  .font-sans {
-    font-family: var(--font-sans);
+  /* Título gigante del header y de cada sección */
+  .text-giant {
+    font-size: clamp(3.25rem, 11vw, 11.5rem);
+  }
+  .text-statement {
+    font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
   .text-balance {
     text-wrap: balance;
@@ -93,12 +102,8 @@
   .text-pretty {
     text-wrap: pretty;
   }
-  .container-luxe {
-    @apply mx-auto w-full max-w-7xl px-6 md:px-10;
-  }
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -108,20 +113,4 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-  background: #1f1f1f;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #c9a84c;
 }
