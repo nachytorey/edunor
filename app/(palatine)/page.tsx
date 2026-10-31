@@ -70,7 +70,7 @@ const STEPS = [
 ]
 
 const featured = lanchas.slice(0, 6)
-/** UTV/cuatris: una foto por modelo (su portada). Los modelos que solo tienen video quedan para la ficha. */
+/** UTV/cuatris: una foto por modelo (su portada). Solo fotos: los modelos que solo tienen video quedan para la ficha. */
 const utvPhotos = cuatriciclos.flatMap((p) => {
   const photo = p.images.find((m) => !m.video && m.src)
   return photo ? [{ href: fichaHref(p.slug), src: photo.src, alt: photo.alt || `${p.kind} ${p.name}`, name: p.name }] : []
