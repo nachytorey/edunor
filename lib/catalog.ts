@@ -96,7 +96,10 @@ export const catalogSyncedAt = (driveCatalog as DriveCatalog).syncedAt
  * (DF / FB, Cuddy / Crossover) quedan juntas, en orden alfabético. Los modelos sin número
  * van al final, también por nombre. Para forzar otro orden, editá RANK_OVERRIDE.
  */
-const RANK_OVERRIDE: Record<string, number> = {}
+const RANK_OVERRIDE: Record<string, number> = {
+  // Abre el carrusel de modelos: es la que tiene la portada más linda.
+  "285-fb": 1000,
+}
 const hullSize = (name: string) => Number(name.match(/\d{2,4}/)?.[0] ?? 0)
 /** Prioridad comercial de Edunor: primero lanchas, después cuatriciclos/UTV. */
 const CATEGORY_PRIORITY: Record<Category, number> = { lanchas: 0, cuatriciclos: 1 }

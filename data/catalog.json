@@ -2,8 +2,259 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-10-31T18:00:18.924Z",
+  "syncedAt": "2026-10-31T18:47:32.786Z",
   "products": [
+    {
+      "slug": "polaris-pro-r-2026",
+      "name": "Polaris Pro R 2026",
+      "category": "cuatriciclos",
+      "folderId": "1huFPW0SMrUUFsNAFENqkN1lYsMWjdWiT",
+      "description": null,
+      "images": [],
+      "videos": [
+        {
+          "src": "/catalog/polaris-pro-r-2026/1Hl7ANMh6hpaZhDArCfRBkhg8jKV5gBFR.mp4",
+          "poster": "/catalog/polaris-pro-r-2026/1Hl7ANMh6hpaZhDArCfRBkhg8jKV5gBFR.poster.jpg",
+          "driveId": "1Hl7ANMh6hpaZhDArCfRBkhg8jKV5gBFR",
+          "checksum": "public:1Hl7ANMh6hpaZhDArCfRBkhg8jKV5gBFR:video-1.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Polaris Pro R 2026, video",
+          "file": "video-1.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "polaris-rzr-pro-r-ultimate",
+      "name": "Polaris RZR PRO R Ultimate",
+      "category": "cuatriciclos",
+      "folderId": "1CPvsoDwCg8IBrSL-2h9ch4YCylaWEN_M",
+      "description": null,
+      "images": [
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/1HAn0TRw-ASrMEXByDe1gDek_iLr_s8Cx.jpg",
+          "driveId": "1HAn0TRw-ASrMEXByDe1gDek_iLr_s8Cx",
+          "checksum": "public:1HAn0TRw-ASrMEXByDe1gDek_iLr_s8Cx:igexport-DLI1fDcvA1M-2.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, foto 1",
+          "file": "igexport-DLI1fDcvA1M-2.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/11FgkEIinqSe5Yc5d6CGs0_U999hfYUtc.jpg",
+          "driveId": "11FgkEIinqSe5Yc5d6CGs0_U999hfYUtc",
+          "checksum": "public:11FgkEIinqSe5Yc5d6CGs0_U999hfYUtc:igexport-DLI1fDcvA1M-3.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, foto 2",
+          "file": "igexport-DLI1fDcvA1M-3.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/1yxKCaD8fOuiVU0MUwL9G6rNxaU3TcuKf.jpg",
+          "driveId": "1yxKCaD8fOuiVU0MUwL9G6rNxaU3TcuKf",
+          "checksum": "public:1yxKCaD8fOuiVU0MUwL9G6rNxaU3TcuKf:igexport-DLI1fDcvA1M-5.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, foto 3",
+          "file": "igexport-DLI1fDcvA1M-5.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/19-0PgQbe-sbiEB2kT4QaZa1jgrnk6wnX.jpg",
+          "driveId": "19-0PgQbe-sbiEB2kT4QaZa1jgrnk6wnX",
+          "checksum": "public:19-0PgQbe-sbiEB2kT4QaZa1jgrnk6wnX:igexport-DLI1fDcvA1M-6.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, foto 4",
+          "file": "igexport-DLI1fDcvA1M-6.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/1zGUJWRvOIIfTALji2LJNy1YzBKB74Y5M.jpg",
+          "driveId": "1zGUJWRvOIIfTALji2LJNy1YzBKB74Y5M",
+          "checksum": "public:1zGUJWRvOIIfTALji2LJNy1YzBKB74Y5M:igexport-DLI1fDcvA1M-7.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, foto 5",
+          "file": "igexport-DLI1fDcvA1M-7.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/1RU85xTLwdcgH_31N5ozUiL_9ds06vek3.jpg",
+          "driveId": "1RU85xTLwdcgH_31N5ozUiL_9ds06vek3",
+          "checksum": "public:1RU85xTLwdcgH_31N5ozUiL_9ds06vek3:igexport-DLI1fDcvA1M-8.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, foto 6",
+          "file": "igexport-DLI1fDcvA1M-8.jpg",
+          "cover": false
+        }
+      ],
+      "videos": [
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/1jUVW1fWT34oV-g6aa5pHYzOjkWkWxrwq.mp4",
+          "poster": "/catalog/polaris-rzr-pro-r-ultimate/1jUVW1fWT34oV-g6aa5pHYzOjkWkWxrwq.poster.jpg",
+          "driveId": "1jUVW1fWT34oV-g6aa5pHYzOjkWkWxrwq",
+          "checksum": "public:1jUVW1fWT34oV-g6aa5pHYzOjkWkWxrwq:igexport-DLI1fDcvA1M-4.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, video",
+          "file": "igexport-DLI1fDcvA1M-4.mp4"
+        },
+        {
+          "src": "/catalog/polaris-rzr-pro-r-ultimate/1H3BRUHKH_3y8FPdpYs-TWsSrb43mOEqK.mp4",
+          "poster": "/catalog/polaris-rzr-pro-r-ultimate/1H3BRUHKH_3y8FPdpYs-TWsSrb43mOEqK.poster.jpg",
+          "driveId": "1H3BRUHKH_3y8FPdpYs-TWsSrb43mOEqK",
+          "checksum": "public:1H3BRUHKH_3y8FPdpYs-TWsSrb43mOEqK:igexport-DLI1fDcvA1M-12.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR PRO R Ultimate, video",
+          "file": "igexport-DLI1fDcvA1M-12.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "polaris-rzr-xp-1000-premium",
+      "name": "Polaris RZR XP 1000 Premium",
+      "category": "cuatriciclos",
+      "folderId": "1pXhrNDwpQs_l28pL3dwfXdKrEOtTft81",
+      "description": null,
+      "images": [
+        {
+          "src": "/catalog/polaris-rzr-xp-1000-premium/1Y0u5d3tY5ML3TU_k47detcjg7N_SHOCZ.jpg",
+          "driveId": "1Y0u5d3tY5ML3TU_k47detcjg7N_SHOCZ",
+          "checksum": "public:1Y0u5d3tY5ML3TU_k47detcjg7N_SHOCZ:igexport-DKfn5N3Py4B-2.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR XP 1000 Premium, foto 1",
+          "file": "igexport-DKfn5N3Py4B-2.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-xp-1000-premium/1fCGdwZ7k8MmzUAu2LvNhwJVy2xO4giF6.jpg",
+          "driveId": "1fCGdwZ7k8MmzUAu2LvNhwJVy2xO4giF6",
+          "checksum": "public:1fCGdwZ7k8MmzUAu2LvNhwJVy2xO4giF6:igexport-DKfn5N3Py4B-3.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR XP 1000 Premium, foto 2",
+          "file": "igexport-DKfn5N3Py4B-3.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-xp-1000-premium/1SGdcspw8ljJ0pF2vyD-uTXf8D7n4sUMq.jpg",
+          "driveId": "1SGdcspw8ljJ0pF2vyD-uTXf8D7n4sUMq",
+          "checksum": "public:1SGdcspw8ljJ0pF2vyD-uTXf8D7n4sUMq:igexport-DKfn5N3Py4B-4.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR XP 1000 Premium, foto 3",
+          "file": "igexport-DKfn5N3Py4B-4.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-xp-1000-premium/1Ax5IXwXToVsSJnzEYEc0FQIE-4V9WSMx.jpg",
+          "driveId": "1Ax5IXwXToVsSJnzEYEc0FQIE-4V9WSMx",
+          "checksum": "public:1Ax5IXwXToVsSJnzEYEc0FQIE-4V9WSMx:igexport-DKfn5N3Py4B-5.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR XP 1000 Premium, foto 4",
+          "file": "igexport-DKfn5N3Py4B-5.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-xp-1000-premium/1yM9lBfOlaGYPkPUqu8jfR3N0QOEpWywQ.jpg",
+          "driveId": "1yM9lBfOlaGYPkPUqu8jfR3N0QOEpWywQ",
+          "checksum": "public:1yM9lBfOlaGYPkPUqu8jfR3N0QOEpWywQ:igexport-DKfn5N3Py4B-6.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR XP 1000 Premium, foto 5",
+          "file": "igexport-DKfn5N3Py4B-6.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-rzr-xp-1000-premium/1A70yoEF3p8VIV00jhE-1LuaX5u9l1a09.jpg",
+          "driveId": "1A70yoEF3p8VIV00jhE-1LuaX5u9l1a09",
+          "checksum": "public:1A70yoEF3p8VIV00jhE-1LuaX5u9l1a09:igexport-DKfn5N3Py4B-7.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR XP 1000 Premium, foto 6",
+          "file": "igexport-DKfn5N3Py4B-7.jpg",
+          "cover": false
+        }
+      ],
+      "videos": []
+    },
+    {
+      "slug": "polaris-sportsman-xp-1000-hunt-edition",
+      "name": "Polaris SPORTSMAN XP 1000 Hunt Edition",
+      "category": "cuatriciclos",
+      "folderId": "1I1lhxySa2bHbAf_RwuD2hr5zty8_KaJ1",
+      "description": null,
+      "images": [
+        {
+          "src": "/catalog/polaris-sportsman-xp-1000-hunt-edition/1mElHinqKkiiKahw38zmn11RwxSAumq5l.jpg",
+          "driveId": "1mElHinqKkiiKahw38zmn11RwxSAumq5l",
+          "checksum": "public:1mElHinqKkiiKahw38zmn11RwxSAumq5l:igexport-DW9xYh7ka-p-2.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris SPORTSMAN XP 1000 Hunt Edition, foto 1",
+          "file": "igexport-DW9xYh7ka-p-2.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-sportsman-xp-1000-hunt-edition/1eWUxE2nOcjlspMO0OzkFEu9Bpy4GpYzW.jpg",
+          "driveId": "1eWUxE2nOcjlspMO0OzkFEu9Bpy4GpYzW",
+          "checksum": "public:1eWUxE2nOcjlspMO0OzkFEu9Bpy4GpYzW:igexport-DW9xYh7ka-p-3.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris SPORTSMAN XP 1000 Hunt Edition, foto 2",
+          "file": "igexport-DW9xYh7ka-p-3.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-sportsman-xp-1000-hunt-edition/1AjwSgFp6XN2xbXk_dpqyBxvOfcxoWjVb.jpg",
+          "driveId": "1AjwSgFp6XN2xbXk_dpqyBxvOfcxoWjVb",
+          "checksum": "public:1AjwSgFp6XN2xbXk_dpqyBxvOfcxoWjVb:igexport-DW9xYh7ka-p-4.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris SPORTSMAN XP 1000 Hunt Edition, foto 3",
+          "file": "igexport-DW9xYh7ka-p-4.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-sportsman-xp-1000-hunt-edition/1TSfkvD4PP6nZbVvADGOL971RQPNCsMd7.jpg",
+          "driveId": "1TSfkvD4PP6nZbVvADGOL971RQPNCsMd7",
+          "checksum": "public:1TSfkvD4PP6nZbVvADGOL971RQPNCsMd7:igexport-DW9xYh7ka-p-5 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris SPORTSMAN XP 1000 Hunt Edition, foto 4",
+          "file": "igexport-DW9xYh7ka-p-5 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-sportsman-xp-1000-hunt-edition/1EM9TEgDUzTvcAhizFGFbx3tB8zQ32BRQ.jpg",
+          "driveId": "1EM9TEgDUzTvcAhizFGFbx3tB8zQ32BRQ",
+          "checksum": "public:1EM9TEgDUzTvcAhizFGFbx3tB8zQ32BRQ:igexport-DW9xYh7ka-p-5.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris SPORTSMAN XP 1000 Hunt Edition, foto 5",
+          "file": "igexport-DW9xYh7ka-p-5.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/polaris-sportsman-xp-1000-hunt-edition/1rvv877VBSqucVrh8a6iqUgUOqIsutPUu.jpg",
+          "driveId": "1rvv877VBSqucVrh8a6iqUgUOqIsutPUu",
+          "checksum": "public:1rvv877VBSqucVrh8a6iqUgUOqIsutPUu:igexport-DW9xYh7ka-p-6.jpg",
+          "width": null,
+          "height": null,
+          "alt": "Polaris SPORTSMAN XP 1000 Hunt Edition, foto 6",
+          "file": "igexport-DW9xYh7ka-p-6.jpg",
+          "cover": false
+        }
+      ],
+      "videos": []
+    },
     {
       "slug": "168",
       "name": "168",
@@ -71,7 +322,8 @@
           "file": "168navegando3.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "178",
@@ -140,7 +392,8 @@
           "file": "178intss.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "208-df",
@@ -209,7 +462,8 @@
           "file": "208post2.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "208-fb",
@@ -278,7 +532,8 @@
           "file": "208intt2 (2).jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "225-crossover-df",
@@ -347,7 +602,8 @@
           "file": "225crosspost8.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "225-crossover-fb",
@@ -416,7 +672,8 @@
           "file": "225crosspost2 copy (1).jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "225-cuddy-df",
@@ -485,7 +742,8 @@
           "file": "225cuddyint'6.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "225-cuddy-fb",
@@ -554,7 +812,8 @@
           "file": "225cuddyfb.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "245-df",
@@ -623,7 +882,8 @@
           "file": "245DFpost5 copy (1).jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "245-fb",
@@ -692,7 +952,8 @@
           "file": "245intcopada (1).jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "280-df",
@@ -761,7 +1022,8 @@
           "file": "280lifestyle.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "280-fb",
@@ -830,7 +1092,8 @@
           "file": "052975100850213_280-gl8.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "285-df",
@@ -899,7 +1162,8 @@
           "file": "285int3 2.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "285-fb",
@@ -968,7 +1232,8 @@
           "file": "285fb56 (2).jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     },
     {
       "slug": "348",
@@ -1037,7 +1302,8 @@
           "file": "450040634027466_04.jpg",
           "cover": false
         }
-      ]
+      ],
+      "videos": []
     }
   ]
 }

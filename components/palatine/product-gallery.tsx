@@ -27,6 +27,7 @@ const pad = (n: number) => String(n).padStart(2, "0")
  * - Zoom: botones, rueda (con Ctrl o ya ampliada), pellizco, doble click/toque.
  *   Ampliada, se arrastra para recorrerla y un mini-mapa marca qué parte se ve.
  * - Pantalla completa con Flip: el mismo visor se expande sin cortar la transición.
+ * - Videos: son una diapositiva más, en 9:16 con marco entintado; arrancan solos y mudos, con sus controles nativos y sin zoom.
  * Con "reducir movimiento" todo cambia al instante.
  */
 export function ProductGallery({ images, name }: { images: CatalogImage[]; name: string }) {
@@ -50,6 +51,8 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
   const [index, setIndex] = useState(0)
   const [scale, setScale] = useState(1)
   const [full, setFull] = useState(false)
+  /** Proporción de la portada: el escenario la copia para que las fotos no queden con franjas. */
+  const [ratio, setRatio] = useState<number | null>(null)
   const many = images.length > 1
   const t = (d: number) => (reduced.current ? 0 : d)
 
@@ -126,6 +129,7 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
     const n = (target + count) % count
     const from = current.current
     if (n === from) return
+    layers.current[from]?.querySelector("video")?.pause()
     const way = dir ?? (n > from ? 1 : -1)
 
     gsap.to(layers.current[from], { scale: 1, x: 0, y: 0, duration: t(0.9), ease: "power2.inOut", overwrite: true })
@@ -215,6 +219,31 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
     }
   }, [full, toggleFull])
 
+  // Se mide la primera foto (no video) y el escenario toma su forma: cuadrada, apaisada o vertical.
+  useEffect(() => {
+    const cover = images.find((im) => !im.video && im.src)
+    if (!cover) return
+    const img = new Image()
+    img.onload = () => img.naturalHeight && setRatio(clamp(0.8, 1.78, img.naturalWidth / img.naturalHeight))
+    img.src = cover.src
+  }, [images])
+
+  // Cuando el escenario cambia de forma, se reacomodan el zoom y la marca de miniaturas.
+  useEffect(() => {
+    if (!ratio) return
+    apply(view.current.s, view.current.x, view.current.y, 0)
+    moveMarker(current.current, 0)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ratio])
+
+  // El video de la diapositiva activa arranca solo, mudo y en loop (salvo con "reducir movimiento").
+  useEffect(() => {
+    const video = layers.current[index]?.querySelector("video")
+    if (!video || reduced.current) return
+    video.muted = true
+    video.play().catch(() => {})
+  }, [index])
+
   // Al cambiar el tamaño de la ventana se reacomoda el zoom y la marca de miniaturas.
   useEffect(() => {
     const onResize = () => {
@@ -230,7 +259,8 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
   /* ── Gestos: arrastrar (mueve la foto ampliada o pasa de foto), pellizcar, doble toque ── */
   const onPointerDown = contextSafe((e: PointerEvent<HTMLDivElement>) => {
     // Sobre flechas y herramientas no hay gesto: capturar el puntero les robaría el click.
-    if ((e.pointerType === "mouse" && e.button !== 0) || (e.target as Element).closest("button")) return
+    // Sobre un video, el gesto es de sus controles (play, barra de tiempo).
+    if ((e.pointerType === "mouse" && e.button !== 0) || (e.target as Element).closest("button, video")) return
     e.currentTarget.setPointerCapture(e.pointerId)
     points.current.set(e.pointerId, { x: e.clientX, y: e.clientY })
     const pts = [...points.current.values()]
@@ -302,6 +332,7 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
       "0": () => reset(),
       f: () => toggleFull(),
     }
+    if (images[current.current]?.video && /^[-+=0]$/.test(e.key)) return
     const fn = keys[e.key]
     if (!fn || (v.s <= 1 && (e.key === "ArrowUp" || e.key === "ArrowDown"))) return
     e.preventDefault()
@@ -310,11 +341,14 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
 
   const zoomed = scale > 1.01
   const active = images[index]
+  const isVideo = Boolean(active?.video)
+  const onlyVideos = images.every((im) => im.video)
 
   return (
     <div
       ref={root}
-      className={`pd-viewer${full ? " is-full" : ""}`}
+      className={`pd-viewer${full ? " is-full" : ""}${isVideo ? " has-video" : ""}${onlyVideos ? " only-video" : ""}`}
+      style={ratio ? ({ "--pd-ratio": ratio } as React.CSSProperties) : undefined}
       tabIndex={-1}
       onKeyDown={onKeyDown}
       role="region"
@@ -325,7 +359,7 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
         ref={stage}
         className={`pd-stage${zoomed ? " is-zoomed" : ""}`}
         tabIndex={0}
-        aria-label={`${active?.alt ?? name}. Doble toque o + para ampliar.`}
+        aria-label={isVideo ? active.alt : `${active?.alt ?? name}. Doble toque o + para ampliar.`}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={(e) => endPointer(e)}
@@ -339,28 +373,44 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
             }}
             className="pd-slide"
             role="group"
-            aria-roledescription="foto"
+            aria-roledescription={im.video ? "video" : "foto"}
             aria-label={`${i + 1} de ${images.length}`}
             aria-hidden={i !== index}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="pd-slide__ambient" src={im.src} alt="" aria-hidden="true" />
+            {im.src && !im.video && <img className="pd-slide__ambient" src={im.src} alt="" aria-hidden="true" />}
             <div
               ref={(el) => {
                 if (el) layers.current[i] = el
               }}
               className="pd-slide__zoom"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                className="pd-slide__img"
-                src={im.src}
-                alt={im.alt}
-                draggable={false}
-                loading={i === 0 ? "eager" : "lazy"}
-                fetchPriority={i === 0 ? "high" : "auto"}
-                decoding="async"
-              />
+              {im.video ? (
+                <span className="pd-slide__phone">
+                  <video
+                    className="pd-slide__img pd-slide__video"
+                    src={im.video}
+                    poster={im.src || undefined}
+                    aria-label={im.alt}
+                    controls
+                    muted
+                    loop
+                    playsInline
+                    preload={i === 0 ? "auto" : "none"}
+                  />
+                </span>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  className="pd-slide__img"
+                  src={im.src}
+                  alt={im.alt}
+                  draggable={false}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                  decoding="async"
+                />
+              )}
             </div>
           </div>
         ))}
@@ -376,14 +426,14 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
           </>
         )}
 
-        <div className="pd-tools" role="toolbar" aria-label="Zoom">
+        <div className={`pd-tools${isVideo ? " is-video" : ""}`} role="toolbar" aria-label="Zoom">
           <ToolButton label="Alejar" onClick={() => zoomBy(1 / STEP)} disabled={!zoomed}>
             <Icon d="M5 12h14" />
           </ToolButton>
           <output className="pd-tools__value" aria-live="polite">
             {Math.round(scale * 100)}%
           </output>
-          <ToolButton label="Acercar" onClick={() => zoomBy(STEP)} disabled={scale >= MAX}>
+          <ToolButton label="Acercar" onClick={() => zoomBy(STEP)} disabled={isVideo || scale >= MAX}>
             <Icon d="M12 5v14M5 12h14" />
           </ToolButton>
           <ToolButton label="Ver entera" onClick={reset} disabled={!zoomed}>
@@ -410,7 +460,11 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
           <span className="pd-bar__total"> / {pad(images.length)}</span>
         </p>
         <p className="pd-bar__hint">
-          {zoomed ? "Arrastrá para recorrer la foto · doble toque para volver" : "Doble toque, pellizco o + para ampliar"}
+          {isVideo
+            ? "Tocá el video para activar el sonido"
+            : zoomed
+              ? "Arrastrá para recorrer la foto · doble toque para volver"
+              : "Doble toque, pellizco o + para ampliar"}
         </p>
       </div>
 
@@ -426,11 +480,16 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
                   }}
                   className={`pd-thumb${i === index ? " is-active" : ""}`}
                   onClick={() => go(i)}
-                  aria-label={`Ver foto ${i + 1} de ${images.length}`}
+                  aria-label={`Ver ${im.video ? "video" : "foto"} ${i + 1} de ${images.length}`}
                   aria-current={i === index}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={im.src} alt="" loading="lazy" />
+                  {im.src ? <img src={im.src} alt="" loading="lazy" /> : <span className="pd-thumb__blank" />}
+                  {im.video && (
+                    <span className="pd-thumb__play" aria-hidden="true">
+                      <Icon d="M8 5l11 7-11 7z" />
+                    </span>
+                  )}
                 </button>
               </li>
             ))}

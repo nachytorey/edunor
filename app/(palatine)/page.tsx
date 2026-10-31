@@ -7,6 +7,8 @@
 import { Fragment } from "react"
 import { fichaHref, GhostTitle, PalFooter, Quote, Signs, WHATSAPP } from "@/components/palatine/blocks"
 import { Caps, Fader, PalNav } from "@/components/palatine/interactive"
+import { GalleryReel } from "@/components/palatine/gallery-reel"
+import { PhotoDeck } from "@/components/palatine/photo-deck"
 import {
   Anchor,
   ChatIcon,
@@ -40,8 +42,45 @@ const NAV = [
   { href: "#contacto", label: "Contacto" },
 ]
 
+/** Años de Edunor (se recalcula en cada build). */
+const YEARS = new Date().getFullYear() - company.founded
+
+/** Cómo acompaña Edunor la compra de una lancha: sale de lo que hacen hoy (lib/edunor.ts). */
+const STEPS = [
+  {
+    title: "Te escuchamos",
+    text: "Dónde navegás, con cuánta gente y qué querés hacer en el agua. Con eso te recomendamos casco y motor, sin venderte de más.",
+  },
+  {
+    title: "La ves en persona",
+    text: `Más de ${company.showroomM2.toLocaleString("es-AR")} m² de showroom en Témperley y una sede en Canning: te subís, comparás terminaciones y sacás todas las dudas.`,
+  },
+  {
+    title: "La equipamos a medida",
+    text: "En el taller propio fabricamos consolas, arcos de radar, guardamancebos y tapizados náuticos para que salga como la querés.",
+  },
+  {
+    title: "Te la entregamos lista",
+    text: "Sale de Edunor preparada para navegar, con la garantía oficial de cada marca.",
+  },
+  {
+    title: "Seguimos con vos",
+    text: `${service.title}, con repuestos originales en stock y atención en guarderías de Zona Norte.`,
+  },
+]
+
 const featured = lanchas.slice(0, 6)
-const gallery = lanchas.filter((_, i) => i % 2 === 0).slice(0, 4)
+/** UTV/cuatris: una foto por modelo (su portada). Los modelos que solo tienen video quedan para la ficha. */
+const utvPhotos = cuatriciclos.flatMap((p) => {
+  const photo = p.images.find((m) => !m.video && m.src)
+  return photo ? [{ href: fichaHref(p.slug), src: photo.src, alt: photo.alt || `${p.kind} ${p.name}`, name: p.name }] : []
+})
+/** Galería: una foto de cada lancha que no sea la portada (esa ya está en Modelos). */
+const gallery = lanchas.slice(0, 12).flatMap((p) => {
+  const photos = p.images.filter((m) => !m.video && m.src)
+  const photo = photos[2] ?? photos[1] ?? photos[0]
+  return photo ? [{ src: photo.src, alt: `Lancha ${p.name}`, name: p.name, kind: p.kind, href: fichaHref(p.slug) }] : []
+})
 
 export default function PalatinePage() {
   return (
@@ -110,40 +149,37 @@ export default function PalatinePage() {
           </Fader>
         </section>
 
-        {/* ── UTV y cuatriciclos ── */}
+        {/* ── UTV y cuatriciclos: pila de fotos sueltas, una por modelo ── */}
         <section id="utv" className="pal-utv" aria-labelledby="pal-utv-title">
           <GhostTitle ornament={<CompassRose />} side="right">
             Tierra
           </GhostTitle>
-          <div className="pal-utv__intro">
-            <h2 id="pal-utv-title" className="pal-utv__title">
-              <Caps text="UTV · Cuatriciclos" />
-            </h2>
-            <p>
-              Cuatriciclos y UTV para el campo, la arena y el trabajo. Los tenés en el showroom, listos para probar, con
-              service oficial y repuestos originales.
-            </p>
-          </div>
-          <ul className="pal-utv__grid">
-            {cuatriciclos.map((p) => (
-              <li key={p.slug} className="pal-utv__item">
-                <a href={fichaHref(p.slug)} className="pal-frame">
-                  <img src={p.images[0].src} alt={p.images[0].alt || `${p.kind} ${p.name}`} loading="lazy" />
+          <div className="pal-utv__stage">
+            <div className="pal-utv__intro">
+              <h2 id="pal-utv-title" className="pal-utv__title">
+                <Caps text="UTV" />
+                <span className="pal-utv__title-sub">
+                  y <Caps text="cuatriciclos" />
+                </span>
+              </h2>
+              <p>
+                Cuatriciclos y UTV para el campo, la arena y el trabajo. Los tenés en el showroom, listos para probar, con
+                service oficial y repuestos originales.
+              </p>
+              <ul className="pal-utv__models">
+                {cuatriciclos.map((p) => (
+                  <li key={p.slug}>
+                    <a href={fichaHref(p.slug)}>{p.name}</a>
+                  </li>
+                ))}
+              </ul>
+              <div className="pal-gen__arrows">
+                <a href={whatsappLink("Hola Edunor! Quiero consultar por UTV y cuatriciclos.")} target="_blank" rel="noreferrer">
+                  Consultar
                 </a>
-                <p className="pal-plaque">
-                  {p.name}
-                  <span className="pal-utv__kind">
-                    {" "}
-                    <span aria-hidden="true">–</span> {p.kind}
-                  </span>
-                </p>
-              </li>
-            ))}
-          </ul>
-          <div className="pal-gen__arrows">
-            <a href={whatsappLink("Hola Edunor! Quiero consultar por UTV y cuatriciclos.")} target="_blank" rel="noreferrer">
-              Consultar
-            </a>
+              </div>
+            </div>
+            <PhotoDeck photos={utvPhotos} label="Fotos de UTV y cuatriciclos" />
           </div>
         </section>
 
@@ -166,6 +202,56 @@ export default function PalatinePage() {
                 </a>
                 <a href={`mailto:${contact.emails[0]}?subject=Generadores%20${generators.brand}`}>Pedir presupuesto</a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Quiénes somos: la familia y cómo acompaña la compra de una lancha ── */}
+        <section id="quienes" className="pal-about" aria-labelledby="pal-about-title">
+          <GhostTitle ornament={<Anchor />} side="left">
+            Familia
+          </GhostTitle>
+          <div className="pal-about__grid">
+            <div className="pal-about__intro">
+              <div className="pal-about__seal" aria-hidden="true">
+                <span>desde</span>
+                <strong>{company.founded}</strong>
+                <span>{YEARS} años</span>
+              </div>
+              <h2 id="pal-about-title" className="pal-about__title">
+                <Caps text="Quiénes somos" />
+              </h2>
+              <p className="pal-about__lead">
+                Somos una empresa familiar. Empezamos en {company.founded} entre botes, carpas y motores, y en más de{" "}
+                {Math.floor(YEARS / 10) * 10} años aprendimos que comprar una lancha no termina cuando firmás: ahí
+                empieza.
+              </p>
+              <p>
+                Por eso no te vendemos un casco y te despedimos en la puerta. Te acompañamos a elegir, la preparamos
+                en nuestro taller y seguimos a tu lado en cada service.
+              </p>
+              <Signs
+                items={[
+                  { href: "/empresa", label: "conocenos" },
+                  { href: whatsappLink("Hola Edunor! Quiero asesoramiento para elegir una lancha."), label: "asesorame", external: true },
+                ]}
+              />
+            </div>
+            <div className="pal-blob pal-blob--square pal-about__steps">
+              <h3 className="pal-about__steps-title">Así elegís tu lancha con nosotros</h3>
+              <ol>
+                {STEPS.map((step, n) => (
+                  <li key={step.title}>
+                    <span className="pal-about__num" aria-hidden="true">
+                      {String(n + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h4>{step.title}</h4>
+                      <p>{step.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
@@ -208,29 +294,11 @@ export default function PalatinePage() {
         </section>
 
         {/* ── Galería (en el lugar de los videos) ── */}
-        <section id="galeria" className="pal-media">
+        <section id="galeria" className="pal-gallery">
           <GhostTitle ornament={<Gull />} side="right">
             Galería
           </GhostTitle>
-          <ul className="pal-media__grid">
-            {gallery.map((p, n) => {
-              const Engraving = [Fish, Starfish, Waves, Anchor][n % 4]
-              return (
-                <li key={p.slug} className="pal-media__item">
-                  <Engraving className={`pal-media__engraving pal-media__engraving--${n % 4}`} />
-                  <a href={fichaHref(p.slug)} className="pal-frame">
-                    <img src={p.images[2]?.src ?? p.images[0].src} alt={`Lancha ${p.name}`} loading="lazy" />
-                    <span className="pal-play" aria-hidden="true">
-                      <ShipWheel />
-                    </span>
-                  </a>
-                  <p className="pal-plaque">
-                    {p.name} <span aria-hidden="true">–</span> {p.kind}
-                  </p>
-                </li>
-              )
-            })}
-          </ul>
+          <GalleryReel photos={gallery} />
         </section>
 
         {/* ── Taller (en el lugar de las biografías) ── */}
