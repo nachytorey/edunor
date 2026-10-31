@@ -87,7 +87,7 @@ const businessJsonLd = {
   url: SITE_URL,
   foundingDate: "1963",
   logo: `${SITE_URL}/images/edunor-logo.png`,
-  image: `${SITE_URL}/og/edunor.jpg`,
+  image: `${SITE_URL}/og/edunor-portada.jpg`,
   location: [
     {
       "@type": "Place",

@@ -24,7 +24,7 @@ export const siteConfig = {
 }
 
 /** Miniatura por defecto al compartir un link (1200×630, sacada de la portada de la landing). */
-export const OG_IMAGE = { url: "/og/edunor.jpg", width: 1200, height: 630, alt: "Showroom de Edunor Náutica con lanchas y cuatriciclos" }
+export const OG_IMAGE = { url: "/og/edunor-portada.jpg", width: 1200, height: 630, alt: "Showroom de Edunor Náutica con lanchas y cuatriciclos" }
 
 /**
  * Tags de Open Graph, Twitter y canonical de una página.
