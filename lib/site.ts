@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Edunor Náutica",
-  tagline: "Náutica, Camping y Outdoor desde 1963.",
+  tagline: "Lanchas y cuatriciclos desde 1963.",
   url: "https://edunornautica.com",
   whatsapp: "5491142989291",
   whatsappMessage: "Hola Edunor! Me gustaría recibir más información sobre sus productos.",
@@ -13,6 +13,14 @@ export const siteConfig = {
     youtube: "https://youtube.com/@edunornautica",
   },
 }
+
+export const navLinks = [
+  { href: "#lanchas", label: "Lanchas" },
+  { href: "#cuatriciclos", label: "Cuatriciclos" },
+  { href: "#showroom", label: "Showroom" },
+  { href: "#marcas", label: "Marcas" },
+  { href: "#contacto", label: "Contacto" },
+]
 
 export type Location = {
   id: string
@@ -27,7 +35,7 @@ export type Location = {
 export const locations: Location[] = [
   {
     id: "temperley",
-    name: "Sucursal Témperley",
+    name: "Témperley",
     address: "Av. Antártida Argentina 101",
     city: "Témperley, Lomas de Zamora",
     region: "Provincia de Buenos Aires",
@@ -36,9 +44,9 @@ export const locations: Location[] = [
   },
   {
     id: "canning",
-    name: "Sucursal Canning",
+    name: "Canning",
     address: "Mariano Castex 560",
-    city: "B1842 Canning",
+    city: "Canning, Ezeiza",
     region: "Provincia de Buenos Aires",
     phones: ["4298 9291", "4231 5663"],
     mapsQuery: "Mariano Castex 560, B1842 Canning, Buenos Aires",

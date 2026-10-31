@@ -1,0 +1,1043 @@
+{
+  "source": "drive",
+  "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
+  "folderName": "CANESTRARI",
+  "syncedAt": "2026-10-31T18:00:18.924Z",
+  "products": [
+    {
+      "slug": "168",
+      "name": "168",
+      "category": "lanchas",
+      "folderId": "1VE-i0JRjSX8F9wswYoXWDK0Mf1P_ZB8f",
+      "description": "La Canestrari más compacta de la gama y la mejor forma de empezar. Liviana, fácil de manejar, de remolcar y de guardar, con la misma construcción que las lanchas grandes. Ideal para salir en familia por el día, pescar o hacer tus primeras horas al timón.",
+      "images": [
+        {
+          "src": "/catalog/168/1FoaZ3I_Khq5npowbS2fRHd6RCoBywOJw.jpg",
+          "driveId": "1FoaZ3I_Khq5npowbS2fRHd6RCoBywOJw",
+          "checksum": "public:1FoaZ3I_Khq5npowbS2fRHd6RCoBywOJw:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "168, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/168/01.jpg",
+          "driveId": "1_fDNKjzKnNAh_yEBW_ba8fKX4wf73Aqd",
+          "checksum": "public:1_fDNKjzKnNAh_yEBW_ba8fKX4wf73Aqd:168dorso.jpg",
+          "width": null,
+          "height": null,
+          "alt": "168, foto 2",
+          "file": "168dorso.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/168/02.jpg",
+          "driveId": "1-Puygl3S3hmPkkO4G3YS4ShfKQW0iyjY",
+          "checksum": "public:1-Puygl3S3hmPkkO4G3YS4ShfKQW0iyjY:168int-proa.jpg",
+          "width": null,
+          "height": null,
+          "alt": "168, foto 3",
+          "file": "168int-proa.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/168/03.jpg",
+          "driveId": "1SZrpbXOcAlzLP2G4awMNDnD6kwbjA-7b",
+          "checksum": "public:1SZrpbXOcAlzLP2G4awMNDnD6kwbjA-7b:168lindaa.jpg",
+          "width": null,
+          "height": null,
+          "alt": "168, foto 4",
+          "file": "168lindaa.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/168/04.jpg",
+          "driveId": "119SzpOM4jifIUJ12wy27hJiWH7wtfZ_r",
+          "checksum": "public:119SzpOM4jifIUJ12wy27hJiWH7wtfZ_r:168navegando.jpg",
+          "width": null,
+          "height": null,
+          "alt": "168, foto 5",
+          "file": "168navegando.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/168/05.jpg",
+          "driveId": "1UcYqDolBJOm1pkcpQ7kTrJaCJlwDcLOi",
+          "checksum": "public:1UcYqDolBJOm1pkcpQ7kTrJaCJlwDcLOi:168navegando3.jpg",
+          "width": null,
+          "height": null,
+          "alt": "168, foto 6",
+          "file": "168navegando3.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "178",
+      "name": "178",
+      "category": "lanchas",
+      "folderId": "1ltT_KrorNQDPlr4ETXUUXWtG70ye-gMw",
+      "description": "Un poco más de lancha sin perder agilidad. Open de uso diario, con cockpit amplio y solárium en proa, pensada para el río: paseo, esquí acuático y pesca en una sola lancha, sin complicaciones.",
+      "images": [
+        {
+          "src": "/catalog/178/1tzAq5vwzaVj_J3VoKtk9GsKCS7Q78OYj.jpg",
+          "driveId": "1tzAq5vwzaVj_J3VoKtk9GsKCS7Q78OYj",
+          "checksum": "public:1tzAq5vwzaVj_J3VoKtk9GsKCS7Q78OYj:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "178, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/178/01.jpg",
+          "driveId": "13oDYbNpRwQdMlmPwvzyC2q_nUNCHo-n6",
+          "checksum": "public:13oDYbNpRwQdMlmPwvzyC2q_nUNCHo-n6:178-inttodo (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "178, foto 2",
+          "file": "178-inttodo (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/178/02.jpg",
+          "driveId": "1HbwAfMoUYLG52URm1JpYFFxdgWcTSjVS",
+          "checksum": "public:1HbwAfMoUYLG52URm1JpYFFxdgWcTSjVS:178agua.jpg",
+          "width": null,
+          "height": null,
+          "alt": "178, foto 3",
+          "file": "178agua.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/178/03.jpg",
+          "driveId": "1gZUoGhF1NL5YL_qKSjr_i6b9tapUwyxP",
+          "checksum": "public:1gZUoGhF1NL5YL_qKSjr_i6b9tapUwyxP:178int.jpg",
+          "width": null,
+          "height": null,
+          "alt": "178, foto 4",
+          "file": "178int.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/178/04.jpg",
+          "driveId": "1eTMk9QnzckgHC8NTy2FOHzi-WrdE9N0b",
+          "checksum": "public:1eTMk9QnzckgHC8NTy2FOHzi-WrdE9N0b:178int10.jpg",
+          "width": null,
+          "height": null,
+          "alt": "178, foto 5",
+          "file": "178int10.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/178/05.jpg",
+          "driveId": "1GaNiBDVF4yRcLajw7784nwS33G2yL5Ye",
+          "checksum": "public:1GaNiBDVF4yRcLajw7784nwS33G2yL5Ye:178intss.jpg",
+          "width": null,
+          "height": null,
+          "alt": "178, foto 6",
+          "file": "178intss.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "208-df",
+      "name": "208 DF",
+      "category": "lanchas",
+      "folderId": "1R-xXQkemo_OaPuANmHRIQ0N75Ca6rOFR",
+      "description": "Open deportiva con motor dentro-fuera de borda: el motor va adentro y la popa queda libre para una plataforma de baño cómoda, ideal para subir del agua o largar el wakeboard. Silenciosa, estable y hecha para pasar el día entero a bordo.",
+      "images": [
+        {
+          "src": "/catalog/208-df/1ApTbEqt5FiqoGejpEdyj-PdEZLc3By-w.jpg",
+          "driveId": "1ApTbEqt5FiqoGejpEdyj-PdEZLc3By-w",
+          "checksum": "public:1ApTbEqt5FiqoGejpEdyj-PdEZLc3By-w:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 DF, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/208-df/01.jpg",
+          "driveId": "1a4FJjXWfLLVkmQKPqlm5V5OAvJU0oL6D",
+          "checksum": "public:1a4FJjXWfLLVkmQKPqlm5V5OAvJU0oL6D:208df.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 DF, foto 2",
+          "file": "208df.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-df/02.jpg",
+          "driveId": "14iY06ytvXtdqSMbXqSL9w6gJulTdm_Z3",
+          "checksum": "public:14iY06ytvXtdqSMbXqSL9w6gJulTdm_Z3:208dfppal1.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 DF, foto 3",
+          "file": "208dfppal1.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-df/03.jpg",
+          "driveId": "1vg4ijOj4i71PF3TDxSVYDlVDg8ot8lld",
+          "checksum": "public:1vg4ijOj4i71PF3TDxSVYDlVDg8ot8lld:208int-17.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 DF, foto 4",
+          "file": "208int-17.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-df/04.jpg",
+          "driveId": "1ukm3_WNUTySVYnmSiPX7XHttrPCep5oa",
+          "checksum": "public:1ukm3_WNUTySVYnmSiPX7XHttrPCep5oa:208int.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 DF, foto 5",
+          "file": "208int.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-df/05.jpg",
+          "driveId": "1SbJYhzQV9WCdCRiIp2jBnh_UE1JeesMT",
+          "checksum": "public:1SbJYhzQV9WCdCRiIp2jBnh_UE1JeesMT:208post2.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 DF, foto 6",
+          "file": "208post2.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "208-fb",
+      "name": "208 FB",
+      "category": "lanchas",
+      "folderId": "1pPlRFMoNLzoZR8cJyHEfk82sKqrler2u",
+      "description": "La 208 con motor fuera de borda: más lugar adentro, mantenimiento simple y la posibilidad de levantar el motor en aguas bajas. Una open noble y rendidora para paseos, esquí y salidas de pesca.",
+      "images": [
+        {
+          "src": "/catalog/208-fb/1TYVWk77KFd7NYpPC4Mw2X2pq0I5EdPg3.jpg",
+          "driveId": "1TYVWk77KFd7NYpPC4Mw2X2pq0I5EdPg3",
+          "checksum": "public:1TYVWk77KFd7NYpPC4Mw2X2pq0I5EdPg3:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 FB, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/208-fb/01.jpg",
+          "driveId": "17Ob-jtKe3gk1-EMMq8br8dV_nAbKKnwv",
+          "checksum": "public:17Ob-jtKe3gk1-EMMq8br8dV_nAbKKnwv:208fbnav.jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 FB, foto 2",
+          "file": "208fbnav.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-fb/02.jpg",
+          "driveId": "1-hyDo6gT5hyF2OzpRknrfKAsl8S3wR8H",
+          "checksum": "public:1-hyDo6gT5hyF2OzpRknrfKAsl8S3wR8H:208fbppal2 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 FB, foto 3",
+          "file": "208fbppal2 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-fb/03.jpg",
+          "driveId": "1XXXYhcgYEYc2CWiDLmsCd65XJllOj4W_",
+          "checksum": "public:1XXXYhcgYEYc2CWiDLmsCd65XJllOj4W_:208fbppal3 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 FB, foto 4",
+          "file": "208fbppal3 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-fb/04.jpg",
+          "driveId": "1p0ow2SIPmlOdghEKvBfTr02P-_aMAoGe",
+          "checksum": "public:1p0ow2SIPmlOdghEKvBfTr02P-_aMAoGe:208int1 (2).jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 FB, foto 5",
+          "file": "208int1 (2).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/208-fb/05.jpg",
+          "driveId": "1eTpR-oregumDT7eBjNzfEogkJMHYuIxG",
+          "checksum": "public:1eTpR-oregumDT7eBjNzfEogkJMHYuIxG:208intt2 (2).jpg",
+          "width": null,
+          "height": null,
+          "alt": "208 FB, foto 6",
+          "file": "208intt2 (2).jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "225-crossover-df",
+      "name": "225 CROSSOVER DF",
+      "category": "lanchas",
+      "folderId": "10VHwCWwiIUIIQZddNmUZhvVO7nHFiNXS",
+      "description": "Lo mejor de dos mundos: el cockpit abierto de una open para disfrutar al sol y una cabina en proa para guardar el equipo o resguardarte. Con motor dentro-fuera de borda, popa despejada y plataforma de baño para el día en la isla.",
+      "images": [
+        {
+          "src": "/catalog/225-crossover-df/1XEEbp-GDt87N-HilwcU80cU3raDFmk_D.jpg",
+          "driveId": "1XEEbp-GDt87N-HilwcU80cU3raDFmk_D",
+          "checksum": "public:1XEEbp-GDt87N-HilwcU80cU3raDFmk_D:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER DF, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/225-crossover-df/01.jpg",
+          "driveId": "1cNgVLJeeS21sxx5tQRDYDj5fwuMUuHK9",
+          "checksum": "public:1cNgVLJeeS21sxx5tQRDYDj5fwuMUuHK9:225 copy.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER DF, foto 2",
+          "file": "225 copy.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-df/02.jpg",
+          "driveId": "1baaeY23ehlLAGbYMuzSHzzYVRYpqI4gz",
+          "checksum": "public:1baaeY23ehlLAGbYMuzSHzzYVRYpqI4gz:225cross2.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER DF, foto 3",
+          "file": "225cross2.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-df/03.jpg",
+          "driveId": "1a8mjTs5JXPTc6XpS0vZHGdTZNR2whAV0",
+          "checksum": "public:1a8mjTs5JXPTc6XpS0vZHGdTZNR2whAV0:225crossover (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER DF, foto 4",
+          "file": "225crossover (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-df/04.jpg",
+          "driveId": "1BGy4ZHiR7YSolhkUmLRBWFwGRQ_ABiDU",
+          "checksum": "public:1BGy4ZHiR7YSolhkUmLRBWFwGRQ_ABiDU:225crosspost2 copy (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER DF, foto 5",
+          "file": "225crosspost2 copy (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-df/05.jpg",
+          "driveId": "1AwlO2Q6C-T_mMpGhBLsOUd6QrCKqqbGW",
+          "checksum": "public:1AwlO2Q6C-T_mMpGhBLsOUd6QrCKqqbGW:225crosspost8.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER DF, foto 6",
+          "file": "225crosspost8.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "225-crossover-fb",
+      "name": "225 CROSSOVER FB",
+      "category": "lanchas",
+      "folderId": "1o6196eOcxGe6r9wbUn00ee7rX9QW0nZP",
+      "description": "La Crossover con motor fuera de borda: todo el cockpit a tu disposición, cabina en proa para guardar y descansar, y el mantenimiento sencillo de un fuera de borda. Versátil y práctica para cualquier plan en el agua.",
+      "images": [
+        {
+          "src": "/catalog/225-crossover-fb/1MiyxErg0Jy4h1Qt21VhJAQm6-hDvATDy.jpg",
+          "driveId": "1MiyxErg0Jy4h1Qt21VhJAQm6-hDvATDy",
+          "checksum": "public:1MiyxErg0Jy4h1Qt21VhJAQm6-hDvATDy:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER FB, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/225-crossover-fb/01.jpg",
+          "driveId": "1CXsHsWy9TaT5sV7YY-_6SfQz21NKG5CN",
+          "checksum": "public:1CXsHsWy9TaT5sV7YY-_6SfQz21NKG5CN:225 crossover asiento popa (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER FB, foto 2",
+          "file": "225 crossover asiento popa (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-fb/02.jpg",
+          "driveId": "1z693oUBIu5w9iMOFOqyYCS_OoK2LYI0e",
+          "checksum": "public:1z693oUBIu5w9iMOFOqyYCS_OoK2LYI0e:225crossover2 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER FB, foto 3",
+          "file": "225crossover2 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-fb/03.jpg",
+          "driveId": "1pg2J2cEaDQWh05CNkXZ3MVmaz46du8ij",
+          "checksum": "public:1pg2J2cEaDQWh05CNkXZ3MVmaz46du8ij:225crossoverFB (2).jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER FB, foto 4",
+          "file": "225crossoverFB (2).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-fb/04.jpg",
+          "driveId": "1z8ZTbPFGu-S13QuPWvJsm-MWIhDAytNf",
+          "checksum": "public:1z8ZTbPFGu-S13QuPWvJsm-MWIhDAytNf:225crosspost1 (2).jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER FB, foto 5",
+          "file": "225crosspost1 (2).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-crossover-fb/05.jpg",
+          "driveId": "18RPT43tuIRYuaVzZndeXuVD8MIPhJPA3",
+          "checksum": "public:18RPT43tuIRYuaVzZndeXuVD8MIPhJPA3:225crosspost2 copy (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CROSSOVER FB, foto 6",
+          "file": "225crosspost2 copy (1).jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "225-cuddy-df",
+      "name": "225 CUDDY DF",
+      "category": "lanchas",
+      "folderId": "1BLdDzI7Y8VRUKc0PBCkYmTlh-rQXVFr1",
+      "description": "Cuddy con cabina cerrada en proa para resguardarte del sol o del viento, cambiarte o dormir una siesta a bordo. Motor dentro-fuera de borda, plataforma de baño en popa y un andar suave y estable para salidas largas en familia.",
+      "images": [
+        {
+          "src": "/catalog/225-cuddy-df/1jYVdDUhyFrdnwYMdYfEtDRHxu3-RmF_G.jpg",
+          "driveId": "1jYVdDUhyFrdnwYMdYfEtDRHxu3-RmF_G",
+          "checksum": "public:1jYVdDUhyFrdnwYMdYfEtDRHxu3-RmF_G:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY DF, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/225-cuddy-df/01.jpg",
+          "driveId": "1pZjzw4-uzkArfvxY0G7qRe8rHYxajOFD",
+          "checksum": "public:1pZjzw4-uzkArfvxY0G7qRe8rHYxajOFD:225 cuddy.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY DF, foto 2",
+          "file": "225 cuddy.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-df/02.jpg",
+          "driveId": "13uXhGZUOkaGpcG2RU-K0ZdMBBBaKnoJS",
+          "checksum": "public:13uXhGZUOkaGpcG2RU-K0ZdMBBBaKnoJS:225cuddy0.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY DF, foto 3",
+          "file": "225cuddy0.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-df/03.jpg",
+          "driveId": "1psxnKei03K_c0fAurfDj5zLcROoCbkVq",
+          "checksum": "public:1psxnKei03K_c0fAurfDj5zLcROoCbkVq:225cuddy10.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY DF, foto 4",
+          "file": "225cuddy10.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-df/04.jpg",
+          "driveId": "1gQqw0_pUEn4dXSiqNlGemUFGbx8gDbvY",
+          "checksum": "public:1gQqw0_pUEn4dXSiqNlGemUFGbx8gDbvY:225cuddyint'5.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY DF, foto 5",
+          "file": "225cuddyint'5.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-df/05.jpg",
+          "driveId": "1NwiwfAgJ2x9z1MGCq0y-rcuoHQu8VXpP",
+          "checksum": "public:1NwiwfAgJ2x9z1MGCq0y-rcuoHQu8VXpP:225cuddyint'6.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY DF, foto 6",
+          "file": "225cuddyint'6.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "225-cuddy-fb",
+      "name": "225 CUDDY FB",
+      "category": "lanchas",
+      "folderId": "1RjAH7YWUQa-mh1gfHdosnEuo6JETrk14",
+      "description": "La 225 Cuddy con motor fuera de borda: cabina cerrada en proa, cockpit cómodo para varios pasajeros y el mantenimiento simple de un fuera de borda. Una lancha completa para paseos y fines de semana.",
+      "images": [
+        {
+          "src": "/catalog/225-cuddy-fb/16yKacHw2TQ11XNlFpCiLmPRyiB78gdbb.jpg",
+          "driveId": "16yKacHw2TQ11XNlFpCiLmPRyiB78gdbb",
+          "checksum": "public:16yKacHw2TQ11XNlFpCiLmPRyiB78gdbb:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY FB, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/225-cuddy-fb/01.jpg",
+          "driveId": "1RDR4EYp6jEPeNM32qLFxg8ET7oZJkyXP",
+          "checksum": "public:1RDR4EYp6jEPeNM32qLFxg8ET7oZJkyXP:225cuddyfb-6.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY FB, foto 2",
+          "file": "225cuddyfb-6.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-fb/02.jpg",
+          "driveId": "1l6x6Gq6syjgXitr3UgdYDkJJS1-ahjLa",
+          "checksum": "public:1l6x6Gq6syjgXitr3UgdYDkJJS1-ahjLa:225cuddyfb-7.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY FB, foto 3",
+          "file": "225cuddyfb-7.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-fb/03.jpg",
+          "driveId": "1rZG-g9o0RDshdBNNNEfZ451lllXE8c2w",
+          "checksum": "public:1rZG-g9o0RDshdBNNNEfZ451lllXE8c2w:225cuddyfb-8.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY FB, foto 4",
+          "file": "225cuddyfb-8.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-fb/04.jpg",
+          "driveId": "1p35mtNWXSVSIaw3bgXxC5FPWuUeH9w-c",
+          "checksum": "public:1p35mtNWXSVSIaw3bgXxC5FPWuUeH9w-c:225cuddyfb-9.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY FB, foto 5",
+          "file": "225cuddyfb-9.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/225-cuddy-fb/05.jpg",
+          "driveId": "1RkFuiu8b8U7OOoLzJTuu3j8Xk-Hnp9L6",
+          "checksum": "public:1RkFuiu8b8U7OOoLzJTuu3j8Xk-Hnp9L6:225cuddyfb.jpg",
+          "width": null,
+          "height": null,
+          "alt": "225 CUDDY FB, foto 6",
+          "file": "225cuddyfb.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "245-df",
+      "name": "245 DF",
+      "category": "lanchas",
+      "folderId": "1OvNLOeDhvC3ZN10aSBi-H4coGaInQ_Li",
+      "description": "Casco amplio, cabina equipada en proa y un cockpit preparado para recibir amigos. El motor dentro-fuera de borda le da un andar silencioso y deja la popa libre para una gran plataforma de baño. Para los que pasan el fin de semana en el agua.",
+      "images": [
+        {
+          "src": "/catalog/245-df/1KXSoKA76mQ6eYssEXOhAImFBxjYS-G-y.jpg",
+          "driveId": "1KXSoKA76mQ6eYssEXOhAImFBxjYS-G-y",
+          "checksum": "public:1KXSoKA76mQ6eYssEXOhAImFBxjYS-G-y:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 DF, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/245-df/01.jpg",
+          "driveId": "1Q6kvBKr1YLsou0HTI1CE99065kW4J9eW",
+          "checksum": "public:1Q6kvBKr1YLsou0HTI1CE99065kW4J9eW:245df.jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 DF, foto 2",
+          "file": "245df.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-df/02.jpg",
+          "driveId": "1d5aVOYrlPAVoyaO58StHV2O3OrSFFKmD",
+          "checksum": "public:1d5aVOYrlPAVoyaO58StHV2O3OrSFFKmD:245dff.jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 DF, foto 3",
+          "file": "245dff.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-df/03.jpg",
+          "driveId": "1onKUDv_MpMt2xLeoRkqIPVVsfc-30Kzm",
+          "checksum": "public:1onKUDv_MpMt2xLeoRkqIPVVsfc-30Kzm:245dflinda (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 DF, foto 4",
+          "file": "245dflinda (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-df/04.jpg",
+          "driveId": "1Ljju7rtjpudfG2jtVX51I3Xy5DXrdL-J",
+          "checksum": "public:1Ljju7rtjpudfG2jtVX51I3Xy5DXrdL-J:245Dfpost3 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 DF, foto 5",
+          "file": "245Dfpost3 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-df/05.jpg",
+          "driveId": "1Eky73A8f5FdqaTR7BhHuKmlZbJN4OpH8",
+          "checksum": "public:1Eky73A8f5FdqaTR7BhHuKmlZbJN4OpH8:245DFpost5 copy (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 DF, foto 6",
+          "file": "245DFpost5 copy (1).jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "245-fb",
+      "name": "245 FB",
+      "category": "lanchas",
+      "folderId": "1HLapmqBkjz89GOEAvvRKP1n73h9gvk7w",
+      "description": "La 245 con motor fuera de borda: el mismo casco amplio y la misma cabina, con más lugar libre en el cockpit y la practicidad de un fuera de borda. Una lancha cómoda para recorrer el Delta y pasar días largos a bordo.",
+      "images": [
+        {
+          "src": "/catalog/245-fb/1sZy9fHkJuynkn3B7QYHu1LGKMdGi8AaX.jpg",
+          "driveId": "1sZy9fHkJuynkn3B7QYHu1LGKMdGi8AaX",
+          "checksum": "public:1sZy9fHkJuynkn3B7QYHu1LGKMdGi8AaX:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 FB, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/245-fb/01.jpg",
+          "driveId": "1IrgXDdX7aKKT5EeXz8t5DnH0DtOVPRgj",
+          "checksum": "public:1IrgXDdX7aKKT5EeXz8t5DnH0DtOVPRgj:123.jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 FB, foto 2",
+          "file": "123.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-fb/02.jpg",
+          "driveId": "1L9sfmFfoQ0QSAXKm4xNpQJeiLyOUMh3S",
+          "checksum": "public:1L9sfmFfoQ0QSAXKm4xNpQJeiLyOUMh3S:245Dfpost3 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 FB, foto 3",
+          "file": "245Dfpost3 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-fb/03.jpg",
+          "driveId": "1yk95BjG5M6155IyKHAwPeJyUhq5A3JNV",
+          "checksum": "public:1yk95BjG5M6155IyKHAwPeJyUhq5A3JNV:245DFpost5 copy (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 FB, foto 4",
+          "file": "245DFpost5 copy (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-fb/04.jpg",
+          "driveId": "1u5KkRf-TDCmNeobt3SkLMn7yUKNw88RM",
+          "checksum": "public:1u5KkRf-TDCmNeobt3SkLMn7yUKNw88RM:245int15.jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 FB, foto 5",
+          "file": "245int15.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/245-fb/05.jpg",
+          "driveId": "1om9jsgzNEGemEpVCuF5RuxY5YbhHALtc",
+          "checksum": "public:1om9jsgzNEGemEpVCuF5RuxY5YbhHALtc:245intcopada (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "245 FB, foto 6",
+          "file": "245intcopada (1).jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "280-df",
+      "name": "280 DF",
+      "category": "lanchas",
+      "folderId": "1ZCGEhuf3_BLBf7bUyJK6e0r8u8i-MVu3",
+      "description": "Para navegar con todo el confort: cabina amplia, cockpit social con solárium y motor dentro-fuera de borda con plataforma de baño integrada. Pensada para escapadas de varios días.",
+      "images": [
+        {
+          "src": "/catalog/280-df/1818Nsft7PfkHSlzTK7XqU2DBXwo5q9P-.jpg",
+          "driveId": "1818Nsft7PfkHSlzTK7XqU2DBXwo5q9P-",
+          "checksum": "public:1818Nsft7PfkHSlzTK7XqU2DBXwo5q9P-:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 DF, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/280-df/01.jpg",
+          "driveId": "1j0zotpMI5DKR1HX5ZUeHERAgab7M8neW",
+          "checksum": "public:1j0zotpMI5DKR1HX5ZUeHERAgab7M8neW:280.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 DF, foto 2",
+          "file": "280.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-df/02.jpg",
+          "driveId": "1DZOiRMTXHgiEI7w2nVpgWBVpUMFEGoVC",
+          "checksum": "public:1DZOiRMTXHgiEI7w2nVpgWBVpUMFEGoVC:280anvegando10.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 DF, foto 3",
+          "file": "280anvegando10.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-df/03.jpg",
+          "driveId": "1XVisYHIWIP159baMs8ju518ZIaayNzP-",
+          "checksum": "public:1XVisYHIWIP159baMs8ju518ZIaayNzP-:280atardecer.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 DF, foto 4",
+          "file": "280atardecer.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-df/04.jpg",
+          "driveId": "1kgyTfupfTDaJgVNqaaQq4BNwGgrwhJCq",
+          "checksum": "public:1kgyTfupfTDaJgVNqaaQq4BNwGgrwhJCq:280int-3.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 DF, foto 5",
+          "file": "280int-3.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-df/05.jpg",
+          "driveId": "1tk5g2Ml8Ztb6OwY3DVOcL1EJJY7uXMf7",
+          "checksum": "public:1tk5g2Ml8Ztb6OwY3DVOcL1EJJY7uXMf7:280lifestyle.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 DF, foto 6",
+          "file": "280lifestyle.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "280-fb",
+      "name": "280 FB",
+      "category": "lanchas",
+      "folderId": "1rXYoFzTRfMnXiHQ5Whddf6OAAIpzcsgR",
+      "description": "La 280 con motor fuera de borda: gran capacidad, mantenimiento simple y más espacio libre en popa. Cabina amplia, cockpit social y la presencia de una lancha grande en cada salida.",
+      "images": [
+        {
+          "src": "/catalog/280-fb/01.jpg",
+          "driveId": "1M1LCcnlwKT5MrREHZaeJ24Cn1cc7HaTx",
+          "checksum": "public:1M1LCcnlwKT5MrREHZaeJ24Cn1cc7HaTx:280agcatalogo.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 FB, foto 1",
+          "file": "280agcatalogo.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-fb/02.jpg",
+          "driveId": "159P4hrjY7tzRP5XT0JRqaAhlfO1aISXi",
+          "checksum": "public:159P4hrjY7tzRP5XT0JRqaAhlfO1aISXi:280alargada (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 FB, foto 2",
+          "file": "280alargada (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-fb/03.jpg",
+          "driveId": "1xHwhcZGrvhM9vqP6uSSXzeKxAgtHaEmD",
+          "checksum": "public:1xHwhcZGrvhM9vqP6uSSXzeKxAgtHaEmD:280alrgada (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 FB, foto 3",
+          "file": "280alrgada (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-fb/04.jpg",
+          "driveId": "1N12YaOK0722eVQIlLuc6jFWciolaifZO",
+          "checksum": "public:1N12YaOK0722eVQIlLuc6jFWciolaifZO:280avangardeweek1 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 FB, foto 4",
+          "file": "280avangardeweek1 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-fb/05.jpg",
+          "driveId": "14Rze2L4KYTCBdLrmxL2sOmfcapK2aTno",
+          "checksum": "public:14Rze2L4KYTCBdLrmxL2sOmfcapK2aTno:280int9 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 FB, foto 5",
+          "file": "280int9 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/280-fb/06.jpg",
+          "driveId": "19hYbIUEa8eSoQXOU6oApgBlfQoYYclLE",
+          "checksum": "public:19hYbIUEa8eSoQXOU6oApgBlfQoYYclLE:052975100850213_280-gl8.jpg",
+          "width": null,
+          "height": null,
+          "alt": "280 FB, foto 6",
+          "file": "052975100850213_280-gl8.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "285-df",
+      "name": "285 DF",
+      "category": "lanchas",
+      "folderId": "1iGSekDkAUGW5Ku8pf3ibyR409uHlXgYj",
+      "description": "Diseño moderno de líneas deportivas. Cabina luminosa para descansar, cockpit amplio con solárium y motor dentro-fuera de borda para un andar suave y silencioso.",
+      "images": [
+        {
+          "src": "/catalog/285-df/1UEWd4l8vzAxAC6IycAPzOOD6gqQ2zmEc.jpg",
+          "driveId": "1UEWd4l8vzAxAC6IycAPzOOD6gqQ2zmEc",
+          "checksum": "public:1UEWd4l8vzAxAC6IycAPzOOD6gqQ2zmEc:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 DF, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/285-df/01.jpg",
+          "driveId": "1PMeOkDNOQPVNXVAhlof3oleyX0evrkFd",
+          "checksum": "public:1PMeOkDNOQPVNXVAhlof3oleyX0evrkFd:285 martin1.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 DF, foto 2",
+          "file": "285 martin1.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-df/02.jpg",
+          "driveId": "1IDgbstZDSIBHlSrw8efZ_LrFwmC3EZJc",
+          "checksum": "public:1IDgbstZDSIBHlSrw8efZ_LrFwmC3EZJc:285aa copy.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 DF, foto 3",
+          "file": "285aa copy.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-df/03.jpg",
+          "driveId": "108Z-kzIvLgJCuiVGHP_6y3XNbUsl7cWu",
+          "checksum": "public:108Z-kzIvLgJCuiVGHP_6y3XNbUsl7cWu:285correccion.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 DF, foto 4",
+          "file": "285correccion.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-df/04.jpg",
+          "driveId": "1q9Pbo4jcCYAbeJh374v5lGzOLzrKTD3V",
+          "checksum": "public:1q9Pbo4jcCYAbeJh374v5lGzOLzrKTD3V:285int1.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 DF, foto 5",
+          "file": "285int1.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-df/05.jpg",
+          "driveId": "151uqmXQdkp1hBqfVNNnMy4gN6DloM0wJ",
+          "checksum": "public:151uqmXQdkp1hBqfVNNnMy4gN6DloM0wJ:285int3 2.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 DF, foto 6",
+          "file": "285int3 2.jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "285-fb",
+      "name": "285 FB",
+      "category": "lanchas",
+      "folderId": "12mvNIo_Fqt9vepCyWk0MOUMakfJIZrZ4",
+      "description": "La 285 con motor fuera de borda: deportiva, ágil y con un cockpit enorme para disfrutar con amigos. Cabina cómoda en proa, solárium y toda la versatilidad de un fuera de borda.",
+      "images": [
+        {
+          "src": "/catalog/285-fb/173szyF0VZFn3Iwblx44EnRkgtUPw19H2.jpg",
+          "driveId": "173szyF0VZFn3Iwblx44EnRkgtUPw19H2",
+          "checksum": "public:173szyF0VZFn3Iwblx44EnRkgtUPw19H2:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 FB, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/285-fb/01.jpg",
+          "driveId": "1kSgWboP9XeALKReoQNl15hKeaKwXnKy0",
+          "checksum": "public:1kSgWboP9XeALKReoQNl15hKeaKwXnKy0:285 FB.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 FB, foto 2",
+          "file": "285 FB.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-fb/02.jpg",
+          "driveId": "1L74gtPcCc0GI2F8ryQzWuT4U5Ds50mIM",
+          "checksum": "public:1L74gtPcCc0GI2F8ryQzWuT4U5Ds50mIM:285a.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 FB, foto 3",
+          "file": "285a.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-fb/03.jpg",
+          "driveId": "1EOkBthyvBMmGF3CBDjQMstrwguLn4USz",
+          "checksum": "public:1EOkBthyvBMmGF3CBDjQMstrwguLn4USz:285fb1post.jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 FB, foto 4",
+          "file": "285fb1post.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-fb/04.jpg",
+          "driveId": "1h4bFrBeVC-QDumw087g7IFO2lgreCdJ1",
+          "checksum": "public:1h4bFrBeVC-QDumw087g7IFO2lgreCdJ1:285fb6 (1).jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 FB, foto 5",
+          "file": "285fb6 (1).jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/285-fb/05.jpg",
+          "driveId": "1l9pxbbPsmco_UhMlKDhU_YWvMys6xBsR",
+          "checksum": "public:1l9pxbbPsmco_UhMlKDhU_YWvMys6xBsR:285fb56 (2).jpg",
+          "width": null,
+          "height": null,
+          "alt": "285 FB, foto 6",
+          "file": "285fb56 (2).jpg",
+          "cover": false
+        }
+      ]
+    },
+    {
+      "slug": "348",
+      "name": "348",
+      "category": "lanchas",
+      "folderId": "1mY2oCjoJRq6hEzqulOzwVbTkGuyNSRaA",
+      "description": "La lancha más grande de la gama Canestrari. Techo rígido, doble motor fuera de borda y una cabina completa con cama, baño y cocina con heladera para quedarte a dormir a bordo. Solárium de proa, cockpit para recibir y terminaciones de primera: para los que no quieren resignar nada.",
+      "images": [
+        {
+          "src": "/catalog/348/15U-Mqz0DiNKkXTuxIGlmu5wA9BxcGaPR.jpg",
+          "driveId": "15U-Mqz0DiNKkXTuxIGlmu5wA9BxcGaPR",
+          "checksum": "public:15U-Mqz0DiNKkXTuxIGlmu5wA9BxcGaPR:Portada.jpg",
+          "width": null,
+          "height": null,
+          "alt": "348, foto de portada",
+          "file": "Portada.jpg",
+          "cover": true
+        },
+        {
+          "src": "/catalog/348/01.png",
+          "driveId": "1r43Lzrkyv_-TdrbvNMfagD-5u8SzFAlb",
+          "checksum": "public:1r43Lzrkyv_-TdrbvNMfagD-5u8SzFAlb:348drone8.png",
+          "width": null,
+          "height": null,
+          "alt": "348, foto 2",
+          "file": "348drone8.png",
+          "cover": false
+        },
+        {
+          "src": "/catalog/348/02.jpg",
+          "driveId": "13YXyuBZJD0La--tmZnAyrkldKC2-6f65",
+          "checksum": "public:13YXyuBZJD0La--tmZnAyrkldKC2-6f65:348postproa.jpg",
+          "width": null,
+          "height": null,
+          "alt": "348, foto 3",
+          "file": "348postproa.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/348/03.jpg",
+          "driveId": "1iaxTaLOLJF3yyA4FaD9pHq_8fkySBPbL",
+          "checksum": "public:1iaxTaLOLJF3yyA4FaD9pHq_8fkySBPbL:017810986366190_canestrari-348-01.jpg",
+          "width": null,
+          "height": null,
+          "alt": "348, foto 4",
+          "file": "017810986366190_canestrari-348-01.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/348/04.jpg",
+          "driveId": "1KCcIUGCBD3y9HDo18kYiYRBOaKcvShYY",
+          "checksum": "public:1KCcIUGCBD3y9HDo18kYiYRBOaKcvShYY:031140178611670_01.jpg",
+          "width": null,
+          "height": null,
+          "alt": "348, foto 5",
+          "file": "031140178611670_01.jpg",
+          "cover": false
+        },
+        {
+          "src": "/catalog/348/05.jpg",
+          "driveId": "1ygf_OtmJtqqHYu_-tWyR9JLAmVGkVz3Q",
+          "checksum": "public:1ygf_OtmJtqqHYu_-tWyR9JLAmVGkVz3Q:450040634027466_04.jpg",
+          "width": null,
+          "height": null,
+          "alt": "348, foto 6",
+          "file": "450040634027466_04.jpg",
+          "cover": false
+        }
+      ]
+    }
+  ]
+}

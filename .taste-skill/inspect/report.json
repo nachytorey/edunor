@@ -1,0 +1,3666 @@
+{
+ "url": "http://localhost:3000",
+ "at": "2026-10-31T13:57:06.031Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.95,
+    0.5,
+    0.69,
+    0.84,
+    0.74
+   ],
+   "motion": {
+    "elements": 95,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 95,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 12267,
+     "screens": 13.6,
+     "words": 407,
+     "img": 15,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 12,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 13,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "bote-open-250.jpg",
+      "quad-sportsman-850.jpg",
+      "bote-open-250.jpg",
+      "bote-cruiser-320.jpg",
+      "bote-pescador-180.jpg",
+      "utv-maverick-x3.jpg",
+      "quad-sportsman-850.jpg",
+      "utv-ranger-1000.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "¿AGUA O TIERRA?",
+     "words": 3,
+     "chars": 15,
+     "lines": 2,
+     "size": 201.6,
+     "vw": 14,
+     "font": "Red Hat Display",
+     "weight": 900,
+     "tracking": -0.03,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "left",
+     "widthRatio": 0,
+     "top": 0,
+     "tag": "h2",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "AGUA Y TIERRA",
+     "words": 3,
+     "lines": 2,
+     "size": 201.6,
+     "font": "Red Hat Display"
+    },
+    "headings": [
+     {
+      "text": "¿AGUA O TIERRA?",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 201.6,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0,
+      "top": 0,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "AGUA Y TIERRA",
+      "words": 3,
+      "chars": 13,
+      "lines": 2,
+      "size": 201.6,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 135,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "OPEN 250 SPORT",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 992,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CRUISER 320 LUXURY",
+      "words": 3,
+      "chars": 18,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 1892,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PESCADOR 180",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 2792,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MAVERICK X3",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 3692,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "SPORTSMAN 850",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 4592,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "RANGER 1000",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 5492,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PASÁ A VERLOS",
+      "words": 3,
+      "chars": 13,
+      "lines": 2,
+      "size": 201.6,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 6408,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "UN MISMO TECHO",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 7515,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MARCAS",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 201.4,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.53,
+      "top": 8739,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CONTANOS QUÉ BUSCÁS",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 9933,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Lanchas",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 11471,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Cuatriciclos",
+      "words": 1,
+      "chars": 12,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 11545,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Showroom",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 11620,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Marcas",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 11694,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Contacto",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 11769,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "WhatsApp",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 11843,
+      "tag": "li",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 18,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 2,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Red Hat Text",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "Red Hat Display",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      19,
+      26,
+      56,
+      201,
+      202
+     ],
+     "sizeCount": 6,
+     "notLoaded": [],
+     "body": {
+      "font": "Red Hat Text",
+      "size": 19,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17.2
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 201.6,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "text": "Agua"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0b3550",
+       "top": 0,
+       "hsl": {
+        "h": 203,
+        "s": 0.76,
+        "l": 0.18
+       }
+      },
+      {
+       "color": "#06121d",
+       "top": 900,
+       "hsl": {
+        "h": 209,
+        "s": 0.66,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#143a54",
+       "top": 1800,
+       "hsl": {
+        "h": 204,
+        "s": 0.62,
+        "l": 0.2
+       }
+      },
+      {
+       "color": "#28343a",
+       "top": 2700,
+       "hsl": {
+        "h": 200,
+        "s": 0.18,
+        "l": 0.19
+       }
+      },
+      {
+       "color": "#2a1f19",
+       "top": 3600,
+       "hsl": {
+        "h": 21,
+        "s": 0.25,
+        "l": 0.13
+       }
+      },
+      {
+       "color": "#0f1112",
+       "top": 4500,
+       "hsl": {
+        "h": 200,
+        "s": 0.09,
+        "l": 0.06
+       }
+      },
+      {
+       "color": "#3a3632",
+       "top": 5400,
+       "hsl": {
+        "h": 30,
+        "s": 0.07,
+        "l": 0.21
+       }
+      },
+      {
+       "color": "#f5d23c",
+       "top": 6300,
+       "hsl": {
+        "h": 49,
+        "s": 0.9,
+        "l": 0.6
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 7355,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#f2f2f2",
+       "top": 7849,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.95
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f4f4f4",
+       "share": 0.59
+      },
+      {
+       "color": "#000000",
+       "share": 0.27
+      },
+      {
+       "color": "#cfd9e0",
+       "share": 0.12
+      },
+      {
+       "color": "#5f5f5f",
+       "share": 0.01
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#fe7141",
+      "hsl": {
+       "h": 15,
+       "s": 0.99,
+       "l": 0.63
+      },
+      "fg": "#000000"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 4,
+     "radius": 0,
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Escribinos",
+      "Agua",
+      "Tierra",
+      "Ver lanchas"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 13,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.18
+     },
+     {
+      "type": "img",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 74,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "red hat display",
+     "red hat text"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 12267,
+    "margins": {
+     "left": 28,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 900,
+      "words": 20,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Agua",
+       "size": 202,
+       "tag": "h1"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 28,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#lanchas.chapter",
+      "tag": "section",
+      "top": 900,
+      "height": 900,
+      "words": 27,
+      "media": 1,
+      "middle": 238,
+      "heading": {
+       "text": "Open 250",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 1800,
+      "height": 900,
+      "words": 22,
+      "media": 1,
+      "middle": 258,
+      "heading": {
+       "text": "Cruiser",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 2700,
+      "height": 900,
+      "words": 25,
+      "media": 1,
+      "middle": 260,
+      "heading": {
+       "text": "Pescador",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cuatriciclos.chapter",
+      "tag": "section",
+      "top": 3600,
+      "height": 900,
+      "words": 27,
+      "media": 1,
+      "middle": 172,
+      "heading": {
+       "text": "Maverick",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 4500,
+      "height": 900,
+      "words": 20,
+      "media": 1,
+      "middle": 196,
+      "heading": {
+       "text": "Sportsman",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 5400,
+      "height": 900,
+      "words": 27,
+      "media": 1,
+      "middle": 244,
+      "heading": {
+       "text": "Ranger",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.gallery",
+      "tag": "section",
+      "top": 6300,
+      "height": 1055,
+      "words": 28,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Pasá a",
+       "size": 202,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 320,
+      "textLeft": 24,
+      "textRight": 320,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#showroom.about",
+      "tag": "section",
+      "top": 7355,
+      "height": 1224,
+      "words": 66,
+      "media": 2,
+      "middle": 16,
+      "heading": {
+       "text": "Un mismo",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 28,
+      "textRight": 142,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#marcas.brands",
+      "tag": "section",
+      "top": 8579,
+      "height": 1186,
+      "words": 107,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Marcas",
+       "size": 201,
+       "tag": "h2"
+      },
+      "left": 340,
+      "right": 340,
+      "textLeft": 340,
+      "textRight": 340,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contacto.contact",
+      "tag": "section",
+      "top": 9765,
+      "height": 702,
+      "words": 37,
+      "media": 0,
+      "middle": 115,
+      "heading": {
+       "text": "Contanos",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 208,
+      "right": 208,
+      "textLeft": 208,
+      "textRight": 371,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.cta",
+      "tag": "section",
+      "top": 10467,
+      "height": 900,
+      "words": 3,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "¿Agua",
+       "size": 202,
+       "tag": "h2"
+      },
+      "left": 219,
+      "right": 219,
+      "textLeft": 219,
+      "textRight": 219,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer",
+      "tag": "footer",
+      "top": 11367,
+      "height": 900,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Lanchas",
+       "size": 56,
+       "tag": "a"
+      },
+      "left": 840,
+      "right": 28,
+      "textLeft": 840,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 8420,
+      "height": 316
+     },
+     {
+      "top": 10720,
+      "height": 420
+     }
+    ],
+    "h1s": [
+     {
+      "text": "AGUA Y TIERRA",
+      "size": 202,
+      "top": 135,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 24,
+      "n": 24
+     },
+     {
+      "x": 208,
+      "n": 4
+     },
+     {
+      "x": 340,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 30,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.12,
+    "voidBox": {
+     "x": 600,
+     "y": 120,
+     "w": 840,
+     "h": 180
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.99,
+    0.99,
+    0.99,
+    0.99,
+    0.99,
+    0.99,
+    0.99,
+    0.99,
+    0.73,
+    0.6,
+    0.87,
+    0.93
+   ],
+   "motion": {
+    "elements": 95,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 95,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 14069,
+     "screens": 13.7,
+     "words": 407,
+     "img": 15,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 12,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 12,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "bote-open-250.jpg",
+      "quad-sportsman-850.jpg",
+      "bote-open-250.jpg",
+      "bote-cruiser-320.jpg",
+      "bote-pescador-180.jpg",
+      "utv-maverick-x3.jpg",
+      "quad-sportsman-850.jpg",
+      "utv-ranger-1000.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "¿AGUA O TIERRA?",
+     "words": 3,
+     "chars": 15,
+     "lines": 2,
+     "size": 107.5,
+     "vw": 14,
+     "font": "Red Hat Display",
+     "weight": 900,
+     "tracking": -0.03,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "left",
+     "widthRatio": 0,
+     "top": 0,
+     "tag": "h2",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "AGUA Y TIERRA",
+     "words": 3,
+     "lines": 2,
+     "size": 107.5,
+     "font": "Red Hat Display"
+    },
+    "headings": [
+     {
+      "text": "¿AGUA O TIERRA?",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 107.5,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0,
+      "top": 0,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "AGUA Y TIERRA",
+      "words": 3,
+      "chars": 13,
+      "lines": 2,
+      "size": 107.5,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 154,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "OPEN 250 SPORT",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 1112,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CRUISER 320 LUXURY",
+      "words": 3,
+      "chars": 18,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 2267,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PESCADOR 180",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 3422,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MAVERICK X3",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 4577,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "SPORTSMAN 850",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 5732,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "RANGER 1000",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 6887,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PASÁ A VERLOS",
+      "words": 3,
+      "chars": 13,
+      "lines": 2,
+      "size": 107.5,
+      "vw": 14,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 8077,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "UN MISMO TECHO",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 9138,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MARCAS",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 195,
+      "vw": 25.4,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 10142,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 10405,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 10642,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 10704,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 10766,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 10828,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 10890,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 10952,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "CONTANOS QUÉ BUSCÁS",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.35,
+      "top": 11261,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Lanchas",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 13149,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Cuatriciclos",
+      "words": 1,
+      "chars": 12,
+      "lines": 1,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 13208,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Showroom",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 13267,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Marcas",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 13326,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Contacto",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 13385,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "WhatsApp",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 39,
+      "vw": 5.1,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 13444,
+      "tag": "li",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 25,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 2,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Red Hat Text",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "Red Hat Display",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      18,
+      23,
+      26,
+      39,
+      108,
+      195
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Red Hat Text",
+      "size": 17.9,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17.2
+     },
+     "measureChars": 32,
+     "max": {
+      "size": 195,
+      "vw": 25.4,
+      "font": "Red Hat Display",
+      "text": "Marcas"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0.02,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0b3550",
+       "top": 0,
+       "hsl": {
+        "h": 203,
+        "s": 0.76,
+        "l": 0.18
+       }
+      },
+      {
+       "color": "#06121d",
+       "top": 1024,
+       "hsl": {
+        "h": 209,
+        "s": 0.66,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#143a54",
+       "top": 2179,
+       "hsl": {
+        "h": 204,
+        "s": 0.62,
+        "l": 0.2
+       }
+      },
+      {
+       "color": "#28343a",
+       "top": 3334,
+       "hsl": {
+        "h": 200,
+        "s": 0.18,
+        "l": 0.19
+       }
+      },
+      {
+       "color": "#2a1f19",
+       "top": 4489,
+       "hsl": {
+        "h": 21,
+        "s": 0.25,
+        "l": 0.13
+       }
+      },
+      {
+       "color": "#0f1112",
+       "top": 5644,
+       "hsl": {
+        "h": 200,
+        "s": 0.09,
+        "l": 0.06
+       }
+      },
+      {
+       "color": "#3a3632",
+       "top": 6799,
+       "hsl": {
+        "h": 30,
+        "s": 0.07,
+        "l": 0.21
+       }
+      },
+      {
+       "color": "#f5d23c",
+       "top": 7954,
+       "hsl": {
+        "h": 49,
+        "s": 0.9,
+        "l": 0.6
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 8978,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#fe7141",
+       "top": 11233,
+       "hsl": {
+        "h": 15,
+        "s": 0.99,
+        "l": 0.63
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f4f4f4",
+       "share": 0.59
+      },
+      {
+       "color": "#000000",
+       "share": 0.27
+      },
+      {
+       "color": "#cfd9e0",
+       "share": 0.12
+      },
+      {
+       "color": "#5f5f5f",
+       "share": 0.01
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#fe7141",
+      "hsl": {
+       "h": 15,
+       "s": 0.99,
+       "l": 0.63
+      },
+      "fg": "#000000"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 4,
+     "radius": 0,
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Escribinos",
+      "Agua",
+      "Tierra",
+      "Ver lanchas"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 10,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.14
+     },
+     {
+      "type": "img",
+      "ratio": 0.14
+     }
+    ],
+    "nav": {
+     "links": 7,
+     "fixed": true,
+     "height": 74,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "red hat display",
+     "red hat text"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 14069,
+    "margins": {
+     "left": 16,
+     "right": 28
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 1024,
+      "words": 20,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Agua",
+       "size": 108,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#lanchas.chapter",
+      "tag": "section",
+      "top": 1024,
+      "height": 1155,
+      "words": 27,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Open 250",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 54,
+      "textLeft": 16,
+      "textRight": 343,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 2179,
+      "height": 1155,
+      "words": 22,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Cruiser",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 54,
+      "textLeft": 16,
+      "textRight": 362,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 3334,
+      "height": 1155,
+      "words": 25,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Pescador",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 54,
+      "textLeft": 16,
+      "textRight": 343,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cuatriciclos.chapter",
+      "tag": "section",
+      "top": 4489,
+      "height": 1155,
+      "words": 27,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Maverick",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 54,
+      "textLeft": 16,
+      "textRight": 357,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 5644,
+      "height": 1155,
+      "words": 20,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Sportsman",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 54,
+      "textLeft": 16,
+      "textRight": 333,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 6799,
+      "height": 1155,
+      "words": 27,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Ranger",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 54,
+      "textLeft": 16,
+      "textRight": 364,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.gallery",
+      "tag": "section",
+      "top": 7954,
+      "height": 1024,
+      "words": 28,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Pasá a",
+       "size": 108,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 170,
+      "textLeft": 24,
+      "textRight": 170,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#showroom.about",
+      "tag": "section",
+      "top": 8978,
+      "height": 1004,
+      "words": 66,
+      "media": 2,
+      "middle": 16,
+      "heading": {
+       "text": "Un mismo",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#marcas.brands",
+      "tag": "section",
+      "top": 9982,
+      "height": 1171,
+      "words": 107,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Marcas",
+       "size": 195,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contacto.contact",
+      "tag": "section",
+      "top": 11153,
+      "height": 868,
+      "words": 37,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Contanos",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 298,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.cta",
+      "tag": "section",
+      "top": 12021,
+      "height": 1024,
+      "words": 3,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "¿Agua",
+       "size": 108,
+       "tag": "h2"
+      },
+      "left": 117,
+      "right": 117,
+      "textLeft": 117,
+      "textRight": 117,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer",
+      "tag": "footer",
+      "top": 13045,
+      "height": 1024,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Lanchas",
+       "size": 39,
+       "tag": "a"
+      },
+      "left": 448,
+      "right": 57,
+      "textLeft": 448,
+      "textRight": 57,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 9820,
+      "height": 320
+     },
+     {
+      "top": 12172,
+      "height": 740
+     }
+    ],
+    "h1s": [
+     {
+      "text": "AGUA Y TIERRA",
+      "size": 108,
+      "top": 154,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 26
+     },
+     {
+      "x": 32,
+      "n": 4
+     }
+    ],
+    "leftBlocks": 30,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.78,
+    0.68,
+    0.9,
+    0.89,
+    0.87
+   ],
+   "motion": {
+    "elements": 94,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 94,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 11636,
+     "screens": 13.8,
+     "words": 421,
+     "img": 15,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 12,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 12,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "bote-open-250.jpg",
+      "quad-sportsman-850.jpg",
+      "bote-open-250.jpg",
+      "bote-cruiser-320.jpg",
+      "bote-pescador-180.jpg",
+      "utv-maverick-x3.jpg",
+      "quad-sportsman-850.jpg",
+      "utv-ranger-1000.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "¿AGUA O TIERRA?",
+     "words": 3,
+     "chars": 15,
+     "lines": 2,
+     "size": 70.2,
+     "vw": 18,
+     "font": "Red Hat Display",
+     "weight": 900,
+     "tracking": -0.03,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "left",
+     "widthRatio": 0,
+     "top": 0,
+     "tag": "h2",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "AGUA Y TIERRA",
+     "words": 3,
+     "lines": 2,
+     "size": 66.3,
+     "font": "Red Hat Display"
+    },
+    "headings": [
+     {
+      "text": "¿AGUA O TIERRA?",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 70.2,
+      "vw": 18,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0,
+      "top": 0,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "AGUA Y TIERRA",
+      "words": 3,
+      "chars": 13,
+      "lines": 2,
+      "size": 66.3,
+      "vw": 17,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 110,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "OPEN 250 SPORT",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 932,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CRUISER 320 LUXURY",
+      "words": 3,
+      "chars": 18,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 1776,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PESCADOR 180",
+      "words": 2,
+      "chars": 12,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 2620,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MAVERICK X3",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 3464,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "SPORTSMAN 850",
+      "words": 2,
+      "chars": 13,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 4308,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "RANGER 1000",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 5152,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PASÁ A VERLOS",
+      "words": 3,
+      "chars": 13,
+      "lines": 2,
+      "size": 101.4,
+      "vw": 26,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6004,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "UN MISMO TECHO",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 35.1,
+      "vw": 9,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 6717,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "MARCAS",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 94.9,
+      "vw": 24.3,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.8,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 7804,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.08,
+      "top": 8008,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8324,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8384,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8444,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8504,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8564,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "+",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Red Hat Text",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 8624,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "CONTANOS QUÉ BUSCÁS",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Red Hat Display",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.57,
+      "top": 8868,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Lanchas",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 31.2,
+      "vw": 8,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 10992,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Cuatriciclos",
+      "words": 1,
+      "chars": 12,
+      "lines": 1,
+      "size": 31.2,
+      "vw": 8,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 11045,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Showroom",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 31.2,
+      "vw": 8,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 11099,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Marcas",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 31.2,
+      "vw": 8,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 11152,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "Contacto",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 31.2,
+      "vw": 8,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 11206,
+      "tag": "li",
+      "kind": "statement"
+     },
+     {
+      "text": "WhatsApp",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 31.2,
+      "vw": 8,
+      "font": "Red Hat Text",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 11259,
+      "tag": "li",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 25,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 2,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Red Hat Text",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "Red Hat Display",
+       "share": 0.05,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      15,
+      17,
+      18,
+      26,
+      31,
+      32,
+      35,
+      66,
+      70,
+      95,
+      101
+     ],
+     "sizeCount": 12,
+     "notLoaded": [],
+     "body": {
+      "font": "Red Hat Text",
+      "size": 17,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17.2
+     },
+     "measureChars": 40,
+     "max": {
+      "size": 101.4,
+      "vw": 26,
+      "font": "Red Hat Display",
+      "text": "Pasá a"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0.05,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "Service y repuestos",
+      "above": "+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 8265
+     },
+     {
+      "text": "Representante oficial",
+      "above": "+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 8396
+     },
+     {
+      "text": "Representante oficial",
+      "above": "+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 8457
+     },
+     {
+      "text": "Representante oficial",
+      "above": "+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 8517
+     },
+     {
+      "text": "Fabricación propia",
+      "above": "+",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 8577
+     },
+     {
+      "text": "En stock",
+      "above": "CONTANOS QUÉ BUSCÁS",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 8818
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#ffffff",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 1
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#0b3550",
+       "top": 0,
+       "hsl": {
+        "h": 203,
+        "s": 0.76,
+        "l": 0.18
+       }
+      },
+      {
+       "color": "#06121d",
+       "top": 844,
+       "hsl": {
+        "h": 209,
+        "s": 0.66,
+        "l": 0.07
+       }
+      },
+      {
+       "color": "#143a54",
+       "top": 1688,
+       "hsl": {
+        "h": 204,
+        "s": 0.62,
+        "l": 0.2
+       }
+      },
+      {
+       "color": "#28343a",
+       "top": 2532,
+       "hsl": {
+        "h": 200,
+        "s": 0.18,
+        "l": 0.19
+       }
+      },
+      {
+       "color": "#2a1f19",
+       "top": 3376,
+       "hsl": {
+        "h": 21,
+        "s": 0.25,
+        "l": 0.13
+       }
+      },
+      {
+       "color": "#0f1112",
+       "top": 4220,
+       "hsl": {
+        "h": 200,
+        "s": 0.09,
+        "l": 0.06
+       }
+      },
+      {
+       "color": "#3a3632",
+       "top": 5064,
+       "hsl": {
+        "h": 30,
+        "s": 0.07,
+        "l": 0.21
+       }
+      },
+      {
+       "color": "#f5d23c",
+       "top": 5908,
+       "hsl": {
+        "h": 49,
+        "s": 0.9,
+        "l": 0.6
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 6621,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#154a6c",
+       "top": 7996,
+       "hsl": {
+        "h": 203,
+        "s": 0.67,
+        "l": 0.25
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#f4f4f4",
+       "share": 0.57
+      },
+      {
+       "color": "#000000",
+       "share": 0.27
+      },
+      {
+       "color": "#cfd9e0",
+       "share": 0.12
+      },
+      {
+       "color": "#bdbdbd",
+       "share": 0.02
+      },
+      {
+       "color": "#5f5f5f",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#fe7141",
+      "hsl": {
+       "h": 15,
+       "s": 0.99,
+       "l": 0.63
+      },
+      "fg": "#000000"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 3,
+     "radius": 0,
+     "height": 56,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Agua",
+      "Tierra",
+      "Ver lanchas"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 12,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.2
+     },
+     {
+      "type": "img",
+      "ratio": 0.2
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 74,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "red hat display",
+     "red hat text"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 11636,
+    "margins": {
+     "left": 16,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "section.hero",
+      "tag": "section",
+      "top": 0,
+      "height": 844,
+      "words": 20,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Agua",
+       "size": 66,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 8,
+      "textLeft": 16,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#lanchas.chapter",
+      "tag": "section",
+      "top": 844,
+      "height": 844,
+      "words": 27,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Open 250",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 28,
+      "textLeft": 16,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 1688,
+      "height": 844,
+      "words": 22,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Cruiser",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 2532,
+      "height": 844,
+      "words": 25,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Pescador",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 18,
+      "textLeft": 16,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#cuatriciclos.chapter",
+      "tag": "section",
+      "top": 3376,
+      "height": 844,
+      "words": 27,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Maverick",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 35,
+      "textLeft": 16,
+      "textRight": 49,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 4220,
+      "height": 844,
+      "words": 20,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Sportsman",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 35,
+      "textLeft": 16,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.chapter",
+      "tag": "section",
+      "top": 5064,
+      "height": 844,
+      "words": 27,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Ranger",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 35,
+      "textLeft": 16,
+      "textRight": 39,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.gallery",
+      "tag": "section",
+      "top": 5908,
+      "height": 713,
+      "words": 28,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Pasá a",
+       "size": 101,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#showroom.about",
+      "tag": "section",
+      "top": 6621,
+      "height": 1087,
+      "words": 66,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Un mismo",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#marcas.brands",
+      "tag": "section",
+      "top": 7708,
+      "height": 1053,
+      "words": 98,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Marcas",
+       "size": 95,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contacto.contact",
+      "tag": "section",
+      "top": 8760,
+      "height": 869,
+      "words": 37,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Contanos",
+       "size": 32,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 34,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.cta",
+      "tag": "section",
+      "top": 9630,
+      "height": 844,
+      "words": 21,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "¿Agua",
+       "size": 70,
+       "tag": "h2"
+      },
+      "left": 21,
+      "right": 21,
+      "textLeft": 21,
+      "textRight": 21,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer",
+      "tag": "footer",
+      "top": 10474,
+      "height": 1162,
+      "words": 33,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Lanchas",
+       "size": 31,
+       "tag": "a"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "AGUA Y TIERRA",
+      "size": 66,
+      "top": 110,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 27
+     },
+     {
+      "x": 32,
+      "n": 4
+     }
+    ],
+    "leftBlocks": 31,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "blank-gap",
+   "width": 1440,
+   "message": "A 420px stretch at 10720px holds nothing.",
+   "fix": "Check that it is a deliberate rest (once per page at most); otherwise close it to the normal section gap."
+  },
+  {
+   "level": "FAIL",
+   "id": "blank-gap",
+   "width": 768,
+   "message": "1 stretch(es) of the page hold nothing at all: 740px at 12172px (the screen is 1024px tall).",
+   "fix": "Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing."
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 390,
+   "message": "6 eyebrow/kicker label(s) above headings: \"Service y repuestos\" above \"+\"; \"Representante oficial\" above \"+\"; \"Representante oficial\" above \"+\"; \"Representante oficial\" above \"+\"; \"Fabricación propia\" above \"+\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 390,
+   "message": "12 different font sizes (13, 15, 17, 18, 26, 31, 32, 35, 66, 70, 95, 101).",
+   "fix": "A page needs about five: display, heading, lead, body, small."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/Users/nacho/Documents/edunor/.taste-skill/inspect/desktop-fold.jpg",
+   "pages": [
+    "/Users/nacho/Documents/edunor/.taste-skill/inspect/desktop-page-01.jpg",
+    "/Users/nacho/Documents/edunor/.taste-skill/inspect/desktop-page-02.jpg",
+    "/Users/nacho/Documents/edunor/.taste-skill/inspect/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/Users/nacho/Documents/edunor/.taste-skill/inspect/tablet-fold.jpg",
+   "pages": [
+    "/Users/nacho/Documents/edunor/.taste-skill/inspect/tablet-page-01.jpg",
+    "/Users/nacho/Documents/edunor/.taste-skill/inspect/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/Users/nacho/Documents/edunor/.taste-skill/inspect/mobile-fold.jpg",
+   "pages": [
+    "/Users/nacho/Documents/edunor/.taste-skill/inspect/mobile-page-01.jpg",
+    "/Users/nacho/Documents/edunor/.taste-skill/inspect/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
