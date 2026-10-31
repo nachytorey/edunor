@@ -1,44 +1,43 @@
 import type { Metadata, Viewport } from "next"
-import { Fraunces, Geist } from "next/font/google"
+import { Red_Hat_Display, Red_Hat_Text } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import "./globals.css"
 
-const geist = Geist({
+const display = Red_Hat_Display({
   subsets: ["latin"],
-  variable: "--font-geist",
+  weight: ["900"],
+  variable: "--font-display",
   display: "swap",
 })
 
-const fraunces = Fraunces({
+const text = Red_Hat_Text({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  axes: ["opsz"],
+  weight: ["400", "500", "700"],
+  variable: "--font-text",
   display: "swap",
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://edunornautica.com"),
   title: {
-    default: "Edunor Náutica — Náutica, Camping y Outdoor desde 1963",
+    default: "Edunor Náutica — Lanchas y cuatriciclos desde 1963",
     template: "%s | Edunor Náutica",
   },
   description:
-    "Empresa familiar fundada en 1963. Representantes oficiales de Zodiac, Mercury, Yamaha, Sea Doo, Polaris y más. Service oficial, showroom de 1500m² en Témperley y Canning, Buenos Aires.",
+    "Concesionario familiar desde 1963. Lanchas, semirrígidos, cuatriciclos y UTVs con service oficial Mercury, Yamaha, Sea Doo, Polaris y Zodiac. Showroom de 1500 m² en Témperley y Canning, Buenos Aires.",
   keywords: [
     "edunor",
     "edunor náutica",
-    "náutica",
-    "botes",
+    "lanchas",
     "semirrígidos",
+    "cuatriciclos",
+    "utv",
     "zodiac",
     "mercury",
     "yamaha",
     "sea doo",
     "polaris",
-    "cuatriciclos",
-    "camping",
-    "outdoor",
     "témperley",
     "canning",
   ],
@@ -49,36 +48,23 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: "https://edunornautica.com",
     siteName: "Edunor Náutica",
-    title: "Edunor Náutica — Náutica, Camping y Outdoor desde 1963",
+    title: "Edunor Náutica — Lanchas y cuatriciclos desde 1963",
     description:
-      "Empresa familiar fundada en 1963. Representantes oficiales de las mejores marcas. Service oficial, showroom de 1500m² en Témperley y Canning.",
-    images: [
-      {
-        url: "/images/hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Edunor Náutica",
-      },
-    ],
+      "Concesionario familiar desde 1963. Lanchas, cuatriciclos y UTVs con service oficial. Showroom de 1500 m² en Témperley y Canning.",
+    images: [{ url: "/images/hero.jpg", width: 1024, height: 1024, alt: "Edunor Náutica" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edunor Náutica — Náutica, Camping y Outdoor desde 1963",
-    description: "Empresa familiar fundada en 1963. Service oficial de las mejores marcas.",
+    title: "Edunor Náutica — Lanchas y cuatriciclos desde 1963",
+    description: "Concesionario familiar desde 1963. Service oficial de las mejores marcas.",
     images: ["/images/hero.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: "https://edunornautica.com",
-  },
-  generator: "v0.app",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "https://edunornautica.com" },
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f7f6f2",
+  themeColor: "#0b3550",
   width: "device-width",
   initialScale: 1,
 }
@@ -88,7 +74,7 @@ const businessJsonLd = {
   "@type": "Organization",
   name: "Edunor Náutica",
   description:
-    "Empresa familiar fundada en 1963, dedicada a Náutica, Camping y Outdoor. Representantes oficiales de Zodiac, Mercury, Yamaha, Sea Doo, Polaris y más.",
+    "Concesionario familiar fundado en 1963. Lanchas, semirrígidos, cuatriciclos y UTVs. Representantes oficiales de Zodiac, Mercury, Yamaha, Sea Doo, Polaris y más.",
   url: "https://edunornautica.com",
   foundingDate: "1963",
   logo: "https://edunornautica.com/images/edunor-logo.png",
@@ -121,14 +107,10 @@ const businessJsonLd = {
   ],
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${geist.variable} ${fraunces.variable}`}>
-      <body className="font-sans antialiased bg-background text-foreground">
+    <html lang="es" className={`${display.variable} ${text.variable}`}>
+      <body>
         {children}
         <Script
           id="ld-json-business"

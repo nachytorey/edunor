@@ -1,0 +1,262 @@
+/* BITÁCORA — tokens de diseño centralizados (Tailwind v4 @theme).
+   Dirección: revista náutica impresa. Todo cuadrado, retícula visible,
+   70% papel · 20% azul marino · 8% azul niebla · 2% rojo señal. */
+
+/* Las utilidades van SIN @layer a propósito: el globals.css raíz de Edunor
+   no usa capas y, si las utilidades quedaran en @layer utilities, cualquier
+   regla de elemento (a, button, p) del raíz les ganaría. */
+@layer theme, base, components;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@theme {
+  --color-*: initial;
+  --color-navy-900: #0a1f44;
+  --color-navy-700: #12306b;
+  --color-ocean-500: #1d5fa8;
+  --color-sky-100: #e8f0f8;
+  --color-white: #ffffff;
+  --color-paper: #f6f4ee;
+  --color-signal-red: #d62828;
+  --color-signal-red-ink: #b51f1f; /* rojo para TEXTO: AA sobre paper, white y sky-100 */
+  --color-brass: #b8975a;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --radius-*: initial;
+
+  --breakpoint-*: initial;
+  --breakpoint-sm: 40rem; /* 640 */
+  --breakpoint-md: 48rem; /* 768 */
+  --breakpoint-lg: 64rem; /* 1024 */
+  --breakpoint-xl: 80rem; /* 1280 */
+
+  --container-page: 80rem; /* 1280 */
+
+  --shadow-sticker: 6px 6px 0 0 var(--color-navy-900);
+  --shadow-sticker-red: 6px 6px 0 0 var(--color-signal-red);
+
+  --text-kicker: 0.75rem; /* 12px */
+  --text-kicker--line-height: 1.2;
+  --text-kicker--letter-spacing: 0.14em;
+  --text-meta: 0.8125rem; /* 13px */
+  --text-meta--line-height: 1.3;
+  --text-meta--letter-spacing: 0.08em;
+
+  --tracking-wide-caps: 0.14em;
+  --tracking-tight-head: -0.02em;
+}
+
+/* Las fuentes de next/font viven como variables en el wrapper .bitacora,
+   por eso van "inline": la utilidad emite var(--font-playfair) tal cual. */
+@theme inline {
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-caps: var(--font-barlow), "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
+}
+
+/* Ojo: el layout raíz define --font-display/--font-text para otra tipografía,
+   por eso el CSS a mano referencia SIEMPRE las variables de next/font. */
+.bitacora {
+  --bt-font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --bt-font-caps: var(--font-barlow), "Barlow Condensed", "Arial Narrow", sans-serif;
+  --bt-font-body: var(--font-source-serif), "Source Serif 4", Georgia, serif;
+}
+
+/* Base del wrapper, sin capa para pisar los resets del layout raíz. */
+.bitacora {
+    background: var(--color-paper);
+    color: var(--color-navy-900);
+    font-family: var(--bt-font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  .bitacora :focus-visible {
+    outline: 3px solid var(--color-signal-red);
+    outline-offset: 2px;
+  }
+
+  .bitacora ::selection {
+    background: var(--color-navy-900);
+    color: var(--color-paper);
+  }
+
+  .bitacora img {
+    object-fit: cover;
+  }
+
+  .bitacora button,
+  .bitacora input {
+    border-radius: 0;
+  }
+
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 40rem) {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* Kicker / etiqueta tipo bandera de señales: rectángulo sólido, mayúsculas. */
+@utility caps {
+  font-family: var(--bt-font-caps);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide-caps);
+  font-weight: 600;
+}
+
+@utility headline {
+  font-family: var(--bt-font-display);
+  font-weight: 800;
+  letter-spacing: var(--tracking-tight-head);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+/* Doble filete editorial: gruesa + fina. */
+@utility rule-double {
+  border-top: 3px solid currentColor;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3px;
+    border-top: 1px solid currentColor;
+  }
+}
+
+@utility rule-double-b {
+  border-bottom: 3px solid currentColor;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+/* Número contorneado del ranking "Lo más leído". */
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-navy-900);
+  paint-order: stroke fill;
+}
+
+/* Overlay azulado para unificar fotografía (12%). */
+@utility photo-tint {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-navy-900);
+    opacity: 0.12;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+}
+
+/* Subrayado rojo de navegación y titulares. */
+@utility link-red {
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-signal-red), var(--color-signal-red));
+  background-repeat: no-repeat;
+  background-size: 0% 3px;
+  background-position: 0 100%;
+  transition: background-size 180ms ease-out;
+  &:hover,
+  &:focus-visible,
+  &[aria-current="page"] {
+    background-size: 100% 3px;
+  }
+}
+
+/* Tarjeta con sombra dura tipo sticker en hover. */
+@utility card-lift {
+  transition:
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out;
+  @media (hover: hover) {
+    &:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: var(--shadow-sticker);
+    }
+  }
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Revelado al scroll (IntersectionObserver). */
+.bitacora .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.bitacora .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.bitacora.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bitacora .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .bitacora .card-lift,
+  .bitacora .link-red {
+    transition: none;
+  }
+  .bitacora .card-lift:hover {
+    transform: none;
+  }
+}
+
+/* Masthead compacto: aparece al pasar el masthead grande. */
+.bitacora .masthead-compact {
+  transform: translateY(-100%);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bitacora .masthead-compact[data-visible="true"] {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .bitacora .masthead-compact {
+    transition: none;
+  }
+}
+
+/* Menú mobile a pantalla completa. */
+.bitacora .mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--color-navy-900);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}

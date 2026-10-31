@@ -1,56 +1,65 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { featured } from "@/lib/landing"
-import { ImageCard } from "@/components/landing/image-card"
-
-const links = [
-  { href: "#que-hacemos", label: "Qué hacemos" },
-  { href: "#sucursales", label: "Sucursales" },
-  { href: "#contacto", label: "Contacto" },
-]
-
-const ease = [0.22, 1, 0.36, 1] as const
+import { useState } from "react"
+import { EdunorLogo } from "@/components/edunor-logo"
+import { navLinks, siteConfig, whatsappLink } from "@/lib/site"
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false)
+
   return (
-    <header className="flex min-h-svh flex-col px-5 pb-10 pt-5 md:px-10">
-      <nav className="flex items-center justify-between text-sm">
-        <a href="#" className="font-display text-2xl tracking-tight">
-          Edunor<sup className="text-xs">®</sup>
+    <header className="header" data-site-header data-ink="light" data-open={open}>
+      <a href="#" className="header__brand" aria-label="Edunor Náutica, inicio" onClick={() => setOpen(false)}>
+        <EdunorLogo className="brand-logo" />
+      </a>
+
+      <div className="header__right">
+        <nav className="header__nav" aria-label="Secciones">
+          <ul>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <a className="btn btn--small header__cta" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+          Escribinos
         </a>
-        <ul className="flex gap-4 sm:gap-6 md:gap-8">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} className="opacity-70 transition-opacity hover:opacity-100">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease }}
-        className="font-display text-giant mt-[14vh] whitespace-pre-line text-balance md:mt-[18vh]"
-      >
-        {"Náutica, camping\ny outdoor desde 1963."}
-      </motion.h1>
-
-      <div className="mt-auto grid grid-cols-1 gap-5 pt-16 sm:grid-cols-3 md:gap-8">
-        {featured.map((card, i) => (
-          <motion.div
-            key={card.title}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.25 + i * 0.12, ease }}
-          >
-            <ImageCard {...card} sizes="(max-width: 640px) 100vw, 33vw" aspect="aspect-[3/2]" priority />
-          </motion.div>
-        ))}
+        <button
+          type="button"
+          className="header__menu"
+          aria-expanded={open}
+          aria-controls="menu"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? "Cerrar" : "Menú"}
+        </button>
       </div>
+
+      {open && (
+        <div className="menu" id="menu" role="dialog" aria-label="Menú">
+          <nav aria-label="Secciones">
+            <ul>
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} onClick={() => setOpen(false)}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <p className="menu__foot">
+            {siteConfig.phone}. Témperley y Canning, Buenos Aires.
+          </p>
+        </div>
+      )}
     </header>
   )
 }
