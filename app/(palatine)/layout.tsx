@@ -8,9 +8,9 @@ const display = Playfair_Display({ subsets: ["latin"], weight: ["400", "500"], s
 const serif = Source_Serif_4({ subsets: ["latin"], weight: ["300", "400", "600"], style: ["normal", "italic"], variable: "--font-pal-serif", display: "swap" })
 const sans = Barlow_Condensed({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-pal-sans", display: "swap" })
 
-const title = "Edunor Náutica — Lanchas, cuatriciclos y service oficial desde 1963"
+const title = "Edunor Náutica — Lanchas, cuatriciclos y service desde 1963"
 const description =
-  "Concesionario náutico familiar desde 1963: lanchas Canestrari, semirrígidos, cuatriciclos Polaris y generadores GENERAC, con service oficial. Showrooms en Témperley y Canning."
+  "Concesionario náutico desde 1963: lanchas Canestrari, semirrígidos, cuatriciclos Polaris y generadores GENERAC, con service oficial en Témperley y Canning."
 
 export const metadata: Metadata = {
   title: { absolute: title },

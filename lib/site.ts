@@ -1,7 +1,16 @@
+/**
+ * URL pública del sitio: NEXT_PUBLIC_SITE_URL si está; si no, el dominio de producción que Vercel
+ * informa en el build (hoy edunor-nautica.vercel.app, mañana el dominio propio cuando se conecte).
+ * Canonical, og:url, og:image, sitemap y JSON-LD salen de acá: si apuntan a un dominio caído, se rompe la miniatura.
+ */
+const productionHost = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? (productionHost ? `https://${productionHost}` : "https://edunornautica.com")
+
 export const siteConfig = {
   name: "Edunor Náutica",
   tagline: "Lanchas y cuatriciclos desde 1963.",
-  url: "https://edunornautica.com",
+  url: SITE_URL,
   whatsapp: "5491142989291",
   whatsappMessage: "Hola Edunor! Me gustaría recibir más información sobre sus productos.",
   email: "ventas@edunornautica.com.ar",
