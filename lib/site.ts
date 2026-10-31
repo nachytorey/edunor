@@ -14,6 +14,26 @@ export const siteConfig = {
   },
 }
 
+/** Miniatura por defecto al compartir un link (1200×630, sacada de la portada de la landing). */
+export const OG_IMAGE = { url: "/og/edunor.jpg", width: 1200, height: 630, alt: "Showroom de Edunor Náutica con lanchas y cuatriciclos" }
+
+/**
+ * Tags de Open Graph, Twitter y canonical de una página.
+ * Next reemplaza `openGraph` entero en cada página (no lo mezcla con el del layout), por eso van completos acá.
+ */
+export function shareMeta({ title, description, path, image = OG_IMAGE }: {
+  title: string
+  description: string
+  path: string
+  image?: { url: string; width?: number; height?: number; alt?: string }
+}) {
+  return {
+    alternates: { canonical: path },
+    openGraph: { type: "website" as const, locale: "es_AR", siteName: siteConfig.name, url: path, title, description, images: [image] },
+    twitter: { card: "summary_large_image" as const, title, description, images: [image.url] },
+  }
+}
+
 export const navLinks = [
   { href: "#lanchas", label: "Lanchas" },
   { href: "#cuatriciclos", label: "Cuatriciclos" },

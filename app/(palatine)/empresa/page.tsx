@@ -6,6 +6,7 @@ import { GhostTitle, NAV, PalFooter, WHATSAPP } from "@/components/palatine/bloc
 import { PalNav } from "@/components/palatine/interactive"
 import { Anchor, ShipWheel } from "@/components/palatine/ornaments"
 import { brands, company } from "@/lib/edunor"
+import { shareMeta } from "@/lib/site"
 
 const title = "La empresa | Edunor Náutica"
 const description = `Empresa familiar desde ${company.founded}: lanchas, motores, cuatriciclos y service oficial. Showrooms en Témperley y Canning.`
@@ -13,8 +14,7 @@ const description = `Empresa familiar desde ${company.founded}: lanchas, motores
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  openGraph: { type: "website", locale: "es_AR", siteName: "Edunor Náutica", title, description },
-  twitter: { card: "summary_large_image", title, description },
+  ...shareMeta({ title, description, path: "/empresa" }),
 }
 
 export default function PalatineEmpresaPage() {

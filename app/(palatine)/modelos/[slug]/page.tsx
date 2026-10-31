@@ -9,7 +9,7 @@ import { fichaHref, GhostTitle, NAV, PalFooter, Signs } from "@/components/palat
 import { Caps, PalNav } from "@/components/palatine/interactive"
 import { Anchor, Fish, Gull, Lighthouse, PinIcon, ShipWheel, Starfish, Triangle, Waves } from "@/components/palatine/ornaments"
 import { catalog, getProduct } from "@/lib/catalog"
-import { locations, mapsLink, whatsappLink } from "@/lib/site"
+import { locations, mapsLink, shareMeta, whatsappLink } from "@/lib/site"
 import "./modelo.css"
 
 type Props = { params: Promise<{ slug: string }> }
@@ -25,12 +25,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) return {}
   const title = `${product.name} — ${product.kind} | Edunor Náutica`
   const description = product.description ?? `${product.name}: fotos, detalles y consulta directa con Edunor Náutica.`
-  const image = product.images[0]?.src
+  // Primera foto real (los videos sin póster traen src vacío); si no hay, queda la miniatura general.
+  const photo = product.images.find((i) => i.src)
   return {
     title: { absolute: title },
     description,
-    openGraph: { type: "website", locale: "es_AR", siteName: "Edunor Náutica", title, description, images: image ? [image] : [] },
-    twitter: { card: "summary_large_image", title, description },
+    ...shareMeta({
+      title,
+      description,
+      path: fichaHref(product.slug),
+      image: photo ? { url: photo.src, alt: photo.alt || product.name } : undefined,
+    }),
   }
 }
 
