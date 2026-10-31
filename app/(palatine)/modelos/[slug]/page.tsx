@@ -48,7 +48,7 @@ export default async function PalatineModeloPage({ params }: Props) {
 
   return (
     <div id="top" className="pal-page pal-pd-page">
-      <PalNav links={NAV} whatsapp={product.href} />
+      <PalNav links={NAV} whatsapp={product.href} home="/" />
 
       <main>
         <ProductMotion>
