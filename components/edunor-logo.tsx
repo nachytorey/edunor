@@ -25,11 +25,11 @@ export function EdunorLogo({ accent, mono = false, title, ...props }: EdunorLogo
     <svg
       viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
       role={title ? "img" : undefined}
+      aria-label={title}
       aria-hidden={title ? undefined : true}
       focusable="false"
       {...props}
     >
-      {title ? <title>{title}</title> : null}
       <path d={EDUNOR} fill="currentColor" />
       <path d={NAUTICA} fill={accentFill} />
     </svg>

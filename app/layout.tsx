@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Red_Hat_Display, Red_Hat_Text } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import Script from "next/script"
+import { OG_IMAGE, SITE_URL } from "@/lib/site"
 import "./globals.css"
 
 const display = Red_Hat_Display({
@@ -19,7 +19,7 @@ const text = Red_Hat_Text({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://edunornautica.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Edunor Náutica — Lanchas y cuatriciclos desde 1963",
     template: "%s | Edunor Náutica",
@@ -46,6 +46,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/brand/icon.svg", type: "image/svg+xml" },
+      { url: "/brand/icon-32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.ico", sizes: "any" },
     ],
     shortcut: "/favicon.ico",
@@ -54,21 +55,21 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_AR",
-    url: "https://edunornautica.com",
+    url: "/",
     siteName: "Edunor Náutica",
     title: "Edunor Náutica — Lanchas y cuatriciclos desde 1963",
     description:
       "Concesionario familiar desde 1963. Lanchas, cuatriciclos y UTVs con service oficial. Showroom de 1500 m² en Témperley y Canning.",
-    images: [{ url: "/images/hero.jpg", width: 1024, height: 1024, alt: "Edunor Náutica" }],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Edunor Náutica — Lanchas y cuatriciclos desde 1963",
     description: "Concesionario familiar desde 1963. Service oficial de las mejores marcas.",
-    images: ["/images/hero.jpg"],
+    images: [OG_IMAGE.url],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://edunornautica.com" },
+  alternates: { canonical: "/" },
 }
 
 export const viewport: Viewport = {
@@ -83,10 +84,10 @@ const businessJsonLd = {
   name: "Edunor Náutica",
   description:
     "Concesionario familiar fundado en 1963. Lanchas, semirrígidos, cuatriciclos y UTVs. Representantes oficiales de Zodiac, Mercury, Yamaha, Sea Doo, Polaris y más.",
-  url: "https://edunornautica.com",
+  url: SITE_URL,
   foundingDate: "1963",
-  logo: "https://edunornautica.com/images/edunor-logo.png",
-  image: "https://edunornautica.com/images/hero.jpg",
+  logo: `${SITE_URL}/images/edunor-logo.png`,
+  image: `${SITE_URL}/og/edunor.jpg`,
   location: [
     {
       "@type": "Place",
@@ -120,8 +121,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="es" className={`${display.variable} ${text.variable}`}>
       <body>
         {children}
-        <Script
-          id="ld-json-business"
+        {/* <script> común y no next/script: así el JSON-LD sale en el HTML del servidor y lo leen los crawlers. */}
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
         />
