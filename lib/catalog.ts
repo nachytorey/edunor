@@ -9,7 +9,8 @@ import { whatsappLink } from "@/lib/site"
 
 export type Category = "lanchas" | "cuatriciclos"
 
-export type CatalogImage = { src: string; alt: string }
+/** Una pieza de la galería. Si trae `video`, `src` es su póster (o vacío si Drive no generó uno). */
+export type CatalogImage = { src: string; alt: string; video?: string }
 
 export type CatalogProduct = {
   slug: string
@@ -28,7 +29,14 @@ export type CatalogProduct = {
 type DriveCatalog = {
   source: string
   syncedAt: string | null
-  products: { slug: string; name: string; category: string; description: string | null; images: { src: string; alt: string }[] }[]
+  products: {
+    slug: string
+    name: string
+    category: string
+    description: string | null
+    images: { src: string; alt: string }[]
+    videos?: { src: string; poster: string | null; alt: string }[]
+  }[]
 }
 
 const consult = (name: string) => whatsappLink(`Hola Edunor! Quiero consultar por el modelo ${name}.`)
@@ -39,16 +47,20 @@ const KIND: Record<Category, string> = { lanchas: "Lancha", cuatriciclos: "Cuatr
 
 function fromDrive(c: DriveCatalog): CatalogProduct[] {
   return c.products
-    .filter((p) => p.images.length > 0)
+    .filter((p) => p.images.length > 0 || (p.videos ?? []).some((v) => v.poster))
     .map((p) => {
       const category: Category = p.category === "cuatriciclos" ? "cuatriciclos" : "lanchas"
+      const photos = p.images.map((i) => ({ src: i.src, alt: i.alt }))
+      const videos = (p.videos ?? []).map((v) => ({ src: v.poster ?? "", alt: v.alt, video: v.src }))
+      // Galería: portada, después los videos y el resto de las fotos. Sin fotos, el primer video es la portada.
+      const images = [...photos.slice(0, 1), ...videos, ...photos.slice(1)]
       return {
         slug: p.slug,
         name: p.name,
         category,
         kind: KIND[category],
         description: p.description,
-        images: p.images.map((i) => ({ src: i.src, alt: i.alt })),
+        images,
         href: consult(p.name),
         url: pageFor(p.slug),
       }
