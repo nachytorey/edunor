@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "sync:drive": "node --env-file-if-exists=.env.local scripts/sync-drive.mjs",
+    "sync:drive:check": "node --env-file-if-exists=.env.local scripts/sync-drive.mjs --dry-run",
+    "prebuild": "node --env-file-if-exists=.env.local scripts/sync-drive.mjs --optional"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
