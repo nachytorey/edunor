@@ -52,6 +52,14 @@
 .pal .pd-stage.is-zoomed { cursor: grab; touch-action: none; }
 .pal .pd-stage.is-zoomed:active { cursor: grabbing; }
 .pal .pd-viewer.is-full .pd-stage { flex: 1; aspect-ratio: auto; min-height: 0; touch-action: none; }
+/*
+ * El escenario copia la proporción de la portada (--pd-ratio, la mide la galería) y no pasa de
+ * ~78vh de alto: con fotos cuadradas la galería se angosta y el marco la sigue, sin franjas.
+ */
+.pal .pd-viewer:not(.only-video) .pd-stage { aspect-ratio: var(--pd-ratio, 4 / 3); }
+.pal .pd-viewer:not(.is-full):not(.only-video) { width: calc(min(78vh, 860px) * var(--pd-ratio, 1.3333)); max-width: 100%; }
+.pal-pd__gallery { justify-self: center; max-width: 100%; }
+.pal-pd__gallery:has(.pd-viewer.only-video) { justify-self: stretch; }
 .pal .pd-stage:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: -2px; }
 
 .pal .pd-slide { position: absolute; inset: 0; will-change: opacity, transform, filter; }
@@ -61,6 +69,26 @@
 }
 .pal .pd-slide__zoom { position: absolute; inset: 0; transform-origin: 50% 50%; will-change: transform; }
 .pal .pd-slide__img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+/*
+ * Videos: siempre grabados con el celular, así que van en 9:16, centrados, con su propio marco
+ * entintado (el del escenario se apaga). El video sí recibe el puntero: sus controles nativos son la interacción.
+ */
+.pal .pd-slide__zoom:has(> .pd-slide__phone) { display: flex; align-items: center; justify-content: center; }
+.pal .pd-slide__phone {
+  position: relative; isolation: isolate; display: block;
+  height: calc(100% - 36px); max-width: calc(100% - 36px); aspect-ratio: 9 / 16;
+}
+.pal .pd-slide__phone::before {
+  content: ""; position: absolute; inset: -11px; z-index: -1;
+  background: var(--pal-ink); filter: url(#pal-rough);
+}
+.pal .pd-slide__video { display: block; pointer-events: auto; object-fit: cover; background: var(--pal-ink); }
+.pal .pd-stage { transition: background-color 0.4s ease; }
+.pal .pd-viewer.has-video:not(.is-full), .pal .pd-viewer.has-video .pd-stage { background: transparent; }
+.pal-pd__gallery::before { transition: opacity 0.4s ease; }
+.pal-pd__gallery:has(.pd-viewer.has-video)::before { opacity: 0; }
+.pal .pd-viewer.only-video:not(.is-full) .pd-stage { aspect-ratio: 9 / 16; max-height: min(78vh, 760px); }
+.pal .pd-tools.is-video { opacity: 0; pointer-events: none; }
 
 /* Flechas triangulares naranjas, como las del carrusel de la portada. */
 .pal .pd-arrow, .pal .pd-tool {
@@ -119,6 +147,13 @@
 }
 .pal .pd-thumb:hover, .pal .pd-thumb.is-active { opacity: 1; filter: none; }
 .pal .pd-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.pal .pd-thumb { position: relative; }
+.pal .pd-thumb__blank { display: block; width: 100%; height: 100%; }
+.pal .pd-thumb__play {
+  position: absolute; inset: 0; display: grid; place-items: center; color: #fff;
+  background: rgb(0 0 0 / 0.25);
+}
+.pal .pd-thumb__play svg { fill: currentColor; width: 26px; height: 26px; }
 .pal .pd-thumbs__marker {
   position: absolute; left: 0; bottom: 10px; width: 96px; height: 3px;
   background: var(--pal-accent); pointer-events: none;
@@ -176,7 +211,7 @@
 }
 @media (max-width: 760px) {
   .pal-pd__gull { width: 60px; right: -8px; top: -46px; }
-  .pal .pd-stage { aspect-ratio: 1; }
+  .pal .pd-viewer:not(.only-video):not([style]) .pd-stage { aspect-ratio: 1; }
   .pal .pd-thumb, .pal .pd-thumbs__marker { width: 76px; }
   .pal .pd-bar__hint { font-size: 11px; }
   .pal-pd__bubble { padding: 36px 24px 32px; }

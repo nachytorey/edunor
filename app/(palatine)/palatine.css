@@ -277,28 +277,92 @@ a:hover > .pal-play { transform: rotate(90deg) scale(1.06); }
 .pal-sign:hover { background: var(--pal-accent); }
 
 /* ── Generadores ── */
-/* ── UTV y cuatris: mosaico, la primera foto ocupa dos filas ── */
+/* ── UTV y cuatris: texto a la izquierda, pila de fotos sueltas a la derecha ── */
 .pal-utv { padding-top: clamp(80px, 12vw, 160px); }
-.pal-utv__intro { max-width: 560px; margin: 0 auto; padding: 0 var(--pal-gutter); text-align: center; }
+.pal-utv__stage {
+  display: grid; grid-template-columns: minmax(260px, 380px) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px);
+  align-items: center; max-width: 1380px; margin: 0 auto; padding-left: var(--pal-gutter);
+}
 .pal-utv__title { margin: 0 0 14px; font-family: var(--f-display); font-weight: 400; font-size: clamp(34px, 3.4vw, 48px); line-height: 1; }
+.pal-utv__title-sub { display: block; font-size: 0.62em; margin-top: 6px; }
 .pal-utv__intro p { margin: 0; font-size: 16.5px; }
-.pal-utv__grid {
-  list-style: none; margin: clamp(40px, 6vw, 72px) auto 0; padding: 0 var(--pal-gutter); max-width: 1280px;
-  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: clamp(18px, 2.4vw, 32px);
+.pal-utv__models { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 8px; }
+.pal-utv__models a {
+  font-family: var(--f-sans); text-transform: uppercase; letter-spacing: 0.06em; font-size: 15px;
+  color: inherit; text-decoration: none; border-bottom: 1px solid var(--pal-accent);
 }
-.pal-utv__item .pal-frame { aspect-ratio: 4 / 3; }
-.pal-utv__item:first-child { grid-row: span 2; display: flex; flex-direction: column; }
-.pal-utv__item:first-child .pal-frame { aspect-ratio: auto; flex: 1; }
-.pal-utv__item img { width: 100%; height: 100%; object-fit: cover; }
+.pal-utv__models a::before { content: "◆ "; color: var(--pal-accent); font-size: 0.7em; vertical-align: 0.15em; }
+.pal-utv__intro .pal-gen__arrows { justify-content: flex-start; }
+
+/* Pila de fotos sueltas (components/palatine/photo-deck.tsx): copias con borde de papel apoyadas en la mesa. */
+.pal-deck { padding: 30px var(--pal-gutter) 0 10px; }
+.pal-deck__table {
+  position: relative; width: min(100%, 620px); aspect-ratio: 4 / 3.5; margin: 0 auto;
+  touch-action: pan-y; user-select: none;
+}
+.pal-deck__photo {
+  position: absolute; inset: 0; display: flex; flex-direction: column; padding: 14px 14px 0;
+  background: #fffdf8; color: var(--pal-ink); text-decoration: none;
+  box-shadow: 0 1px 2px rgba(10, 31, 68, 0.18), 0 18px 40px -18px rgba(10, 31, 68, 0.55);
+  will-change: transform;
+}
+.pal-deck__print { position: relative; flex: 1; overflow: hidden; background: var(--pal-ink); }
+.pal-deck__print img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.45); transform-origin: 50% 55%; pointer-events: none;
+}
+.pal-deck__caption {
+  padding: 12px 4px 14px; text-align: center; font-family: var(--f-display); font-style: italic; font-size: clamp(17px, 1.6vw, 21px);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pal-deck__photo:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: 4px; }
+.pal-deck__bar { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 34px; }
+.pal-deck__count { margin: 0; font-family: var(--f-sans); letter-spacing: 0.08em; font-size: 15px; }
+.pal-deck__count strong { color: var(--pal-accent); font-weight: 600; }
+.pal-deck__arrow {
+  width: 30px; height: 34px; padding: 0; border: 0; background: none; color: var(--pal-accent); cursor: pointer;
+  transition: transform 0.25s;
+}
+.pal-deck__arrow svg { width: 100%; height: 100%; display: block; }
+.pal-deck__arrow--prev svg { rotate: 180deg; }
+.pal-deck__arrow:hover { transform: scale(1.12); }
+.pal-deck__arrow:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: 3px; }
 @media (max-width: 900px) {
-  .pal-utv__grid { grid-template-columns: 1fr 1fr; }
-  .pal-utv__item:first-child { grid-column: 1 / -1; grid-row: auto; }
-  .pal-utv__item:first-child .pal-frame { aspect-ratio: 16 / 10; }
+  .pal-utv__stage { grid-template-columns: 1fr; padding-left: 0; }
+  .pal-utv__intro { padding: 0 var(--pal-gutter); text-align: center; }
+  .pal-utv__models { justify-items: center; }
+  .pal-utv__intro .pal-gen__arrows { justify-content: center; }
+  .pal-deck { padding: 20px calc(var(--pal-gutter) + 8px) 0; }
 }
-@media (max-width: 600px) {
-  .pal-utv__grid { gap: 30px 28px; }
-  .pal-utv__item:not(:first-child) .pal-utv__kind { display: none; }
-  .pal-utv__item:not(:first-child) .pal-plaque { padding-inline: 22px; text-align: center; }
+
+/* ── Quiénes somos: sello + texto a la izquierda, los pasos de la compra en una mancha a la derecha ── */
+.pal-about { padding-top: clamp(80px, 12vw, 160px); }
+.pal-about__grid {
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(48px, 7vw, 120px);
+  align-items: center; max-width: 1240px; margin: 0 auto; padding: 0 var(--pal-gutter);
+}
+.pal-about__intro { display: grid; justify-items: start; }
+.pal-about__seal {
+  width: 120px; aspect-ratio: 0.82; display: grid; place-content: center; text-align: center; margin-bottom: 28px;
+  border: 2px solid var(--pal-ink); border-radius: 50%; outline: 1px solid var(--pal-ink); outline-offset: 5px;
+  text-transform: uppercase; font-size: 13px; letter-spacing: 0.1em; line-height: 1.2; rotate: -6deg;
+}
+.pal-about__seal strong { font-family: var(--f-display); font-size: 34px; font-weight: 500; letter-spacing: 0; color: var(--pal-accent); }
+.pal-about__title { margin: 0 0 18px; font-family: var(--f-display); font-weight: 400; font-size: clamp(34px, 3.4vw, 48px); line-height: 1; }
+.pal-about__intro p { margin: 0 0 1em; font-size: 16.5px; max-width: 480px; }
+.pal-about__lead { font-family: var(--f-display); font-size: clamp(20px, 1.7vw, 24px) !important; line-height: 1.3; }
+.pal-about__intro .pal-signs { margin-top: 18px; }
+.pal-about__steps { padding: clamp(28px, 3vw, 44px) clamp(24px, 3vw, 44px); }
+.pal-about__steps-title { margin: 0 0 22px; font-family: var(--f-sans); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 15px; }
+.pal-about__steps ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.pal-about__steps li { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; }
+.pal-about__num { font-family: var(--f-display); font-size: 32px; line-height: 1; color: var(--pal-ink); border-bottom: 2px solid var(--pal-accent); padding-bottom: 4px; justify-self: start; }
+.pal-about__steps h4 { margin: 0 0 4px; font-family: var(--f-display); font-weight: 500; font-size: 20px; }
+.pal-about__steps p { margin: 0; font-size: 15.5px; line-height: 1.45; }
+@media (max-width: 900px) {
+  .pal-about__grid { grid-template-columns: 1fr; }
+  .pal-about__intro { justify-items: center; text-align: center; }
+  .pal-about__steps { margin: 0 10px; }
 }
 
 .pal-gen { padding-top: clamp(80px, 12vw, 160px); }
@@ -385,6 +449,86 @@ a:hover > .pal-play { transform: rotate(90deg) scale(1.06); }
   background: #fff; border: 1px solid rgba(10, 31, 68, 0.25);
   clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
 }
+
+/* ── Galería: cinta horizontal fija que avanza con el scroll (components/palatine/gallery-reel.tsx) ── */
+.pal-gallery { padding-top: clamp(80px, 12vw, 160px); }
+.pal-reel { position: relative; height: 100svh; overflow: hidden; display: flex; align-items: center; }
+.pal-reel__track {
+  list-style: none; margin: 0; padding: 0 12vw 0 var(--pal-gutter);
+  display: flex; align-items: center; gap: clamp(48px, 7vw, 120px); width: max-content; will-change: transform;
+}
+.pal-reel__item { position: relative; flex: none; }
+.pal-reel__item--tall { width: clamp(220px, 44vh, 420px); }
+.pal-reel__item--tall .pal-reel__frame { aspect-ratio: 3 / 4; }
+.pal-reel__item--wide { width: clamp(300px, 72vh, 760px); }
+.pal-reel__item--wide .pal-reel__frame { aspect-ratio: 3 / 2; }
+.pal-reel__item--square { width: clamp(240px, 50vh, 500px); }
+.pal-reel__item--square .pal-reel__frame { aspect-ratio: 1; }
+.pal-reel__reveal { will-change: clip-path, transform; }
+.pal-reel__frame {
+  position: relative; display: block; width: 100%; padding: 0; border: 0; overflow: hidden; cursor: zoom-in;
+  background: var(--pal-ink); box-shadow: 0 0 0 10px var(--pal-ink);
+}
+.pal-reel__frame img {
+  position: absolute; top: 0; left: -12%; width: 124%; max-width: none; height: 100%; object-fit: cover;
+  transition: filter 0.5s; pointer-events: none;
+}
+.pal-reel__frame:hover img { filter: brightness(1.08) saturate(1.1); }
+.pal-reel__frame:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: 14px; }
+.pal-reel__caption {
+  margin: 24px 0 0; font-family: var(--f-display); font-style: italic; font-size: clamp(16px, 1.4vw, 20px);
+}
+.pal-reel__caption span {
+  font-family: var(--f-sans); font-style: normal; font-size: 0.72em; letter-spacing: 0.12em; color: var(--pal-accent);
+  margin-right: 8px;
+}
+.pal-reel__ornament {
+  position: absolute; z-index: -1; top: -14vh; right: -10%; width: clamp(80px, 12vh, 140px); height: auto;
+  color: var(--pal-accent); opacity: 0.5; pointer-events: none;
+}
+.pal-reel__progress {
+  position: absolute; left: var(--pal-gutter); right: var(--pal-gutter); bottom: 6svh; height: 2px;
+  background: rgba(10, 31, 68, 0.15);
+}
+.pal-reel__progress span { position: absolute; inset: 0; background: var(--pal-accent); transform: scaleX(0); transform-origin: left; }
+@media (prefers-reduced-motion: reduce) {
+  .pal-reel { height: auto; padding: 14vh 0; overflow-x: auto; }
+  .pal-reel__progress { display: none; }
+}
+
+/* Visor a pantalla completa: la foto crece desde su marco (Flip). */
+.pal-lightbox { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; }
+.pal-lightbox__veil { position: absolute; inset: 0; background: rgba(10, 31, 68, 0.94); cursor: zoom-out; }
+.pal-lightbox__photo { position: relative; overflow: hidden; max-height: 76svh; box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.6); }
+.pal-lightbox__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pal-lightbox__ui { position: absolute; inset: 0; pointer-events: none; color: var(--pal-paper); }
+.pal-lightbox__ui > * { pointer-events: auto; }
+.pal-lightbox__caption {
+  position: absolute; left: 50%; bottom: 4svh; translate: -50% 0; margin: 0; width: max-content; max-width: 90vw;
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 6px 14px;
+  font-family: var(--f-display); font-style: italic; font-size: 17px;
+}
+.pal-lightbox__caption span { font-family: var(--f-sans); font-style: normal; letter-spacing: 0.12em; font-size: 13px; color: var(--pal-accent); }
+.pal-lightbox__caption strong { font-weight: 400; font-size: 1.3em; }
+.pal-lightbox__caption a {
+  font-family: var(--f-sans); font-style: normal; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px;
+  color: var(--pal-paper); border-bottom: 1px solid var(--pal-accent); text-decoration: none;
+}
+.pal-lightbox__arrow {
+  position: absolute; top: 50%; translate: 0 -50%; width: 34px; height: 40px; padding: 0; border: 0;
+  background: none; color: var(--pal-accent); cursor: pointer; transition: transform 0.25s;
+}
+.pal-lightbox__arrow svg { width: 100%; height: 100%; display: block; }
+.pal-lightbox__arrow--prev { left: clamp(10px, 3vw, 40px); }
+.pal-lightbox__arrow--prev svg { rotate: 180deg; }
+.pal-lightbox__arrow--next { right: clamp(10px, 3vw, 40px); }
+.pal-lightbox__arrow:hover { transform: scale(1.15); }
+.pal-lightbox__close {
+  position: absolute; top: clamp(14px, 3vh, 30px); right: clamp(14px, 3vw, 36px); width: 44px; height: 44px; padding: 10px;
+  border: 1.5px solid var(--pal-paper); border-radius: 50%; background: none; color: var(--pal-paper); cursor: pointer;
+}
+.pal-lightbox__close svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.pal-lightbox button:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: 3px; }
 
 /* ── Taller ── */
 .pal-shop {
