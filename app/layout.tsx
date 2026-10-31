@@ -44,9 +44,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Edunor Náutica" }],
   creator: "Edunor Náutica",
   icons: {
-    icon: "/images/favicon.png",
-    shortcut: "/images/favicon.png",
-    apple: "/images/favicon.png",
+    icon: [
+      { url: "/brand/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/brand/apple-icon.png", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
