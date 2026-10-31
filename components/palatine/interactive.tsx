@@ -22,7 +22,7 @@ export function Caps({ text }: { text: string }) {
 }
 
 /** Logo arriba a la izquierda + botón cuadrado naranja que abre el menú a pantalla completa. */
-export function PalNav({ links, whatsapp }: { links: Link[]; whatsapp: string }) {
+export function PalNav({ links, whatsapp, home }: { links: Link[]; whatsapp: string; home?: string }) {
   const [open, setOpen] = useState(false)
   const btnRef = useRef<HTMLButtonElement>(null)
 
@@ -43,7 +43,11 @@ export function PalNav({ links, whatsapp }: { links: Link[]; whatsapp: string })
 
   return (
     <header className="pal-nav" data-open={open || undefined}>
-      <a href="#top" className="pal-nav__brand" aria-label="Edunor Náutica, volver arriba">
+      <a
+        href={home ?? "#top"}
+        className="pal-nav__brand"
+        aria-label={home ? "Edunor Náutica, ir al inicio" : "Edunor Náutica, volver arriba"}
+      >
         <EdunorLogo />
       </a>
       <button

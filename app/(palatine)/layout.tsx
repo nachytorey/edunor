@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Playfair_Display, Source_Serif_4, Barlow_Condensed } from "next/font/google"
+import { shareMeta } from "@/lib/site"
 import "./palatine.css"
 
 /* Serif de grabado para títulos, serif de lectura y condensada para los carteles. */
@@ -14,8 +15,7 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  openGraph: { type: "website", locale: "es_AR", siteName: "Edunor Náutica", title, description },
-  twitter: { card: "summary_large_image", title, description },
+  ...shareMeta({ title, description, path: "/" }),
 }
 
 export const viewport: Viewport = { themeColor: "#F6F4EE", width: "device-width", initialScale: 1 }
