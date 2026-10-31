@@ -26,13 +26,14 @@ import {
   Waves,
   Workshop,
 } from "@/components/palatine/ornaments"
-import { lanchas } from "@/lib/catalog"
+import { cuatriciclos, lanchas } from "@/lib/catalog"
 import { company, contact, equipment, generators, service } from "@/lib/edunor"
 import { locations, siteConfig, whatsappLink } from "@/lib/site"
 
 const NAV = [
   { href: "#modelos", label: "Modelos" },
-  { href: "#empresa", label: "La Empresa" },
+  { href: "#utv", label: "UTV y Cuatris" },
+  { href: "/empresa", label: "La Empresa" },
   { href: "#generadores", label: "Generadores" },
   { href: "#showroom", label: "Showroom" },
   { href: "#galeria", label: "Galería" },
@@ -53,7 +54,11 @@ export default function PalatinePage() {
           <div className="pal-hero__art">
             <Sunburst className="pal-hero__rays" />
             <div className="pal-hero__porthole">
-              <img src="/palatine/hero-348.jpg" alt="Lancha Canestrari 348 navegando, vista aérea" />
+              <img
+                src="/palatine/portada.png"
+                alt="Local de Edunor con lanchas en el salón y dos cuatriciclos Polaris en la vereda"
+                fetchPriority="high"
+              />
             </div>
             <CompassRose className="pal-hero__compass" />
             <Gull className="pal-hero__gull" />
@@ -105,33 +110,40 @@ export default function PalatinePage() {
           </Fader>
         </section>
 
-        {/* ── La empresa ── */}
-        <section id="empresa" className="pal-intro">
-          <GhostTitle ornament={<Anchor />}>Empresa</GhostTitle>
-          <div className="pal-intro__grid">
-            <a href="#modelos" className="pal-frame pal-intro__media">
-              <img src="/palatine/hero-interior.jpg" alt="Interior de una lancha con tapizado náutico claro" loading="lazy" />
-              <span className="pal-play" aria-hidden="true">
-                <ShipWheel />
-              </span>
-              <span className="pal-sr">Ver modelos</span>
+        {/* ── UTV y cuatriciclos ── */}
+        <section id="utv" className="pal-utv" aria-labelledby="pal-utv-title">
+          <GhostTitle ornament={<CompassRose />} side="right">
+            Tierra
+          </GhostTitle>
+          <div className="pal-utv__intro">
+            <h2 id="pal-utv-title" className="pal-utv__title">
+              <Caps text="UTV · Cuatriciclos" />
+            </h2>
+            <p>
+              Cuatriciclos y UTV para el campo, la arena y el trabajo. Los tenés en el showroom, listos para probar, con
+              service oficial y repuestos originales.
+            </p>
+          </div>
+          <ul className="pal-utv__grid">
+            {cuatriciclos.map((p) => (
+              <li key={p.slug} className="pal-utv__item">
+                <a href={fichaHref(p.slug)} className="pal-frame">
+                  <img src={p.images[0].src} alt={p.images[0].alt || `${p.kind} ${p.name}`} loading="lazy" />
+                </a>
+                <p className="pal-plaque">
+                  {p.name}
+                  <span className="pal-utv__kind">
+                    {" "}
+                    <span aria-hidden="true">–</span> {p.kind}
+                  </span>
+                </p>
+              </li>
+            ))}
+          </ul>
+          <div className="pal-gen__arrows">
+            <a href={whatsappLink("Hola Edunor! Quiero consultar por UTV y cuatriciclos.")} target="_blank" rel="noreferrer">
+              Consultar
             </a>
-            <div className="pal-blob pal-intro__text">
-              <p>
-                Edunor es una empresa familiar que nació en {company.founded} entre botes, carpas y motores, y que
-                nunca se fue del agua. Hoy el showroom de Témperley tiene más de {company.showroomM2.toLocaleString("es-AR")}{" "}
-                m² y lo acompaña una segunda sede en Canning.
-              </p>
-              <p>
-                Vendemos lanchas Canestrari, Arco-Iris y semirrígidos de fabricación propia, motos de agua Yamaha y
-                Sea-Doo, cuatriciclos Polaris y motores Mercury, Yamaha y Volvo Penta. Somos service oficial de todas
-                las marcas que representamos, con taller propio y repuestos originales en stock.
-              </p>
-              <p>
-                En el taller fabricamos consolas, arcos de radar, guardamancebos y tapizados náuticos a medida, así
-                que la lancha sale equipada como la querés.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -147,9 +159,7 @@ export default function PalatinePage() {
               </div>
             </div>
             <div className="pal-gen__media">
-              <div className="pal-frame">
-                <img src={generators.image.src} alt={generators.image.alt} loading="lazy" />
-              </div>
+              <img className="pal-gen__product" src={generators.image.src} alt={generators.image.alt} loading="lazy" />
               <div className="pal-gen__arrows">
                 <a href={whatsappLink(`Hola Edunor! Quiero consultar por generadores ${generators.brand}.`)} target="_blank" rel="noreferrer">
                   Consultar
@@ -158,17 +168,6 @@ export default function PalatinePage() {
               </div>
             </div>
           </div>
-          <ul className="pal-gen__cards">
-            {generators.lines.map((l) => (
-              <li key={l.name}>
-                <div className="pal-frame">
-                  <img src={l.image} alt={l.alt} loading="lazy" />
-                </div>
-                <p className="pal-plaque">{l.name}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="pal-gen__credits">{generators.credits}</p>
         </section>
 
         {/* ── Showroom (en el lugar del calendario) ── */}

@@ -12,6 +12,7 @@ export const WHATSAPP = whatsappLink()
 
 export const NAV = [
   { href: "/#modelos", label: "Modelos" },
+  { href: "/#utv", label: "UTV y Cuatris" },
   { href: "/empresa", label: "La Empresa" },
   { href: "/#showroom", label: "Showroom" },
   { href: "/#galeria", label: "Galería" },

@@ -2,14 +2,14 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-10-31T17:57:30.020Z",
+  "syncedAt": "2026-10-31T18:00:18.924Z",
   "products": [
     {
       "slug": "168",
       "name": "168",
       "category": "lanchas",
       "folderId": "1VE-i0JRjSX8F9wswYoXWDK0Mf1P_ZB8f",
-      "description": null,
+      "description": "La Canestrari más compacta de la gama y la mejor forma de empezar. Liviana, fácil de manejar, de remolcar y de guardar, con la misma construcción que las lanchas grandes. Ideal para salir en familia por el día, pescar o hacer tus primeras horas al timón.",
       "images": [
         {
           "src": "/catalog/168/1FoaZ3I_Khq5npowbS2fRHd6RCoBywOJw.jpg",
@@ -78,7 +78,7 @@
       "name": "178",
       "category": "lanchas",
       "folderId": "1ltT_KrorNQDPlr4ETXUUXWtG70ye-gMw",
-      "description": null,
+      "description": "Un poco más de lancha sin perder agilidad. Open de uso diario, con cockpit amplio y solárium en proa, pensada para el río: paseo, esquí acuático y pesca en una sola lancha, sin complicaciones.",
       "images": [
         {
           "src": "/catalog/178/1tzAq5vwzaVj_J3VoKtk9GsKCS7Q78OYj.jpg",
@@ -147,7 +147,7 @@
       "name": "208 DF",
       "category": "lanchas",
       "folderId": "1R-xXQkemo_OaPuANmHRIQ0N75Ca6rOFR",
-      "description": null,
+      "description": "Open deportiva con motor dentro-fuera de borda: el motor va adentro y la popa queda libre para una plataforma de baño cómoda, ideal para subir del agua o largar el wakeboard. Silenciosa, estable y hecha para pasar el día entero a bordo.",
       "images": [
         {
           "src": "/catalog/208-df/1ApTbEqt5FiqoGejpEdyj-PdEZLc3By-w.jpg",
@@ -216,7 +216,7 @@
       "name": "208 FB",
       "category": "lanchas",
       "folderId": "1pPlRFMoNLzoZR8cJyHEfk82sKqrler2u",
-      "description": null,
+      "description": "La 208 con motor fuera de borda: más lugar adentro, mantenimiento simple y la posibilidad de levantar el motor en aguas bajas. Una open noble y rendidora para paseos, esquí y salidas de pesca.",
       "images": [
         {
           "src": "/catalog/208-fb/1TYVWk77KFd7NYpPC4Mw2X2pq0I5EdPg3.jpg",
@@ -285,7 +285,7 @@
       "name": "225 CROSSOVER DF",
       "category": "lanchas",
       "folderId": "10VHwCWwiIUIIQZddNmUZhvVO7nHFiNXS",
-      "description": null,
+      "description": "Lo mejor de dos mundos: el cockpit abierto de una open para disfrutar al sol y una cabina en proa para guardar el equipo o resguardarte. Con motor dentro-fuera de borda, popa despejada y plataforma de baño para el día en la isla.",
       "images": [
         {
           "src": "/catalog/225-crossover-df/1XEEbp-GDt87N-HilwcU80cU3raDFmk_D.jpg",
@@ -354,7 +354,7 @@
       "name": "225 CROSSOVER FB",
       "category": "lanchas",
       "folderId": "1o6196eOcxGe6r9wbUn00ee7rX9QW0nZP",
-      "description": null,
+      "description": "La Crossover con motor fuera de borda: todo el cockpit a tu disposición, cabina en proa para guardar y descansar, y el mantenimiento sencillo de un fuera de borda. Versátil y práctica para cualquier plan en el agua.",
       "images": [
         {
           "src": "/catalog/225-crossover-fb/1MiyxErg0Jy4h1Qt21VhJAQm6-hDvATDy.jpg",
@@ -423,7 +423,7 @@
       "name": "225 CUDDY DF",
       "category": "lanchas",
       "folderId": "1BLdDzI7Y8VRUKc0PBCkYmTlh-rQXVFr1",
-      "description": null,
+      "description": "Cuddy con cabina cerrada en proa para resguardarte del sol o del viento, cambiarte o dormir una siesta a bordo. Motor dentro-fuera de borda, plataforma de baño en popa y un andar suave y estable para salidas largas en familia.",
       "images": [
         {
           "src": "/catalog/225-cuddy-df/1jYVdDUhyFrdnwYMdYfEtDRHxu3-RmF_G.jpg",
@@ -492,7 +492,7 @@
       "name": "225 CUDDY FB",
       "category": "lanchas",
       "folderId": "1RjAH7YWUQa-mh1gfHdosnEuo6JETrk14",
-      "description": null,
+      "description": "La 225 Cuddy con motor fuera de borda: cabina cerrada en proa, cockpit cómodo para varios pasajeros y el mantenimiento simple de un fuera de borda. Una lancha completa para paseos y fines de semana.",
       "images": [
         {
           "src": "/catalog/225-cuddy-fb/16yKacHw2TQ11XNlFpCiLmPRyiB78gdbb.jpg",
@@ -561,7 +561,7 @@
       "name": "245 DF",
       "category": "lanchas",
       "folderId": "1OvNLOeDhvC3ZN10aSBi-H4coGaInQ_Li",
-      "description": null,
+      "description": "Casco amplio, cabina equipada en proa y un cockpit preparado para recibir amigos. El motor dentro-fuera de borda le da un andar silencioso y deja la popa libre para una gran plataforma de baño. Para los que pasan el fin de semana en el agua.",
       "images": [
         {
           "src": "/catalog/245-df/1KXSoKA76mQ6eYssEXOhAImFBxjYS-G-y.jpg",
@@ -630,7 +630,7 @@
       "name": "245 FB",
       "category": "lanchas",
       "folderId": "1HLapmqBkjz89GOEAvvRKP1n73h9gvk7w",
-      "description": null,
+      "description": "La 245 con motor fuera de borda: el mismo casco amplio y la misma cabina, con más lugar libre en el cockpit y la practicidad de un fuera de borda. Una lancha cómoda para recorrer el Delta y pasar días largos a bordo.",
       "images": [
         {
           "src": "/catalog/245-fb/1sZy9fHkJuynkn3B7QYHu1LGKMdGi8AaX.jpg",
@@ -699,7 +699,7 @@
       "name": "280 DF",
       "category": "lanchas",
       "folderId": "1ZCGEhuf3_BLBf7bUyJK6e0r8u8i-MVu3",
-      "description": null,
+      "description": "Para navegar con todo el confort: cabina amplia, cockpit social con solárium y motor dentro-fuera de borda con plataforma de baño integrada. Pensada para escapadas de varios días.",
       "images": [
         {
           "src": "/catalog/280-df/1818Nsft7PfkHSlzTK7XqU2DBXwo5q9P-.jpg",
@@ -768,7 +768,7 @@
       "name": "280 FB",
       "category": "lanchas",
       "folderId": "1rXYoFzTRfMnXiHQ5Whddf6OAAIpzcsgR",
-      "description": null,
+      "description": "La 280 con motor fuera de borda: gran capacidad, mantenimiento simple y más espacio libre en popa. Cabina amplia, cockpit social y la presencia de una lancha grande en cada salida.",
       "images": [
         {
           "src": "/catalog/280-fb/01.jpg",
@@ -837,7 +837,7 @@
       "name": "285 DF",
       "category": "lanchas",
       "folderId": "1iGSekDkAUGW5Ku8pf3ibyR409uHlXgYj",
-      "description": null,
+      "description": "Diseño moderno de líneas deportivas. Cabina luminosa para descansar, cockpit amplio con solárium y motor dentro-fuera de borda para un andar suave y silencioso.",
       "images": [
         {
           "src": "/catalog/285-df/1UEWd4l8vzAxAC6IycAPzOOD6gqQ2zmEc.jpg",
@@ -906,7 +906,7 @@
       "name": "285 FB",
       "category": "lanchas",
       "folderId": "12mvNIo_Fqt9vepCyWk0MOUMakfJIZrZ4",
-      "description": null,
+      "description": "La 285 con motor fuera de borda: deportiva, ágil y con un cockpit enorme para disfrutar con amigos. Cabina cómoda en proa, solárium y toda la versatilidad de un fuera de borda.",
       "images": [
         {
           "src": "/catalog/285-fb/173szyF0VZFn3Iwblx44EnRkgtUPw19H2.jpg",
@@ -975,7 +975,7 @@
       "name": "348",
       "category": "lanchas",
       "folderId": "1mY2oCjoJRq6hEzqulOzwVbTkGuyNSRaA",
-      "description": null,
+      "description": "La lancha más grande de la gama Canestrari. Techo rígido, doble motor fuera de borda y una cabina completa con cama, baño y cocina con heladera para quedarte a dormir a bordo. Solárium de proa, cockpit para recibir y terminaciones de primera: para los que no quieren resignar nada.",
       "images": [
         {
           "src": "/catalog/348/15U-Mqz0DiNKkXTuxIGlmu5wA9BxcGaPR.jpg",

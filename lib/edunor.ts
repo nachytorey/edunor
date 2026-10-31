@@ -57,14 +57,6 @@ export const generators = {
   brand: "GENERAC",
   title: "Generadores",
   lead: "Representantes oficiales de generadores GENERAC",
-  dek: "Energía de respaldo para tu casa, tu comercio o tu industria. Te asesoramos para elegir el equipo y lo instalamos.",
-  image: { src: "/palatine/generac/generac-tormenta.jpg", alt: "Tormenta eléctrica sobre una ciudad de noche, con el logo de GENERAC" },
-  lines: [
-    { name: "Portátiles", image: "/palatine/generac/portatiles.jpg", alt: "Generador portátil GENERAC GP17500E, detalle del motor" },
-    { name: "Residenciales y comerciales", image: "/palatine/generac/residenciales.jpg", alt: "Generador comercial GENERAC SB-375 instalado junto a un edificio" },
-    { name: "Industriales", image: "/palatine/generac/industriales.jpg", alt: "Generador GENERAC Industrial Power en exterior" },
-    { name: "Equipos instalados", image: "/palatine/generac/instalados.jpg", alt: "Generador GENERAC de respaldo instalado en una terraza" },
-  ],
-  /** Fotos de las líneas: Wikimedia Commons. Las CC BY exigen crédito visible (se muestra bajo la grilla). */
-  credits: "Fotos: Dwight Burdette (CC BY 3.0) y Analogue Kid (CC BY 2.5) vía Wikimedia Commons; FEMA y U.S. Fish and Wildlife Service (dominio público).",
+  dek: "Portátiles para el campo, la obra o el fin de semana; residenciales y comerciales que arrancan solos cuando se corta la luz; e industriales para alta potencia. Te asesoramos para elegir el equipo y lo instalamos.",
+  image: { src: "/palatine/generac.png", alt: "Generadores GENERAC: residenciales Guardian y Protector, industrial y portátiles" },
 }

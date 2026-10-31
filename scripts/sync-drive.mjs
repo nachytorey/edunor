@@ -10,7 +10,8 @@
  *   3. Deduce la categoría (lanchas / cuatriciclos) por el nombre de la carpeta o de
  *      cualquiera de sus carpetas madre.
  *   4. Si la carpeta del modelo tiene un .txt (idealmente "descripcion.txt"), su texto es la
- *      descripción del modelo. Sin .txt, el modelo se muestra solo con su nombre.
+ *      descripción del modelo. Si no, se usa data/descripciones/<carpeta>/descripcion.txt
+ *      del repo (la carpeta se compara por slug: "225 CUDDY DF" ↔ "225-cuddy-df").
  *   5. Descarga las fotos redimensionadas a public/catalog/<modelo>/ y escribe
  *      data/catalog.json, que es lo que lee el sitio. Las fotos que no cambiaron
  *      (mismo checksum) no se vuelven a bajar.
@@ -45,12 +46,26 @@ import { fileURLToPath } from "node:url"
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const OUT_JSON = path.join(ROOT, "data", "catalog.json")
 const OUT_IMG_DIR = path.join(ROOT, "public", "catalog")
+const LOCAL_DESC_DIR = path.join(ROOT, "data", "descripciones")
 const DEFAULT_FOLDER = "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V"
 const API = "https://www.googleapis.com/drive/v3"
 const FOLDER_MIME = "application/vnd.google-apps.folder"
 const TEXT_NAMES = /^(descripcion|descripción|info|ficha)\.txt$/i
 
 /* ───────── utilidades puras (se testean sin red) ───────── */
+
+/** Descripciones escritas en el repo: data/descripciones/<modelo>/descripcion.txt, por slug. */
+async function readLocalDescriptions() {
+  const map = new Map()
+  if (!existsSync(LOCAL_DESC_DIR)) return map
+  for (const entry of await readdir(LOCAL_DESC_DIR, { withFileTypes: true })) {
+    const file = path.join(LOCAL_DESC_DIR, entry.name, "descripcion.txt")
+    if (!entry.isDirectory() || !existsSync(file)) continue
+    const text = (await readFile(file, "utf8")).replace(/^\uFEFF/, "").replace(/\n{3,}/g, "\n\n").trim()
+    if (text) map.set(slugify(entry.name), text)
+  }
+  return map
+}
 
 export function slugify(text) {
   return text
@@ -368,6 +383,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
   )
 
   const products = []
+  const localDescriptions = await readLocalDescriptions()
   for (const p of found) {
     const dir = path.join(OUT_IMG_DIR, p.slug)
     await mkdir(dir, { recursive: true })
@@ -407,6 +423,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
         description = null
       }
     }
+    description ??= localDescriptions.get(p.slug) ?? null
     products.push({ slug: p.slug, name: p.name, category: p.category, folderId: p.folderId, description, images })
   }
 
