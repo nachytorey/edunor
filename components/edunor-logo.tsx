@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import type { SVGProps } from "react"
 
 /**
@@ -33,6 +34,20 @@ export function EdunorLogo({ accent, mono = false, title, ...props }: EdunorLogo
       <path d={EDUNOR} fill="currentColor" />
       <path d={NAUTICA} fill={accentFill} />
     </svg>
+=======
+import Image from "next/image"
+
+export function EdunorLogo() {
+  return (
+    <Image
+      src="/images/edunor-logo.png"
+      alt="Edunor Nautica"
+      width={100}
+      height={30}
+      className="h-40 w-50"
+      priority
+    />
+>>>>>>> origin/main
   )
 }
 

@@ -48,7 +48,7 @@ export const locations: Location[] = [
     address: "Mariano Castex 560",
     city: "Canning, Ezeiza",
     region: "Provincia de Buenos Aires",
-    phones: [],
+    phones: ["4298 9291", "4231 5663"],
     mapsQuery: "Mariano Castex 560, B1842 Canning, Buenos Aires",
   },
 ]

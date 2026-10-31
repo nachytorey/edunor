@@ -4,17 +4,22 @@
  *
  * Qué hace:
  *   1. Recorre la carpeta raíz (y sus subcarpetas) con la API de Google Drive v3.
- *   2. Arma un producto por cada carpeta que tenga imágenes. El nombre del producto es
+ *   2. Arma un producto por cada carpeta que tenga fotos o videos. El nombre del producto es
  *      el nombre de la carpeta. Si una carpeta tiene imágenes sueltas y ninguna
  *      subcarpeta con imágenes, cada imagen es un producto (nombre = nombre del archivo).
  *   3. Deduce la categoría (lanchas / cuatriciclos) por el nombre de la carpeta o de
- *      cualquiera de sus carpetas madre.
+ *      cualquiera de sus carpetas madre. Estructura actual de Drive:
+ *        CANESTRARI/LANCHAS/<modelo>/…   → lanchas
+ *        CANESTRARI/CUATRI/<modelo>/…    → cuatriciclos
  *   4. Si la carpeta del modelo tiene un .txt (idealmente "descripcion.txt"), su texto es la
  *      descripción del modelo. Si no, se usa data/descripciones/<carpeta>/descripcion.txt
  *      del repo (la carpeta se compara por slug: "225 CUDDY DF" ↔ "225-cuddy-df").
  *   5. Descarga las fotos redimensionadas a public/catalog/<modelo>/ y escribe
  *      data/catalog.json, que es lo que lee el sitio. Las fotos que no cambiaron
  *      (mismo checksum) no se vuelven a bajar.
+ *   6. Los videos (.mp4, .mov, .webm…) se bajan enteros a la misma carpeta, junto con su
+ *      miniatura de Drive como póster (<id>.poster.jpg). Si el modelo no tiene fotos, el
+ *      sitio usa ese póster como portada.
  *
  * Sin credenciales (modo por defecto): la carpeta tiene que estar compartida como
  *   "Cualquier persona con el enlace: Lector". Se recorre la vista pública de Drive
@@ -30,6 +35,7 @@
  * Opciones:
  *   DRIVE_FOLDER_ID   carpeta raíz (por defecto la del catálogo de Edunor)
  *   DRIVE_MAX_IMAGES  fotos por modelo (por defecto 6)
+ *   DRIVE_MAX_VIDEOS  videos por modelo (por defecto 3)
  *   --optional        si no hay credenciales o falla la red, avisa y sale con 0
  *                     (se usa en prebuild para no romper el deploy)
  *   --dry-run         lista lo que encontraría sin descargar ni escribir
@@ -103,6 +109,8 @@ export function categorize(names) {
 }
 
 export const isImage = (f) => f.mimeType?.startsWith("image/")
+const VIDEO_EXT = /\.(mp4|m4v|mov|webm)$/i
+export const isVideo = (f) => f.mimeType?.startsWith("video/") || VIDEO_EXT.test(f.name)
 export const isText = (f) => /\.txt$/i.test(f.name) || f.mimeType === "text/plain"
 
 /** "Lanchas", "Cuatriciclos y UTV", "Motos de agua"… = carpeta contenedora, no un modelo. */
@@ -132,24 +140,26 @@ export function buildProducts(tree, trail = []) {
   const products = []
   const here = [...trail, tree.name]
   const images = tree.files.filter(isImage).sort(byCoverThenName)
+  const videos = tree.files.filter(isVideo).sort(byCoverThenName)
   const childProducts = tree.folders.flatMap((f) => buildProducts(f, here))
   // Descripción del modelo: un .txt en su carpeta. Si hay varios, manda "descripcion.txt" (o info/ficha).
   const texts = tree.files.filter(isText)
   const descFile = texts.find((f) => TEXT_NAMES.test(f.name)) ?? texts[0]
 
-  if (images.length && trail.length > 0 && childProducts.length === 0 && !isCategoryFolder(tree.name)) {
-    // Carpeta de un modelo: todas sus fotos son la galería del producto.
+  if ((images.length || videos.length) && trail.length > 0 && childProducts.length === 0 && !isCategoryFolder(tree.name)) {
+    // Carpeta de un modelo: todas sus fotos y videos son la galería del producto.
     products.push({
       name: prettyName(tree.name),
       folderId: tree.id,
       category: categorize(here),
       images,
+      videos,
       descriptionFileId: descFile?.id,
     })
   } else if (images.length) {
     // Fotos sueltas en la raíz o en una carpeta de categoría: cada una es un modelo.
     for (const img of images) {
-      products.push({ name: prettyName(img.name), folderId: tree.id, category: categorize([...here, img.name]), images: [img] })
+      products.push({ name: prettyName(img.name), folderId: tree.id, category: categorize([...here, img.name]), images: [img], videos: [] })
     }
   }
   return [...products, ...childProducts]
@@ -218,7 +228,7 @@ export function createDrive(auth, fetchImpl = fetch) {
     do {
       const res = await request("/files", {
         q: `'${folderId}' in parents and trashed = false`,
-        fields: "nextPageToken, files(id, name, mimeType, md5Checksum, modifiedTime, thumbnailLink, imageMediaMetadata(width, height))",
+        fields: "nextPageToken, files(id, name, mimeType, md5Checksum, modifiedTime, thumbnailLink, imageMediaMetadata(width, height), videoMediaMetadata(width, height))",
         pageSize: "1000",
         supportsAllDrives: "true",
         includeItemsFromAllDrives: "true",
@@ -262,8 +272,25 @@ export function createDrive(auth, fetchImpl = fetch) {
     return (await res.text()).trim()
   }
 
-  return { tree, folderName, download, text }
+  /** Video original, sin recomprimir. */
+  async function downloadVideo(file) {
+    const res = await request(`/files/${file.id}`, { alt: "media", supportsAllDrives: "true" })
+    return { bytes: Buffer.from(await res.arrayBuffer()), ext: videoExt(file) }
+  }
+
+  /** Póster del video: la miniatura que genera Drive (null si todavía no la tiene). */
+  async function poster(file, width = 1600) {
+    if (!file.thumbnailLink) return null
+    const res = await fetchImpl(file.thumbnailLink.replace(/=s\d+(-[a-z0-9-]+)?$/i, `=w${width}`), {
+      headers: auth.token ? { authorization: `Bearer ${auth.token}` } : {},
+    })
+    return res.ok ? Buffer.from(await res.arrayBuffer()) : null
+  }
+
+  return { tree, folderName, download, text, downloadVideo, poster }
 }
+
+const videoExt = (file) => (file.name.match(VIDEO_EXT)?.[1] ?? "mp4").toLowerCase()
 
 /* ───────── Drive público, sin clave ───────── */
 
@@ -288,7 +315,13 @@ export function parseEmbeddedFolder(html) {
     const isFolder = /\/drive\/(u\/\d+\/)?folders\//.test(href)
     const typeIcon = block.match(/\/type\/([\w.+-]+\/[\w.+-]+)/)?.[1]
     const name = decode(rawName.replace(/<[^>]+>/g, ""))
-    const guessed = /\.(jpe?g|png|webp|gif|heic|avif)$/i.test(name) ? "image/jpeg" : /\.txt$/i.test(name) ? "text/plain" : "application/octet-stream"
+    const guessed = /\.(jpe?g|png|webp|gif|heic|avif)$/i.test(name)
+      ? "image/jpeg"
+      : VIDEO_EXT.test(name)
+        ? "video/mp4"
+        : /\.txt$/i.test(name)
+          ? "text/plain"
+          : "application/octet-stream"
     entries.push({
       id,
       name,
@@ -337,6 +370,20 @@ export function createPublicDrive(fetchImpl = fetch) {
       if (!res.ok) throw new Error(`No se pudo leer el texto ${fileId}.`)
       return (await res.text()).trim()
     },
+    /** confirm=t saltea el aviso de "no se pudo analizar en busca de virus" de los archivos grandes. */
+    async downloadVideo(file) {
+      const res = await fetchImpl(`https://drive.usercontent.google.com/download?id=${file.id}&export=download&confirm=t`, { headers })
+      const type = res.headers?.get?.("content-type") ?? ""
+      if (!res.ok || !(type.startsWith("video/") || type.includes("octet-stream"))) {
+        throw new Error(`No se pudo bajar el video ${file.name} (${res.status} ${type}).`)
+      }
+      return { bytes: Buffer.from(await res.arrayBuffer()), ext: videoExt(file) }
+    },
+    async poster(file, width = 1600) {
+      const res = await fetchImpl(`https://drive.google.com/thumbnail?id=${file.id}&sz=w${width}`, { headers })
+      const type = res.headers?.get?.("content-type") ?? ""
+      return res.ok && type.startsWith("image/") ? Buffer.from(await res.arrayBuffer()) : null
+    },
   }
 }
 
@@ -354,6 +401,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
   const auth = await resolveAuth(env)
   const folderId = env.DRIVE_FOLDER_ID || DEFAULT_FOLDER
   const maxImages = Number(env.DRIVE_MAX_IMAGES || 6)
+  const maxVideos = Number(env.DRIVE_MAX_VIDEOS || 3)
   const drive = auth ? createDrive(auth, fetchImpl) : createPublicDrive(fetchImpl)
   log(auth ? "→ Modo API (con credenciales)." : "→ Modo público (sin clave).")
 
@@ -373,7 +421,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
   }
 
   if (dryRun) {
-    for (const p of found) log(`   [${p.category}] ${p.name} — ${p.images.length} fotos`)
+    for (const p of found) log(`   [${p.category}] ${p.name} — ${p.images.length} fotos, ${p.videos.length} videos`)
     return { products: found, written: false }
   }
 
@@ -381,6 +429,11 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
   const prevImages = new Map(
     (previous?.products ?? []).flatMap((p) => p.images.map((i) => [i.driveId, i])),
   )
+  const prevVideos = new Map(
+    (previous?.products ?? []).flatMap((p) => (p.videos ?? []).map((v) => [v.driveId, v])),
+  )
+  const isFresh = (prev, file, ...srcs) =>
+    prev && prev.checksum === (file.md5Checksum ?? file.modifiedTime) && srcs.every((s) => s && existsSync(path.join(ROOT, "public", s)))
 
   const products = []
   const localDescriptions = await readLocalDescriptions()
@@ -390,7 +443,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
     const images = []
     for (const [i, file] of p.images.slice(0, maxImages).entries()) {
       const prev = prevImages.get(file.id)
-      const reuse = prev && prev.checksum === (file.md5Checksum ?? file.modifiedTime) && existsSync(path.join(ROOT, "public", prev.src))
+      const reuse = isFresh(prev, file, prev?.src)
       let src = prev?.src
       if (!reuse) {
         const { bytes, ext } = await drive.download(file)
@@ -411,8 +464,36 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
         cover: isCover(file.name),
       })
     }
-    // Borra fotos viejas de este modelo que ya no forman parte de la galería.
-    const keepFiles = new Set(images.map((im) => path.basename(im.src)))
+    const videos = []
+    for (const file of p.videos.slice(0, maxVideos)) {
+      const prev = prevVideos.get(file.id)
+      let { src, poster } = prev ?? {}
+      if (!isFresh(prev, file, src, ...(poster ? [poster] : []))) {
+        const { bytes, ext } = await drive.downloadVideo(file)
+        await writeFile(path.join(dir, `${file.id}.${ext}`), bytes)
+        src = `/catalog/${p.slug}/${file.id}.${ext}`
+        // Sin póster el video igual se muestra; Drive tarda un rato en generar la miniatura de un video nuevo.
+        const still = await drive.poster(file).catch(() => null)
+        poster = null
+        if (still) {
+          await writeFile(path.join(dir, `${file.id}.poster.jpg`), still)
+          poster = `/catalog/${p.slug}/${file.id}.poster.jpg`
+        }
+        log(`   ↓ ${p.name} · ${file.name} (${(bytes.length / 1048576).toFixed(1)} MB)`)
+      }
+      videos.push({
+        src,
+        poster: poster ?? null,
+        driveId: file.id,
+        checksum: file.md5Checksum ?? file.modifiedTime,
+        width: file.videoMediaMetadata?.width ?? null,
+        height: file.videoMediaMetadata?.height ?? null,
+        alt: `${p.name}, video`,
+        file: file.name,
+      })
+    }
+    // Borra fotos y videos viejos de este modelo que ya no forman parte de la galería.
+    const keepFiles = new Set([...images, ...videos].flatMap((m) => [m.src, m.poster]).filter(Boolean).map((s) => path.basename(s)))
     for (const f of await readdir(dir)) if (!keepFiles.has(f)) await rm(path.join(dir, f), { force: true })
     let description = null
     if (p.descriptionFileId) {
@@ -424,7 +505,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
       }
     }
     description ??= localDescriptions.get(p.slug) ?? null
-    products.push({ slug: p.slug, name: p.name, category: p.category, folderId: p.folderId, description, images })
+    products.push({ slug: p.slug, name: p.name, category: p.category, folderId: p.folderId, description, images, videos })
   }
 
   // Borra carpetas de modelos que ya no están en Drive.
