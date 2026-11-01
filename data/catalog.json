@@ -2,7 +2,7 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-11-01T02:32:42.690Z",
+  "syncedAt": "2026-11-01T14:52:51.132Z",
   "products": [
     {
       "slug": "polaris-pro-r-2026",
@@ -1361,6 +1361,25 @@
           "height": null,
           "alt": "Polaris RZR Pro R Ultimate, video",
           "file": "AQMvn5bgh3a3VdXM6D9WyU2_yHuctbYktg2y-flFU9zBe2e91QC0dvmMdiuX3nmzQLR9DlB59EtiE5dOmsuOeK6iQUNjWkOJJiHpGqA.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "canestrari-178-con-motor-suzuki-140",
+      "name": "Canestrari 178 Con Motor Suzuki 140",
+      "category": "lanchas",
+      "folderId": "1nFWimPBs6m4Jl2lhIHGm-33csGBAWYAW",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/canestrari-178-con-motor-suzuki-140/1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU.mp4",
+          "poster": "/publicidad/canestrari-178-con-motor-suzuki-140/1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU.poster.jpg",
+          "driveId": "1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU",
+          "checksum": "public:1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU:igexport-DRQNc_Bgb9L.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Canestrari 178 Con Motor Suzuki 140, video",
+          "file": "igexport-DRQNc_Bgb9L.mp4"
         }
       ]
     },
