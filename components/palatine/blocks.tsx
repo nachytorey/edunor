@@ -1,10 +1,10 @@
 /**
  * Piezas compartidas por las páginas del sitio (portada y empresa):
- * títulos fantasma, citas, carteles indicadores, navegación y pie.
+ * títulos fantasma, citas, botones de acción, navegación y pie.
  */
 import { EdunorLogo } from "@/components/edunor-logo"
 import { Caps } from "@/components/palatine/interactive"
-import { CompassRose, QuoteMark, SignPost } from "@/components/palatine/ornaments"
+import { QuoteMark } from "@/components/palatine/ornaments"
 import { brands, contact } from "@/lib/edunor"
 import { whatsappLink } from "@/lib/site"
 
@@ -24,12 +24,11 @@ export const fichaHref = (slug: string) => `/modelos/${slug}`
 
 const allBrands =[...new Set(brands.flatMap((b) => b.names))]
 
-/** Título fantasma de sección, con un pequeño grabado encima. */
-export function GhostTitle({ children, ornament, side = "right" }: { children: string; ornament?: React.ReactNode; side?: "left" | "right" }) {
+/** Título fantasma de sección: palabra gigante calada, con el corte de velocidad del logo. */
+export function GhostTitle({ children, side = "right" }: { children: string; side?: "left" | "right" }) {
   return (
     <div className={`pal-ghost pal-ghost--${side}`}>
       <h2 className="pal-ghost__title">{children}</h2>
-      {ornament ? <div className="pal-ghost__ornament">{ornament}</div> : null}
     </div>
   )
 }
@@ -45,19 +44,18 @@ export function Quote({ text, source }: { text: string; source: string }) {
   )
 }
 
-/** Cartel indicador: un poste con una o dos tablas que apuntan a izquierda y derecha. */
+/** Botones de acción en itálica, como el logo: el primero lleno y el resto calados. */
 export function Signs({ items }: { items: { href: string; label: string; external?: boolean }[] }) {
   return (
     <div className="pal-signs">
-      <SignPost className="pal-signs__post" />
       {items.map((s, n) => (
         <a
           key={s.label}
           href={s.href}
-          className={`pal-sign pal-sign--${n % 2 ? "left" : "right"}`}
+          className={`pal-sign${n ? "" : " pal-sign--solid"}`}
           {...(s.external ? { target: "_blank", rel: "noreferrer" } : {})}
         >
-          {s.label}
+          <span>{s.label}</span>
         </a>
       ))}
     </div>
@@ -68,9 +66,6 @@ export function PalFooter() {
   return (
     <footer className="pal-footer">
       <div className="pal-footer__brand">
-        <div className="pal-footer__emblem" aria-hidden="true">
-          <CompassRose />
-        </div>
         <EdunorLogo className="pal-footer__logo" title="Edunor Náutica" />
         <p className="pal-footer__copy">© {new Date().getFullYear()} Edunor Náutica</p>
       </div>

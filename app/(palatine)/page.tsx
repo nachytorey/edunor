@@ -1,31 +1,23 @@
 /**
  * / — portada de Edunor Náutica con la composición de ensemblelapalatine.com
- * (hero ilustrado, títulos fantasma gigantes, manchas de color, marcos entintados, carteles
- * indicadores) y la identidad de Edunor: marino, papel y naranja, con grabados náuticos propios.
- * Textos e imágenes son de Edunor; los ornamentos están dibujados en components/palatine/ornaments.tsx.
+ * (hero, títulos fantasma gigantes, paneles, marcos, botones de acción) vestida con el logo:
+ * negro con malla hexagonal, blanco, itálica pesada, cortes de velocidad y todo en ángulo recto.
  */
 import { Fragment } from "react"
-import { fichaHref, GhostTitle, PalFooter, Quote, Signs, WHATSAPP } from "@/components/palatine/blocks"
+import { fichaHref, GhostTitle, PalFooter, Signs, WHATSAPP } from "@/components/palatine/blocks"
 import { Caps, Fader, PalNav } from "@/components/palatine/interactive"
-import { GalleryReel } from "@/components/palatine/gallery-reel"
+import { PhotoGallery, type GalleryPhoto } from "@/components/palatine/photo-gallery"
+import { HeroMotion } from "@/components/palatine/hero-motion"
 import { PhotoDeck } from "@/components/palatine/photo-deck"
+import { SectionMotion } from "@/components/palatine/section-motion"
+import { imageDims } from "@/lib/image-dims"
 import {
-  Anchor,
   ChatIcon,
-  CompassRose,
   FacebookIcon,
-  Fish,
-  Gull,
   InstagramIcon,
-  LifeRing,
-  Lighthouse,
   MailIcon,
   PhoneIcon,
   PinIcon,
-  ShipWheel,
-  Starfish,
-  Sunburst,
-  Waves,
   Workshop,
 } from "@/components/palatine/ornaments"
 import { cuatriciclos, lanchas } from "@/lib/catalog"
@@ -75,12 +67,21 @@ const utvPhotos = cuatriciclos.flatMap((p) => {
   const photo = p.images.find((m) => !m.video && m.src)
   return photo ? [{ href: fichaHref(p.slug), src: photo.src, alt: photo.alt || `${p.kind} ${p.name}`, name: p.name }] : []
 })
-/** Galería: una foto de cada lancha que no sea la portada (esa ya está en Modelos). */
-const gallery = lanchas.slice(0, 12).flatMap((p) => {
-  const photos = p.images.filter((m) => !m.video && m.src)
-  const photo = photos[2] ?? photos[1] ?? photos[0]
-  return photo ? [{ src: photo.src, alt: `Lancha ${p.name}`, name: p.name, kind: p.kind, href: fichaHref(p.slug) }] : []
-})
+/**
+ * Galería: hasta 4 fotos por modelo (sin la portada, que ya está en Modelos y UTV), intercaladas
+ * para que no queden juntas las del mismo modelo. Las medidas se leen del archivo en el build.
+ */
+const galleryByModel = [...lanchas, ...cuatriciclos].map((p) =>
+  p.images
+    .filter((m) => !m.video && m.src)
+    .slice(1, 5)
+    .flatMap((m): GalleryPhoto[] => {
+      const dims = imageDims(m.src)
+      if (!dims) return []
+      return [{ src: m.src, ...dims, alt: m.alt || `${p.kind} ${p.name}`, name: p.name, kind: p.kind, ficha: fichaHref(p.slug), category: p.category }]
+    }),
+)
+const gallery = Array.from({ length: 4 }, (_, i) => galleryByModel.flatMap((photos) => photos[i] ?? [])).flat()
 
 export default function PalatinePage() {
   return (
@@ -89,42 +90,35 @@ export default function PalatinePage() {
 
       <main>
         {/* ── Hero ── */}
-        <section className="pal-hero" aria-labelledby="pal-hero-title">
+        <HeroMotion labelledBy="pal-hero-title">
           <div className="pal-hero__art">
-            <Sunburst className="pal-hero__rays" />
             <div className="pal-hero__porthole">
               <img
-                src="/palatine/portada.png"
+                src="/palatine/portada.webp"
                 alt="Local de Edunor con lanchas en el salón y dos cuatriciclos Polaris en la vereda"
                 fetchPriority="high"
               />
+              <span className="pal-hero__flash" aria-hidden="true" />
             </div>
-            <CompassRose className="pal-hero__compass" />
-            <Gull className="pal-hero__gull" />
-            <Gull className="pal-hero__gull pal-hero__gull--2" />
           </div>
           <div className="pal-hero__text">
             <h1 id="pal-hero-title" className="pal-hero__title">
-              <Caps text="Edunor Náutica" />
+              {/* Palabras sueltas (no <Caps>): la entrada las anima una por una. */}
+              <span className="pal-hero__word">Edunor</span> <span className="pal-hero__word">Náutica</span>
             </h1>
             <p className="pal-hero__sub">Lanchas, cuatriciclos y service oficial desde {company.founded}</p>
-            <Quote
-              text="La lancha la elegís vos. El resto del viaje lo hacemos juntos: te asesoramos con la experiencia de toda una vida en el agua, te la entregamos lista para navegar y seguimos a tu lado en cada service."
-              source={`Edunor · desde ${company.founded}`}
-            />
           </div>
-        </section>
+        </HeroMotion>
 
         {/* ── Modelos ── */}
         <section id="modelos" className="pal-models">
-          <GhostTitle ornament={<ShipWheel className="pal-spin" />} side="left">
+          <GhostTitle side="left">
             Modelos
           </GhostTitle>
           <Fader label="Modelos de lanchas" className="pal-models__slider">
             {featured.map((p) => (
               <article key={p.slug} className="pal-model">
                 <div className="pal-model__story">
-                  <Lighthouse className="pal-model__figure" />
                   <div className="pal-bubble">
                     <h3 className="pal-model__name">
                       <Caps text={p.name} />
@@ -151,7 +145,7 @@ export default function PalatinePage() {
 
         {/* ── UTV y cuatriciclos: pila de fotos sueltas, una por modelo ── */}
         <section id="utv" className="pal-utv" aria-labelledby="pal-utv-title">
-          <GhostTitle ornament={<CompassRose />} side="right">
+          <GhostTitle side="right">
             Tierra
           </GhostTitle>
           <div className="pal-utv__stage">
@@ -188,7 +182,6 @@ export default function PalatinePage() {
           <GhostTitle side="right">Generadores</GhostTitle>
           <div className="pal-gen__grid">
             <div className="pal-gen__copy">
-              <Waves className="pal-gen__waves" />
               <div className="pal-bubble pal-bubble--right">
                 <p className="pal-gen__lead">{generators.lead}</p>
                 <p>{generators.dek}</p>
@@ -208,7 +201,7 @@ export default function PalatinePage() {
 
         {/* ── Quiénes somos: la familia y cómo acompaña la compra de una lancha ── */}
         <section id="quienes" className="pal-about" aria-labelledby="pal-about-title">
-          <GhostTitle ornament={<Anchor />} side="left">
+          <GhostTitle side="left">
             Familia
           </GhostTitle>
           <div className="pal-about__grid">
@@ -258,7 +251,7 @@ export default function PalatinePage() {
 
         {/* ── Showroom (en el lugar del calendario) ── */}
         <section id="showroom" className="pal-show">
-          <GhostTitle ornament={<Anchor />} side="left">
+          <GhostTitle side="left">
             Showroom
           </GhostTitle>
           <div className="pal-show__grid">
@@ -285,7 +278,6 @@ export default function PalatinePage() {
               ))}
             </ul>
             <a href={WHATSAPP} target="_blank" rel="noreferrer" className="pal-callout">
-              <LifeRing className="pal-callout__ring" />
               <span className="pal-callout__small">coordiná tu</span>
               <span className="pal-callout__big">Visita</span>
               <span className="pal-callout__small pal-callout__small--right">al showroom</span>
@@ -295,21 +287,18 @@ export default function PalatinePage() {
 
         {/* ── Galería (en el lugar de los videos) ── */}
         <section id="galeria" className="pal-gallery">
-          <GhostTitle ornament={<Gull />} side="right">
+          <GhostTitle side="right">
             Galería
           </GhostTitle>
-          <GalleryReel photos={gallery} />
+          <PhotoGallery photos={gallery} />
         </section>
 
         {/* ── Taller (en el lugar de las biografías) ── */}
         <section className="pal-shop" aria-labelledby="pal-shop-title">
           <div className="pal-shop__portrait">
-            <Fish className="pal-shop__fish" />
             <div className="pal-shop__oval">
               <Workshop />
             </div>
-            <Starfish className="pal-shop__star" />
-            <Gull className="pal-shop__gull" />
           </div>
           <div className="pal-shop__text">
             <h2 id="pal-shop-title" className="pal-shop__title">
@@ -378,12 +367,12 @@ export default function PalatinePage() {
             </ul>
           </div>
           <a href={WHATSAPP} target="_blank" rel="noreferrer" className="pal-callout pal-callout--contact">
-            <LifeRing className="pal-callout__ring" />
             <span className="pal-callout__small">no te olvides del</span>
             <span className="pal-callout__big">WhatsApp</span>
           </a>
         </section>
       </main>
+      <SectionMotion />
 
       <PalFooter />
     </div>

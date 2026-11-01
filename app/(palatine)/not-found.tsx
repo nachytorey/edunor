@@ -4,7 +4,7 @@
  */
 import { GhostTitle, NAV, PalFooter, Signs, WHATSAPP } from "@/components/palatine/blocks"
 import { Caps, PalNav } from "@/components/palatine/interactive"
-import { CompassRose, Gull, Lighthouse, Sunburst } from "@/components/palatine/ornaments"
+import { Lighthouse } from "@/components/palatine/ornaments"
 
 export default function PalatineNotFound() {
   return (
@@ -13,10 +13,7 @@ export default function PalatineNotFound() {
 
       <main className="pal-lost" aria-labelledby="pal-lost-title">
         <div className="pal-lost__art" aria-hidden="true">
-          <Sunburst className="pal-lost__rays" />
           <Lighthouse className="pal-lost__lighthouse" />
-          <CompassRose className="pal-lost__compass" />
-          <Gull className="pal-lost__gull" />
         </div>
 
         <div className="pal-lost__text">

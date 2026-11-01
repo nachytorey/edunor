@@ -1,5 +1,5 @@
-/* /modelos/[slug] — ficha de modelo con el grabado de la portada.
-   El visor (ProductGallery) trae clases pd-*; acá se visten de papel, tinta y naranja. */
+/* /modelos/[slug] — ficha de modelo con el estilo de la portada.
+   El visor (ProductGallery) trae clases pd-*; acá se visten de negro, blanco y ángulo recto. */
 
 /* La pantalla completa del visor tiene que quedar por encima del nav fijo. */
 .pal-pd-page:has(.pd-viewer.is-full) > main { z-index: 100; }
@@ -9,7 +9,7 @@
 .pal-pd__back {
   display: inline-flex; align-items: center; gap: 10px; margin: 0 var(--pal-gutter);
   position: relative; top: -2vw;
-  font-family: var(--f-sans); font-weight: 500; font-size: 15px; letter-spacing: 0.1em;
+  font-family: var(--f-sans); font-weight: 700; font-size: 15px; letter-spacing: 0.12em;
   text-transform: uppercase; text-decoration: none;
 }
 .pal-pd__back svg { width: 14px; height: 16px; color: var(--pal-accent); rotate: 180deg; transition: translate 0.3s; }
@@ -21,26 +21,24 @@
 }
 .pal-pd__gallery { position: relative; isolation: isolate; }
 .pal-pd__gallery::before {
-  content: ""; position: absolute; inset: -12px; z-index: -1;
-  background: var(--pal-ink); filter: url(#pal-rough);
+  content: ""; position: absolute; inset: -10px; z-index: -1; border: 1px solid var(--pal-line);
 }
-.pal-pd__gull { position: absolute; z-index: 2; width: 84px; right: -30px; top: -62px; color: var(--pal-ink); rotate: 8deg; scale: -1 1; }
+.pal-pd__gallery::after {
+  content: ""; position: absolute; left: -10px; bottom: -16px; width: 34%; height: 5px;
+  background: var(--pal-ink); transform: skewX(var(--pal-skew)); transform-origin: left;
+}
 
 .pal-pd__info { position: sticky; top: 110px; display: grid; gap: 40px; padding-top: 10px; }
 .pal-pd__bubble { padding: 44px 36px 40px; }
 .pal-pd__kind {
-  font-family: var(--f-sans) !important; font-weight: 600; font-size: 14px !important;
-  letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px !important;
+  font-family: var(--f-sans) !important; font-weight: 700; font-size: 14px !important;
+  letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px !important;
 }
-.pal-pd__name {
-  margin: 0 0 16px; font-family: var(--f-display); font-weight: 400; text-transform: uppercase;
-  font-size: clamp(34px, 3.6vw, 54px); line-height: 1; text-wrap: balance;
-}
-.pal-pd__desc { font-size: 17px !important; line-height: 1.5; text-wrap: pretty; }
+.pal-pd__name { margin: 0 0 18px; font-size: clamp(40px, 4.2vw, 66px); line-height: 0.92; text-wrap: balance; }
+.pal-pd__desc { font-size: 17px !important; line-height: 1.55; text-wrap: pretty; }
 
-.pal-pd__actions { display: grid; grid-template-columns: 70px auto; align-items: end; justify-content: center; gap: 10px 18px; }
-.pal-pd__lighthouse { width: 70px; color: var(--pal-ink); }
-.pal-pd__note { grid-column: 1 / -1; margin: 0; text-align: center; font-style: italic; font-size: 15px; }
+.pal-pd__actions { display: grid; gap: 14px; }
+.pal-pd__note { margin: 0; font-style: italic; font-size: 15px; color: var(--pal-ink-soft); }
 
 /* ── Visor de fotos ── */
 .pal .pd-viewer { position: relative; display: flex; flex-direction: column; background: var(--pal-paper); color: var(--pal-ink); outline: none; }
@@ -79,45 +77,43 @@
   height: calc(100% - 36px); max-width: calc(100% - 36px); aspect-ratio: 9 / 16;
 }
 .pal .pd-slide__phone::before {
-  content: ""; position: absolute; inset: -11px; z-index: -1;
-  background: var(--pal-ink); filter: url(#pal-rough);
+  content: ""; position: absolute; inset: -10px; z-index: -1; border: 1px solid var(--pal-line);
 }
 .pal .pd-slide__video { display: block; pointer-events: auto; object-fit: cover; background: var(--pal-ink); }
 .pal .pd-stage { transition: background-color 0.4s ease; }
 .pal .pd-viewer.has-video:not(.is-full), .pal .pd-viewer.has-video .pd-stage { background: transparent; }
-.pal-pd__gallery::before { transition: opacity 0.4s ease; }
-.pal-pd__gallery:has(.pd-viewer.has-video)::before { opacity: 0; }
+.pal-pd__gallery::before, .pal-pd__gallery::after { transition: opacity 0.4s ease; }
+.pal-pd__gallery:has(.pd-viewer.has-video)::before, .pal-pd__gallery:has(.pd-viewer.has-video)::after { opacity: 0; }
 .pal .pd-viewer.only-video:not(.is-full) .pd-stage { aspect-ratio: 9 / 16; max-height: min(78vh, 760px); }
 .pal .pd-tools.is-video { opacity: 0; pointer-events: none; }
 
-/* Flechas triangulares naranjas, como las del carrusel de la portada. */
+/* Flechas y herramientas en placas rectas, como el resto de la portada. */
 .pal .pd-arrow, .pal .pd-tool {
   display: grid; place-items: center; border: 0; padding: 0; font: inherit; cursor: pointer;
   transition: background 0.25s, color 0.25s, opacity 0.25s;
 }
 .pal .pd-arrow {
   position: absolute; top: 50%; z-index: 5; width: 52px; height: 52px; margin-top: -26px;
-  border-radius: 50%; background: var(--pal-paper); color: var(--pal-ink);
-  border: 2px solid var(--pal-ink); filter: url(#pal-rough);
+  background: var(--pal-paper); color: var(--pal-ink); border: 1px solid var(--pal-line);
 }
 .pal .pd-arrow--prev { left: 16px; }
 .pal .pd-arrow--next { right: 16px; }
-.pal .pd-arrow:hover, .pal .pd-tool:hover:not(:disabled) { background: var(--pal-accent); color: var(--pal-ink); }
+.pal .pd-arrow:hover, .pal .pd-tool:hover:not(:disabled) { background: var(--pal-ink); color: var(--pal-paper); }
 .pal .pd-stage.is-zoomed .pd-arrow { opacity: 0; pointer-events: none; }
 .pal .pd-arrow:focus-visible, .pal .pd-tool:focus-visible, .pal .pd-thumb:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: 2px; }
 
 .pal .pd-tools {
   position: absolute; left: 50%; bottom: 14px; z-index: 6; display: flex; align-items: center;
   gap: 2px; padding: 4px; transform: translateX(-50%);
-  background: var(--pal-paper); border: 2px solid var(--pal-ink); border-radius: 999px;
+  background: var(--pal-paper); border: 1px solid var(--pal-line);
 }
-.pal .pd-tool { width: 40px; height: 40px; border-radius: 50%; background: transparent; color: var(--pal-ink); }
+.pal .pd-tool { width: 40px; height: 40px; background: transparent; color: var(--pal-ink); }
 .pal .pd-tool:disabled { opacity: 0.35; cursor: default; }
 .pal .pd-tools__value {
   min-width: 52px; font-family: var(--f-sans); font-weight: 600; font-size: 15px;
   letter-spacing: 0.06em; text-align: center; font-variant-numeric: tabular-nums;
 }
-.pal .pd-tools__sep { width: 1px; height: 22px; margin: 0 4px; background: rgba(10, 31, 68, 0.25); }
+.pal .pd-tools__sep { width: 1px; height: 22px; margin: 0 4px; background: var(--pal-line); }
 
 .pal .pd-map {
   position: absolute; top: 14px; right: 14px; z-index: 6; width: 96px; overflow: hidden;
@@ -128,15 +124,15 @@
 .pal .pd-map img { width: 100%; height: auto; }
 .pal .pd-map__rect {
   position: absolute; left: 0; top: 0; width: 100%; height: 100%;
-  border: 2px solid var(--pal-accent); box-shadow: 0 0 0 999px rgba(10, 31, 68, 0.45);
+  border: 2px solid var(--pal-accent); box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.5);
 }
 
-/* Contador como placa grabada + leyenda en versalitas. */
+/* Contador en la tipografía del logo + leyenda condensada. */
 .pal .pd-bar { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 16px 18px 4px; }
-.pal .pd-bar__count { margin: 0; font-family: var(--f-display); font-size: 30px; line-height: 1; overflow: hidden; }
+.pal .pd-bar__count { margin: 0; font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 32px; line-height: 1; overflow: hidden; }
 .pal .pd-bar__current { display: inline-block; color: var(--pal-accent); }
 .pal .pd-bar__total { font-size: 18px; opacity: 0.6; }
-.pal .pd-bar__hint { margin: 0; font-family: var(--f-sans); font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; text-align: right; }
+.pal .pd-bar__hint { margin: 0; font-family: var(--f-sans); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; text-align: right; }
 
 .pal .pd-thumbs { position: relative; padding: 10px 18px 18px; }
 .pal .pd-thumbs__list { display: flex; gap: 10px; overflow-x: auto; list-style: none; margin: 0; padding: 0; scrollbar-width: none; }
@@ -162,11 +158,7 @@
 
 /* ── Sedes ── */
 .pal-pd-visit { padding: clamp(90px, 10vw, 150px) var(--pal-gutter) 0; display: grid; justify-items: center; gap: 36px; }
-.pal-pd-visit__title {
-  margin: 0; display: grid; justify-items: center; gap: 14px; text-align: center;
-  font-family: var(--f-display); font-weight: 400; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.05;
-}
-.pal-pd-visit__anchor { width: 46px; color: var(--pal-ink); }
+.pal-pd-visit__title { margin: 0; text-align: center; font-size: clamp(36px, 4vw, 60px); line-height: 0.95; }
 .pal-pd-visit__list {
   list-style: none; margin: 0; padding: 0; width: min(1100px, 100%);
   display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px 40px;
@@ -174,7 +166,7 @@
 
 /* ── Anterior / siguiente ── */
 .pal-pd-pager {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 24px;
   max-width: 1100px; margin: clamp(80px, 9vw, 130px) auto 0; padding: 0 var(--pal-gutter);
 }
 .pal-pd-pager__link {
@@ -186,10 +178,9 @@
 .pal-pd-pager__link--next .pal-pd-pager__arrow { grid-column: 2; grid-row: 1 / span 2; }
 .pal-pd-pager__link--prev:hover .pal-pd-pager__arrow { translate: -5px 0; }
 .pal-pd-pager__link--next:hover .pal-pd-pager__arrow { translate: 5px 0; }
-.pal-pd-pager__dir { font-family: var(--f-sans); font-weight: 500; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
-.pal-pd-pager__name { font-family: var(--f-display); font-size: clamp(20px, 2vw, 28px); line-height: 1.1; }
+.pal-pd-pager__dir { font-family: var(--f-sans); font-weight: 600; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; }
+.pal-pd-pager__name { font-family: var(--f-display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: clamp(20px, 2vw, 28px); line-height: 1.05; }
 .pal-pd-pager__link--next .pal-pd-pager__dir, .pal-pd-pager__link--next .pal-pd-pager__name { grid-column: 1; }
-.pal-pd-pager__waves { width: 90px; color: var(--pal-ink); }
 
 /* ── Más modelos ── */
 .pal-pd-more { padding-bottom: clamp(120px, 14vw, 200px); }
@@ -202,7 +193,6 @@
 .pal-pd-more__grid .pal-frame img { transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
 .pal-pd-more__grid .pal-frame { overflow: visible; }
 .pal-pd-more__grid .pal-frame:hover img { transform: scale(1.03); }
-.pal-pd-more .pal-media__engraving { width: 120px; }
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
@@ -210,13 +200,11 @@
   .pal-pd__info { position: static; max-width: 620px; justify-self: center; width: 100%; }
 }
 @media (max-width: 760px) {
-  .pal-pd__gull { width: 60px; right: -8px; top: -46px; }
   .pal .pd-viewer:not(.only-video):not([style]) .pd-stage { aspect-ratio: 1; }
   .pal .pd-thumb, .pal .pd-thumbs__marker { width: 76px; }
   .pal .pd-bar__hint { font-size: 11px; }
   .pal-pd__bubble { padding: 36px 24px 32px; }
   .pal-pd-pager { grid-template-columns: 1fr 1fr; }
-  .pal-pd-pager__waves { display: none; }
 }
 @media (max-width: 520px) {
   .pal-pd-pager__name { font-size: 18px; }

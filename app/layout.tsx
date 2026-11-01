@@ -9,6 +9,8 @@ const display = Red_Hat_Display({
   weight: ["900"],
   variable: "--font-display",
   display: "swap",
+  // La portada usa Barlow (app/(palatine)/layout.tsx): que no baje esta de entrada.
+  preload: false,
 })
 
 const text = Red_Hat_Text({
@@ -16,6 +18,7 @@ const text = Red_Hat_Text({
   weight: ["400", "500", "700"],
   variable: "--font-text",
   display: "swap",
+  preload: false,
 })
 
 export const metadata: Metadata = {
