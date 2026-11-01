@@ -2,7 +2,7 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-11-01T14:52:51.132Z",
+  "syncedAt": "2026-11-01T14:55:50.744Z",
   "products": [
     {
       "slug": "polaris-pro-r-2026",
@@ -1380,6 +1380,25 @@
           "height": null,
           "alt": "Canestrari 178 Con Motor Suzuki 140, video",
           "file": "igexport-DRQNc_Bgb9L.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "canestrari-245-con-volvo-280-hp-duoprop",
+      "name": "Canestrari 245 Con Volvo 280 Hp DuoProp",
+      "category": "lanchas",
+      "folderId": "1VZ3HtTN1e7hnn4IRivfvyw9l65xXnZY_",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/canestrari-245-con-volvo-280-hp-duoprop/1XHZRL3yOMgbhIS3XxuCIenjeToolenMt.mp4",
+          "poster": "/publicidad/canestrari-245-con-volvo-280-hp-duoprop/1XHZRL3yOMgbhIS3XxuCIenjeToolenMt.poster.jpg",
+          "driveId": "1XHZRL3yOMgbhIS3XxuCIenjeToolenMt",
+          "checksum": "public:1XHZRL3yOMgbhIS3XxuCIenjeToolenMt:igexport-DBcVs3wPXEC.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Canestrari 245 Con Volvo 280 Hp DuoProp, video",
+          "file": "igexport-DBcVs3wPXEC.mp4"
         }
       ]
     },
