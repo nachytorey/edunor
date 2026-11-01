@@ -44,7 +44,7 @@ export function SectionMotion() {
       })
 
       // Títulos de sección y llamados grandes: derrape desde la derecha.
-      all(".pal-utv__title, .pal-about__title, .pal-chapter__title, .pal-video__title, .pal-contact__title, .pal-callout__big").forEach((el) => {
+      all(".pal-utv__title, .pal-about__title, .pal-models__title, .pal-video__title, .pal-contact__title, .pal-callout__big").forEach((el) => {
         gsap.from(el, {
           x: 160,
           skewX: -22,
@@ -85,13 +85,10 @@ export function SectionMotion() {
           ".pal-about__lead",
           ".pal-about__intro > p:not(.pal-about__lead)",
           ".pal-about__intro .pal-signs",
-          ".pal-chapter__kicker",
-          ".pal-chapter__text p",
-          ".pal-story__voices .pal-quote",
+          ".pal-models__head p",
           ".pal-place__card",
           ".pal-contact__card li",
           ".pal-callout__small",
-          ".pal-album__filters",
         ].join(","),
       )
       gsap.set(items, { y: 46, autoAlpha: 0 })
@@ -113,16 +110,6 @@ export function SectionMotion() {
           clearProps: CLEAR,
           scrollTrigger: once(el, "top 88%"),
         })
-      })
-
-      // Galería: las primeras fotos aparecen en cascada (las que se suman con "Ver más" o los filtros, no).
-      const photos = all(".pal-album .react-photo-album--photo")
-      gsap.set(photos, { autoAlpha: 0, y: 40, scale: 0.96 })
-      ScrollTrigger.batch(photos, {
-        start: "top 92%",
-        once: true,
-        onEnter: (batch) =>
-          gsap.to(batch, { autoAlpha: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out", stagger: 0.06, clearProps: CLEAR }),
       })
 
       // Las fotos y los videos cargan sin tamaño fijo: cuando cambia la altura de la página se recalculan

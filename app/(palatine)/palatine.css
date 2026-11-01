@@ -45,13 +45,13 @@
 .pal-cap { font-size: 1em; }
 
 /* Títulos: grotesca negra en itálica y mayúscula, con el corte de velocidad del logo. */
-.pal-hero__title, .pal-ghost__title, .pal-lost__title, .pal-utv__title, .pal-about__title, .pal-chapter__title, .pal-video__title,
+.pal-hero__title, .pal-ghost__title, .pal-lost__title, .pal-utv__title, .pal-about__title, .pal-models__title, .pal-video__title,
 .pal-contact__title, .pal-callout__big, .pal-pd__name, .pal-pd-visit__title {
   font-family: var(--f-display); font-style: italic; font-weight: 900; text-transform: uppercase;
   letter-spacing: -0.01em; -webkit-mask: var(--pal-cut); mask: var(--pal-cut);
 }
 /* Títulos de sección en amarillo (el del hero queda blanco). */
-.pal-utv__title, .pal-about__title, .pal-video__title, .pal-contact__title { color: var(--pal-title); }
+.pal-utv__title, .pal-about__title, .pal-models__title, .pal-video__title, .pal-contact__title { color: var(--pal-title); }
 
 /* Viñeta clara en el centro, como la luz sobre la malla del logo. */
 .pal-page { position: relative; }
@@ -437,67 +437,6 @@ a:hover > .pal-play { transform: translateX(8px); }
 }
 .pal-plaque span { color: var(--pal-ink-soft); }
 
-/* ── Galería: filas justificadas + visor (components/palatine/photo-gallery.tsx) ── */
-.pal-gallery { padding-top: clamp(80px, 12vw, 160px); }
-.pal-album { padding: clamp(24px, 4vw, 48px) var(--pal-gutter) 0; }
-.pal-album__filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: clamp(20px, 3vw, 36px); }
-.pal-album__filter {
-  padding: 9px 22px; border: 1.5px solid var(--pal-ink); border-radius: 999px; background: transparent;
-  color: var(--pal-ink); font-family: var(--f-sans); font-weight: 600; font-size: 15px; letter-spacing: 0.08em;
-  text-transform: uppercase; cursor: pointer; transition: background 0.25s, color 0.25s;
-}
-.pal-album__filter:hover { background: var(--pal-ghost); }
-.pal-album__filter[aria-selected="true"] { background: var(--pal-ink); color: var(--pal-paper); }
-.pal-album .react-photo-album--photo {
-  border: 0; padding: 0; cursor: zoom-in; overflow: hidden; background: var(--pal-ghost);
-}
-.pal-album .react-photo-album--image { transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.4s; }
-.pal-album__label {
-  position: absolute; inset: auto 0 0; padding: 40px 14px 12px; pointer-events: none;
-  display: flex; align-items: baseline; justify-content: space-between; gap: 10px; text-align: left;
-  color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  opacity: 0; transform: translateY(8px); transition: opacity 0.35s, transform 0.35s;
-}
-.pal-album__label strong { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: clamp(15px, 1.3vw, 19px); }
-.pal-album__label span { font-family: var(--f-sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.75); }
-.pal-album .react-photo-album--photo:hover .react-photo-album--image,
-.pal-album .react-photo-album--photo:focus-visible .react-photo-album--image { transform: scale(1.06); filter: brightness(1.06); }
-.pal-album .react-photo-album--photo:hover .pal-album__label,
-.pal-album .react-photo-album--photo:focus-visible .pal-album__label { opacity: 1; transform: none; }
-.pal-album .react-photo-album--photo:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: 3px; }
-@media (hover: none) {
-  .pal-album__label { opacity: 1; transform: none; padding: 28px 10px 8px; }
-  .pal-album__label span { display: none; }
-}
-.pal-album__more {
-  display: block; margin: clamp(28px, 4vw, 48px) auto 0; padding: 14px 34px; border: 0; cursor: pointer;
-  background: var(--pal-ink); color: var(--pal-paper); font-family: var(--f-sans); font-weight: 700;
-  font-size: 16px; letter-spacing: 0.1em; text-transform: uppercase; transition: transform 0.25s;
-}
-.pal-album__more:hover { transform: translateY(-2px); }
-.pal-album__more span { font-weight: 500; opacity: 0.7; }
-
-/* Visor (yet-another-react-lightbox): oscuro siempre, para que la foto mande. */
-.pal-yarl {
-  --yarl__color_backdrop: rgb(8, 8, 9);
-  --yarl__color_button: rgba(255, 255, 255, 0.8);
-  --yarl__color_button_active: #fff;
-  --yarl__thumbnails_container_background_color: rgb(8, 8, 9);
-  --yarl__thumbnails_thumbnail_active_border_color: #fff;
-  --yarl__thumbnails_thumbnail_background: #1b1b1e;
-  --yarl__slide_captions_container_background: rgba(0, 0, 0, 0.5);
-  --yarl__slide_title_color: #fff;
-  --yarl__slide_description_color: rgba(255, 255, 255, 0.7);
-  font-family: var(--f-sans);
-}
-.pal-yarl .yarl__slide_title { font-family: var(--f-display); font-style: italic; font-weight: 500; font-size: clamp(18px, 2vw, 26px); }
-.pal-yarl .yarl__slide_title_container { text-align: center; }
-.pal-yarl .yarl__slide_description { letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; }
-.pal-yarl .yarl__slide_description a { color: #fff; text-underline-offset: 3px; }
-.pal-yarl .yarl__thumbnails_thumbnail { opacity: 0.55; transition: opacity 0.25s; }
-.pal-yarl .yarl__thumbnails_thumbnail_active, .pal-yarl .yarl__thumbnails_thumbnail:hover { opacity: 1; }
-
-
 /* ── Contacto ── */
 .pal-contact {
   display: grid; grid-template-columns: 1fr 1fr; align-items: center;
@@ -570,48 +509,19 @@ a:hover > .pal-play { transform: translateX(8px); }
   .pal *, .pal *::before, .pal *::after { animation: none !important; transition: none !important; }
 }
 
-/* ── Capítulos: la historia de comprar una lancha, del primer mensaje a la salida al agua ── */
-.pal-chapter {
+/* ── Modelos: título y texto de entrada, como en Videos ── */
+.pal-models__head {
   position: relative; z-index: 1; display: grid; justify-items: start; gap: 14px;
   max-width: 1240px; margin: 0 auto 36px; padding: 0 var(--pal-gutter);
 }
-.pal-chapter__kicker {
-  margin: 0; display: flex; align-items: center; gap: 12px; font-family: var(--f-sans); font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.14em; font-size: 13px; color: var(--pal-ink-soft);
-}
-.pal-chapter__num {
-  font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 34px; line-height: 0.9;
-  color: transparent; -webkit-text-stroke: 1.5px var(--pal-ink); letter-spacing: -0.02em;
-}
-.pal-chapter__title {
-  margin: 0; max-width: 16ch; font-size: clamp(36px, 4.2vw, 64px); line-height: 0.95; color: var(--pal-title);
-}
-.pal-chapter__text p { margin: 0; max-width: 560px; font-size: clamp(16.5px, 1.3vw, 18px); line-height: 1.5; color: var(--pal-ink-soft); }
-.pal-story .pal-models__slider, .pal-story .pal-album { margin-top: 0; }
+.pal-models__title { margin: 0; max-width: 16ch; font-size: clamp(36px, 4.2vw, 64px); line-height: 0.95; }
+.pal-models__head p { margin: 0; max-width: 560px; font-size: clamp(16.5px, 1.3vw, 18px); line-height: 1.5; color: var(--pal-ink-soft); }
+.pal-models__head + .pal-models__slider { margin-top: 0; }
 
 /* Historia sin foto: una sola columna de texto, más ancha. */
 .pal-about--text .pal-about__grid { grid-template-columns: 1fr; max-width: 980px; }
 .pal-about--text .pal-about__title { max-width: 14ch; font-size: clamp(40px, 5vw, 78px); }
 .pal-about--text .pal-about__intro p { max-width: 620px; }
-
-/* Salís a navegar: los testimonios van antes de las fotos. */
-.pal-story__voices {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 64px);
-  max-width: 1240px; margin: 0 auto 48px; padding: 0 var(--pal-gutter);
-}
-.pal-story__voices .pal-quote { max-width: none; }
-
-/* "También": separador entre la historia y el resto del catálogo. */
-.pal-also {
-  display: flex; align-items: center; gap: 24px; max-width: 1240px; margin: clamp(100px, 14vw, 180px) auto -40px;
-  padding: 0 var(--pal-gutter); color: var(--pal-ink-soft);
-}
-.pal-also::before, .pal-also::after { content: ""; flex: 1; height: 1px; background: var(--pal-line); }
-.pal-also span {
-  font-family: var(--f-display); font-style: italic; font-weight: 900; text-transform: uppercase; font-size: 22px;
-  letter-spacing: 0.02em; -webkit-mask: var(--pal-cut); mask: var(--pal-cut);
-}
-
 
 /* ── Videos: mosaico de 12 columnas con empaquetado denso (components/palatine/video-reel.tsx) ──
    El ancho de cada tarjeta (span de columnas) y su alto (filas de 8px según la proporción del video) los pone

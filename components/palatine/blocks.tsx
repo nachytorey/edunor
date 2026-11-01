@@ -11,11 +11,11 @@ import { whatsappLink } from "@/lib/site"
 export const WHATSAPP = whatsappLink()
 
 export const NAV = [
-  { href: "/#modelos", label: "Modelos" },
+  { href: "/#modelos", label: "Lanchas" },
   { href: "/#utv", label: "UTV y Cuatris" },
+  { href: "/#generadores", label: "Generadores" },
   { href: "/#videos", label: "Videos" },
   { href: "/#showroom", label: "Showroom" },
-  { href: "/#galeria", label: "Galería" },
   { href: "/#contacto", label: "Contacto" },
 ]
 
