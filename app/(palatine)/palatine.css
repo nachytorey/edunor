@@ -676,6 +676,9 @@ a:hover > .pal-play { transform: translateX(8px); }
   .pal-vgrid__card:nth-child(6n + 4) { grid-column: span 3; }
   .pal-vgrid__card:nth-child(6n + 5) { grid-column: span 2; }
   .pal-vgrid__card:nth-child(6n + 6) { grid-column: span 4; }
+  /* Un video apaisado en 2 columnas queda de 80px de alto: los apaisados ocupan al menos 4. */
+  .pal-vgrid__card.is-wide { grid-column: span 4; }
   .pal-vgrid__sound { padding: 4px 8px; font-size: 10px; }
   .pal-vgrid__caption strong { font-size: 15px; }
+  .pal-vgrid__card:nth-child(6n + 2) .pal-vgrid__caption strong, .pal-vgrid__card:nth-child(6n + 5) .pal-vgrid__caption strong { font-size: 13px; }
 }

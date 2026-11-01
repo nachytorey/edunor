@@ -82,7 +82,7 @@ export function VideoReel({ videos, label }: { videos: ReelVideo[]; label: strin
   return (
     <div ref={grid} className="pal-vgrid" role="region" aria-label={label}>
       {videos.map((v) => (
-        <figure key={v.src} className="pal-vgrid__card" data-ratio={v.ratio} style={{ aspectRatio: String(v.ratio) }}>
+        <figure key={v.src} className={`pal-vgrid__card${v.ratio > 1 ? " is-wide" : ""}`} data-ratio={v.ratio} style={{ aspectRatio: String(v.ratio) }}>
           <video
             data-src={v.src}
             src={v.src}
