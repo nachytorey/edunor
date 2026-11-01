@@ -9,8 +9,13 @@
  *      subcarpeta con imágenes, cada imagen es un producto (nombre = nombre del archivo).
  *   3. Deduce la categoría (lanchas / cuatriciclos) por el nombre de la carpeta o de
  *      cualquiera de sus carpetas madre. Estructura actual de Drive:
- *        CANESTRARI/LANCHAS/<modelo>/…   → lanchas
- *        CANESTRARI/CUATRI/<modelo>/…    → cuatriciclos
+ *        CANESTRARI/LANCHAS/CATALOGO/<modelo>/…  → lanchas
+ *        CANESTRARI/LANCHAS/PUBLICIDAD/<pieza>/… → publicidad (no son modelos)
+ *        CANESTRARI/CUATRI/<modelo>/…            → cuatriciclos
+ *      Una carpeta llamada PUBLICIDAD (o Promo, Marketing, Landing, Redes) no genera modelos:
+ *      sus videos e imágenes son piezas para la portada. Cada subcarpeta es una pieza
+ *      (nombre = carpeta); cada archivo suelto, una pieza más. Se bajan a public/publicidad/<pieza>/
+ *      y van en `publicidad` dentro de data/catalog.json.
  *   4. Si la carpeta del modelo tiene un .txt (idealmente "descripcion.txt"), su texto es la
  *      descripción del modelo. Si no, se usa data/descripciones/<carpeta>/descripcion.txt
  *      del repo (la carpeta se compara por slug: "225 CUDDY DF" ↔ "225-cuddy-df").
@@ -53,6 +58,7 @@ import { fileURLToPath } from "node:url"
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const OUT_JSON = path.join(ROOT, "data", "catalog.json")
 const OUT_IMG_DIR = path.join(ROOT, "public", "catalog")
+const OUT_AD_DIR = path.join(ROOT, "public", "publicidad")
 const LOCAL_DESC_DIR = path.join(ROOT, "data", "descripciones")
 const DEFAULT_FOLDER = "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V"
 const API = "https://www.googleapis.com/drive/v3"
@@ -109,6 +115,14 @@ export function categorize(names) {
   return "lanchas"
 }
 
+/** Para publicidad manda el nombre de la pieza ("Polaris RZR 200" es UTV aunque cuelgue de LANCHAS); después, el camino. */
+export function categorizeAd(names) {
+  const own = names[names.length - 1] ?? ""
+  if (LAND.test(own) || LAND_HINT.test(own)) return "cuatriciclos"
+  if (WATER.test(own) || WATER_HINT.test(own)) return "lanchas"
+  return categorize(names)
+}
+
 export const isImage = (f) => f.mimeType?.startsWith("image/")
 const VIDEO_EXT = /\.(mp4|m4v|mov|webm)$/i
 export const isVideo = (f) => f.mimeType?.startsWith("video/") || VIDEO_EXT.test(f.name)
@@ -127,6 +141,17 @@ export const isCategoryFolder = (name) =>
       .trim(),
   )
 
+/** "PUBLICIDAD", "Promo", "Marketing"…: material para la portada, no modelos del catálogo. */
+const AD_FOLDER = /^(publicidad|promos?|promociones|marketing|landing|redes)$/
+export const isAdFolder = (name) =>
+  AD_FOLDER.test(
+    name
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim(),
+  )
+
 /** Las fotos que se llaman "portada" (portada.jpg, Portada 2.png…) van primero: son la tapa del modelo. */
 export const isCover = (name) => /portada/i.test(name)
 export function byCoverThenName(a, b) {
@@ -142,7 +167,7 @@ export function buildProducts(tree, trail = []) {
   const here = [...trail, tree.name]
   const images = tree.files.filter(isImage).sort(byCoverThenName)
   const videos = tree.files.filter(isVideo).sort(byCoverThenName)
-  const childProducts = tree.folders.flatMap((f) => buildProducts(f, here))
+  const childProducts = tree.folders.filter((f) => !isAdFolder(f.name)).flatMap((f) => buildProducts(f, here))
   // Descripción del modelo: un .txt en su carpeta. Si hay varios, manda "descripcion.txt" (o info/ficha).
   const texts = tree.files.filter(isText)
   const descFile = texts.find((f) => TEXT_NAMES.test(f.name)) ?? texts[0]
@@ -164,6 +189,27 @@ export function buildProducts(tree, trail = []) {
     }
   }
   return [...products, ...childProducts]
+}
+
+/**
+ * Piezas de publicidad (videos e imágenes para la portada) de las carpetas PUBLICIDAD, estén
+ * donde estén en el árbol. Cada subcarpeta es una pieza con sus archivos; cada archivo suelto,
+ * una pieza propia. La categoría sale del camino de carpetas o del nombre, igual que en los modelos.
+ */
+export function buildAds(tree, trail = []) {
+  const here = [...trail, tree.name]
+  if (!isAdFolder(tree.name)) return tree.folders.flatMap((f) => buildAds(f, here))
+  const media = (files) => ({
+    images: files.filter(isImage).sort(byCoverThenName),
+    videos: files.filter(isVideo).sort(byCoverThenName),
+  })
+  const pieces = tree.folders
+    .map((f) => ({ name: prettyName(f.name), folderId: f.id, category: categorizeAd([...here, f.name]), ...media(f.files) }))
+    .filter((p) => p.images.length || p.videos.length)
+  for (const f of tree.files.filter((f) => isImage(f) || isVideo(f))) {
+    pieces.push({ name: prettyName(f.name), folderId: tree.id, category: categorizeAd([...here, f.name]), ...media([f]) })
+  }
+  return pieces
 }
 
 /* ───────── autenticación ───────── */
@@ -410,36 +456,38 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
   const rootName = await drive.folderName(folderId)
   const tree = await drive.tree(folderId, rootName)
   const found = buildProducts(tree)
-  log(`→ ${found.length} modelos encontrados.`)
+  const ads = buildAds(tree)
+  log(`→ ${found.length} modelos y ${ads.length} piezas de publicidad encontrados.`)
 
-  // Slugs únicos aunque dos carpetas se llamen igual.
-  const used = new Map()
-  for (const p of found) {
-    const base = slugify(p.name) || "modelo"
-    const n = (used.get(base) ?? 0) + 1
-    used.set(base, n)
-    p.slug = n === 1 ? base : `${base}-${n}`
+  // Slugs únicos aunque dos carpetas se llamen igual (modelos y publicidad numeran por separado).
+  const assignSlugs = (list, fallback) => {
+    const used = new Map()
+    for (const p of list) {
+      const base = slugify(p.name) || fallback
+      const n = (used.get(base) ?? 0) + 1
+      used.set(base, n)
+      p.slug = n === 1 ? base : `${base}-${n}`
+    }
   }
+  assignSlugs(found, "modelo")
+  assignSlugs(ads, "pieza")
 
   if (dryRun) {
     for (const p of found) log(`   [${p.category}] ${p.name} — ${p.images.length} fotos, ${p.videos.length} videos`)
-    return { products: found, written: false }
+    for (const p of ads) log(`   [publicidad · ${p.category}] ${p.name} — ${p.images.length} fotos, ${p.videos.length} videos`)
+    return { products: found, publicidad: ads, written: false }
   }
 
   const previous = await readPrevious()
-  const prevImages = new Map(
-    (previous?.products ?? []).flatMap((p) => p.images.map((i) => [i.driveId, i])),
-  )
-  const prevVideos = new Map(
-    (previous?.products ?? []).flatMap((p) => (p.videos ?? []).map((v) => [v.driveId, v])),
-  )
+  const prevItems = [...(previous?.products ?? []), ...(previous?.publicidad ?? [])]
+  const prevImages = new Map(prevItems.flatMap((p) => p.images.map((i) => [i.driveId, i])))
+  const prevVideos = new Map(prevItems.flatMap((p) => (p.videos ?? []).map((v) => [v.driveId, v])))
   const isFresh = (prev, file, ...srcs) =>
     prev && prev.checksum === (file.md5Checksum ?? file.modifiedTime) && srcs.every((s) => s && existsSync(path.join(ROOT, "public", s)))
 
-  const products = []
-  const localDescriptions = await readLocalDescriptions()
-  for (const p of found) {
-    const dir = path.join(OUT_IMG_DIR, p.slug)
+  /** Baja (o reutiliza) las fotos y videos de un modelo o pieza a public/<base>/<slug>/ y devuelve sus entradas. */
+  async function syncMedia(p, base) {
+    const dir = path.join(ROOT, "public", base, p.slug)
     await mkdir(dir, { recursive: true })
     const images = []
     for (const [i, file] of p.images.slice(0, maxImages).entries()) {
@@ -451,7 +499,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
         // Nombre por ID de Drive: estable aunque cambie el orden (no pisa fotos reutilizadas).
         const name = `${file.id}.${ext}`
         await writeFile(path.join(dir, name), await optimizeImage(bytes, ext))
-        src = `/catalog/${p.slug}/${name}`
+        src = `/${base}/${p.slug}/${name}`
         log(`   ↓ ${p.name} · ${file.name}`)
       }
       images.push({
@@ -472,13 +520,13 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
       if (!isFresh(prev, file, src, ...(poster ? [poster] : []))) {
         const { bytes, ext } = await drive.downloadVideo(file)
         await writeFile(path.join(dir, `${file.id}.${ext}`), bytes)
-        src = `/catalog/${p.slug}/${file.id}.${ext}`
+        src = `/${base}/${p.slug}/${file.id}.${ext}`
         // Sin póster el video igual se muestra; Drive tarda un rato en generar la miniatura de un video nuevo.
         const still = await drive.poster(file).catch(() => null)
         poster = null
         if (still) {
           await writeFile(path.join(dir, `${file.id}.poster.jpg`), still)
-          poster = `/catalog/${p.slug}/${file.id}.poster.jpg`
+          poster = `/${base}/${p.slug}/${file.id}.poster.jpg`
         }
         log(`   ↓ ${p.name} · ${file.name} (${(bytes.length / 1048576).toFixed(1)} MB)`)
       }
@@ -496,6 +544,13 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
     // Borra fotos y videos viejos de este modelo que ya no forman parte de la galería.
     const keepFiles = new Set([...images, ...videos].flatMap((m) => [m.src, m.poster]).filter(Boolean).map((s) => path.basename(s)))
     for (const f of await readdir(dir)) if (!keepFiles.has(f)) await rm(path.join(dir, f), { force: true })
+    return { images, videos }
+  }
+
+  const products = []
+  const localDescriptions = await readLocalDescriptions()
+  for (const p of found) {
+    const { images, videos } = await syncMedia(p, "catalog")
     let description = null
     if (p.descriptionFileId) {
       try {
@@ -509,17 +564,25 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
     products.push({ slug: p.slug, name: p.name, category: p.category, folderId: p.folderId, description, images, videos })
   }
 
-  // Borra carpetas de modelos que ya no están en Drive.
-  const keep = new Set(products.map((p) => p.slug))
-  for (const old of previous?.products ?? []) {
-    if (!keep.has(old.slug)) await rm(path.join(OUT_IMG_DIR, old.slug), { recursive: true, force: true })
+  const publicidad = []
+  for (const p of ads) {
+    const { images, videos } = await syncMedia(p, "publicidad")
+    publicidad.push({ slug: p.slug, name: p.name, category: p.category, folderId: p.folderId, images, videos })
   }
 
-  const catalog = { source: "drive", folderId, folderName: rootName, syncedAt: new Date().toISOString(), products }
+  // Borra carpetas de modelos y piezas que ya no están en Drive.
+  const sweep = async (dirBase, current, old) => {
+    const keep = new Set(current.map((p) => p.slug))
+    for (const o of old) if (!keep.has(o.slug)) await rm(path.join(dirBase, o.slug), { recursive: true, force: true })
+  }
+  await sweep(OUT_IMG_DIR, products, previous?.products ?? [])
+  await sweep(OUT_AD_DIR, publicidad, previous?.publicidad ?? [])
+
+  const catalog = { source: "drive", folderId, folderName: rootName, syncedAt: new Date().toISOString(), products, publicidad }
   await mkdir(path.dirname(OUT_JSON), { recursive: true })
   await writeFile(OUT_JSON, JSON.stringify(catalog, null, 2) + "\n")
-  log(`✓ Catálogo escrito en data/catalog.json (${products.length} modelos).`)
-  return { products, written: true }
+  log(`✓ Catálogo escrito en data/catalog.json (${products.length} modelos, ${publicidad.length} piezas de publicidad).`)
+  return { products, publicidad, written: true }
 }
 
 /* ───────── CLI ───────── */

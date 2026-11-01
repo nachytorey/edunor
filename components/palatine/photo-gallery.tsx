@@ -25,9 +25,9 @@ export type GalleryPhoto = {
 }
 
 const FILTERS = [
+  { id: "cuatriciclos", label: "UTV y cuatris" },
   { id: "todas", label: "Todas" },
   { id: "lanchas", label: "Lanchas" },
-  { id: "cuatriciclos", label: "UTV y cuatris" },
 ] as const
 type Filter = (typeof FILTERS)[number]["id"]
 
@@ -41,7 +41,7 @@ const pad = (n: number) => String(n).padStart(2, "0")
  * (yet-another-react-lightbox). Filtro por tipo y carga de a tandas.
  */
 export function PhotoGallery({ photos }: { photos: GalleryPhoto[] }) {
-  const [filter, setFilter] = useState<Filter>("todas")
+  const [filter, setFilter] = useState<Filter>("cuatriciclos")
   const [shown, setShown] = useState(PAGE)
   const [index, setIndex] = useState(-1)
   const root = useRef<HTMLDivElement>(null)
