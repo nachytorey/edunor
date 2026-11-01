@@ -2,16 +2,15 @@
 
 import { useRef, type ReactNode } from "react"
 import gsap from "gsap"
-import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 
-gsap.registerPlugin(useGSAP, ScrollTrigger, ScrambleTextPlugin)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 /**
  * Hero de la portada con la foto a pantalla completa, en clave "velocidad":
  * - Entrada: la foto se abre con un corte diagonal, sale de foco (desenfoque → nítida) y la cruza
- *   un destello; las palabras del título entran derrapando desde la derecha y el subtítulo se descifra.
+ *   un destello; las palabras del título entran derrapando desde la derecha y el subtítulo aparece con un fundido suave.
  * - Después la foto sigue acercándose muy lento.
  * - Scroll: la foto baja más lento que la página, el texto se va antes, y todo se inclina un poco
  *   según la velocidad del scroll.
@@ -55,15 +54,8 @@ export function HeroMotion({ children, labelledBy }: { children: ReactNode; labe
           { x: 220, skewX: -24, autoAlpha: 0, filter: "blur(10px)", duration: 1.1, stagger: 0.14 },
           "<0.25",
         )
-        if (sub) {
-          const line = sub.textContent ?? ""
-          gsap.set(sub, { textContent: "\u00a0" })
-          intro.to(
-            sub,
-            { duration: 1.3, scrambleText: { text: line, chars: "EDUNOR0123456789", speed: 0.6 }, ease: "none" },
-            "<0.5",
-          )
-        }
+        // Subtítulo: fundido suave que sube apenas, sin efectos que distraigan de leerlo.
+        if (sub) intro.from(sub, { y: 18, autoAlpha: 0, duration: 1.2, ease: "power2.out" }, "<0.45")
         // Acercamiento lento que sigue mientras el hero está a la vista.
         intro.to(img, { scale: 1.07, duration: 18, ease: "sine.inOut", repeat: -1, yoyo: true })
 
