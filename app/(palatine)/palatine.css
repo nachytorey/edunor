@@ -587,6 +587,8 @@ a:hover > .pal-play { transform: translateX(8px); }
   .pal { font-size: 16px; }
   .pal-intro__grid, .pal-gen__grid, .pal-show__grid, .pal-contact { grid-template-columns: 1fr; }
   .pal-hero { min-height: 100svh; }
+  /* En vertical entra solo una franja de la foto: se corre a la derecha para mostrar el cuatri rojo y el cartel. */
+  .pal-hero__porthole img { object-position: 70% 8%; transform-origin: 70% 20%; }
   .pal-lost { grid-template-columns: 1fr; padding-top: 110px; min-height: 0; }
   .pal-lost__art { max-width: 300px; grid-row: 2; }
   .pal-intro__grid, .pal-gen__grid, .pal-show__grid { margin-top: 0; }
