@@ -58,5 +58,5 @@ export const generators = {
   title: "Generadores",
   lead: "Representantes oficiales de generadores GENERAC",
   dek: "Portátiles para el campo, la obra o el fin de semana; residenciales y comerciales que arrancan solos cuando se corta la luz; e industriales para alta potencia. Te asesoramos para elegir el equipo y lo instalamos.",
-  image: { src: "/palatine/generac.png", alt: "Generadores GENERAC: residenciales Guardian y Protector, industrial y portátiles" },
+  image: { src: "/palatine/generac.webp", alt: "Generadores GENERAC: residenciales Guardian y Protector, industrial y portátiles" },
 }

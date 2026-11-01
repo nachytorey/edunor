@@ -1,10 +1,10 @@
 /**
- * /empresa — historia y presentación de Edunor Náutica, con el mismo grabado de la portada.
+ * /empresa — historia y presentación de Edunor Náutica, con el mismo estilo de la portada.
  */
 import type { Metadata } from "next"
 import { GhostTitle, NAV, PalFooter, WHATSAPP } from "@/components/palatine/blocks"
 import { PalNav } from "@/components/palatine/interactive"
-import { Anchor, ShipWheel } from "@/components/palatine/ornaments"
+import { Triangle } from "@/components/palatine/ornaments"
 import { brands, company } from "@/lib/edunor"
 import { shareMeta } from "@/lib/site"
 
@@ -25,12 +25,12 @@ export default function PalatineEmpresaPage() {
       <main>
         {/* ── La empresa ── */}
         <section id="empresa" className="pal-intro pal-intro--page">
-          <GhostTitle ornament={<Anchor />}>Empresa</GhostTitle>
+          <GhostTitle>Empresa</GhostTitle>
           <div className="pal-intro__grid">
             <a href="/#modelos" className="pal-frame pal-intro__media">
               <img src="/palatine/hero-interior.jpg" alt="Interior de una lancha con tapizado náutico claro" loading="lazy" />
               <span className="pal-play" aria-hidden="true">
-                <ShipWheel />
+                <Triangle />
               </span>
               <span className="pal-sr">Ver modelos</span>
             </a>

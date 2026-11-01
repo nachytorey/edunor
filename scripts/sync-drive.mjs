@@ -46,6 +46,7 @@
 import { createSign } from "node:crypto"
 import { mkdir, readFile, readdir, writeFile, rm } from "node:fs/promises"
 import { existsSync } from "node:fs"
+import { optimizeImage } from "./optimize-images.mjs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -449,7 +450,7 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
         const { bytes, ext } = await drive.download(file)
         // Nombre por ID de Drive: estable aunque cambie el orden (no pisa fotos reutilizadas).
         const name = `${file.id}.${ext}`
-        await writeFile(path.join(dir, name), bytes)
+        await writeFile(path.join(dir, name), await optimizeImage(bytes, ext))
         src = `/catalog/${p.slug}/${name}`
         log(`   ↓ ${p.name} · ${file.name}`)
       }

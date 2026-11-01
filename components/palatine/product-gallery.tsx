@@ -56,15 +56,16 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
   const many = images.length > 1
   const t = (d: number) => (reduced.current ? 0 : d)
 
-  /* ── Geometría: tamaño real de la foto dentro del escenario (object-fit: contain) ── */
+  /* ── Geometría: tamaño real de la foto dentro del escenario (contain a pantalla completa, cover en la ficha) ── */
   function bounds(s: number) {
     const st = stage.current!
     const W = st.clientWidth
     const H = st.clientHeight
     const img = layers.current[current.current]?.querySelector("img")
     const r = img?.naturalWidth ? img.naturalWidth / img.naturalHeight : W / H
-    const iw = Math.min(W, H * r)
-    const ih = Math.min(H, W / r)
+    const fit = img && getComputedStyle(img).objectFit === "cover" ? Math.max : Math.min
+    const iw = fit(W, H * r)
+    const ih = fit(H, W / r)
     return { W, H, iw, ih, mx: Math.max(0, (iw * s - W) / 2), my: Math.max(0, (ih * s - H) / 2) }
   }
 
