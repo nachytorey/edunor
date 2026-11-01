@@ -2,7 +2,7 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-11-01T02:11:02.134Z",
+  "syncedAt": "2026-11-01T02:12:38.912Z",
   "products": [
     {
       "slug": "polaris-pro-r-2026",
@@ -1308,25 +1308,6 @@
   ],
   "publicidad": [
     {
-      "slug": "eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs",
-      "name": "Eclipse 20 Sport Con Mercury 150 Hp 2015 Con 250 Hs",
-      "category": "lanchas",
-      "folderId": "1EFMxHelCEXF97hU_k9F5CmCPSGrPNYWZ",
-      "images": [],
-      "videos": [
-        {
-          "src": "/publicidad/eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs/1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG.mp4",
-          "poster": "/publicidad/eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs/1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG.poster.jpg",
-          "driveId": "1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG",
-          "checksum": "public:1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG:igexport-DfA25oEJn_c.mp4",
-          "width": null,
-          "height": null,
-          "alt": "Eclipse 20 Sport Con Mercury 150 Hp 2015 Con 250 Hs, video",
-          "file": "igexport-DfA25oEJn_c.mp4"
-        }
-      ]
-    },
-    {
       "slug": "polaris-rzr-200",
       "name": "Polaris RZR 200",
       "category": "cuatriciclos",
@@ -1361,6 +1342,25 @@
           "height": null,
           "alt": "Polaris RZR Pro R Ultimate, video",
           "file": "AQMvn5bgh3a3VdXM6D9WyU2_yHuctbYktg2y-flFU9zBe2e91QC0dvmMdiuX3nmzQLR9DlB59EtiE5dOmsuOeK6iQUNjWkOJJiHpGqA.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs",
+      "name": "Eclipse 20 Sport Con Mercury 150 Hp 2015 Con 250 Hs",
+      "category": "lanchas",
+      "folderId": "1EFMxHelCEXF97hU_k9F5CmCPSGrPNYWZ",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs/1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG.mp4",
+          "poster": "/publicidad/eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs/1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG.poster.jpg",
+          "driveId": "1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG",
+          "checksum": "public:1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG:igexport-DfA25oEJn_c.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Eclipse 20 Sport Con Mercury 150 Hp 2015 Con 250 Hs, video",
+          "file": "igexport-DfA25oEJn_c.mp4"
         }
       ]
     },

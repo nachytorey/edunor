@@ -1,6 +1,6 @@
 /**
  * Catálogo de modelos para la portada.
- * Fuente: data/catalog.json (lo escribe `npm run sync:drive` desde Google Drive).
+ * Fuente: data/catalog.json (lo escribe `npm run sync:drive` desde Google Drive; trae `products` y `publicidad`).
  * Mientras ese archivo esté vacío, usa el catálogo de demostración de lib/products.ts.
  */
 import driveCatalog from "@/data/catalog.json"
