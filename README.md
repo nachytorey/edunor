@@ -176,3 +176,21 @@ Mantiene nombre y extensión, así las rutas de `data/catalog.json` no cambian, 
 ## Deploy
 
 El sitio se publica en Vercel desde este repo. Un push a la rama de producción dispara el build (`prebuild` → sync opcional → `next build`). La URL pública para canonical, Open Graph y sitemap sale de `NEXT_PUBLIC_SITE_URL` o, si no está, del dominio de producción que Vercel informa en el build.
+
+### Sync programado
+
+El catálogo se vuelve a publicar solo, **una vez por día a las 06:00 (hora Argentina)**, sin que nadie corra nada. Lo hace el workflow `.github/workflows/sync-drive.yml`: no sincroniza en GitHub, solo dispara un **Deploy Hook de Vercel**. El build que arranca corre `prebuild` → sync → `next build`, así que publica lo que haya en Drive en ese momento.
+
+Para que funcione hace falta una sola vez:
+
+1. En Vercel: proyecto → **Settings → Git → Deploy Hooks** → Create Hook. Nombre `sync-drive`, rama `main`. Copiá la URL.
+2. En GitHub: repo → **Settings → Secrets and variables → Actions** → New repository secret `VERCEL_DEPLOY_HOOK_URL` con esa URL. O desde la terminal: `gh secret set VERCEL_DEPLOY_HOOK_URL`.
+
+Para forzar una corrida ahora mismo: pestaña **Actions** → "Sync Drive (deploy programado)" → Run workflow, o `gh workflow run sync-drive.yml`.
+
+Tené en cuenta:
+
+- Lo que publica este deploy **no queda en el repo**. `data/catalog.json` y `public/` del repo siguen siendo lo último que sincronizaste a mano; si levantás `npm run dev` vas a ver eso, no lo de producción. Para ponerlos al día, `npm run sync:drive` y commit, como siempre.
+- Si en el build la carpeta de Drive no está accesible, `--optional` sigue con el catálogo commiteado y el sitio no se rompe.
+- Drive tarda en generar la miniatura de un video recién subido: puede salir sin póster hasta la corrida del día siguiente.
+- Para cambiar la hora, editá el `cron` del workflow (está en UTC: Argentina es UTC−3).
