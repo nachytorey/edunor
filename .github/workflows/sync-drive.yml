@@ -1,0 +1,37 @@
+# Sync programado del catálogo desde Drive.
+#
+# No sincroniza nada acá: dispara un Deploy Hook de Vercel. El build de Vercel
+# corre `prebuild` (scripts/sync-drive.mjs --optional), que baja lo que hay hoy
+# en Drive y publica. Ver README → "Sync programado".
+#
+# Necesita el secret VERCEL_DEPLOY_HOOK_URL (Vercel → Settings → Git → Deploy Hooks).
+
+name: Sync Drive (deploy programado)
+
+on:
+  schedule:
+    # Todos los días a las 06:00 de Argentina (09:00 UTC). GitHub puede demorarlo unos minutos.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: sync-drive
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Disparar Deploy Hook de Vercel
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::Falta el secret VERCEL_DEPLOY_HOOK_URL"
+            exit 1
+          fi
+          status=$(curl -sS -o /tmp/hook.json -w '%{http_code}' -X POST "$HOOK")
+          echo "Vercel respondió $status"
+          cat /tmp/hook.json; echo
+          case "$status" in 2*) ;; *) exit 1 ;; esac

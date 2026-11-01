@@ -99,7 +99,7 @@ export function prettyName(raw) {
 const LAND = /(cuatri|atv|utv|quad|side.?by.?side|tierra|terrestre)/i
 const WATER = /(lancha|bote|semi.?r[ií]gido|gomon|crucero|yate|embarcaci|n[aá]utic|moto.?de.?agua|jet.?ski|velero|kayak)/i
 const LAND_HINT = /(maverick|outlander|sportsman|ranger|general|rzr|can.?am|polaris|renegade|commander|defender)/i
-const WATER_HINT = /(zodiac|sea.?doo|spark|gti|rxp|open|cruiser|pescador|mercury|yamaha|fueraborda)/i
+const WATER_HINT = /(zodiac|sea.?doo|spark|gti|rxp|open|cruiser|pescador|mercury|yamaha|evinrude|tohatsu|suzuki|fueraborda|bermuda|canestrari|eclipse|tracker)/i
 
 /** Primero busca una carpeta que nombre la categoría (de la más específica a la raíz); después, pistas de modelo. */
 export function categorize(names) {

@@ -2,7 +2,7 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-11-01T02:29:18.515Z",
+  "syncedAt": "2026-11-01T14:55:50.744Z",
   "products": [
     {
       "slug": "polaris-pro-r-2026",
@@ -1310,7 +1310,7 @@
     {
       "slug": "bermuda-safari-con-evinrude-etec-60-hp",
       "name": "Bermuda Safari Con Evinrude Etec 60 Hp",
-      "category": "cuatriciclos",
+      "category": "lanchas",
       "folderId": "1vAS6Yfk9V3H0ofLIvl44DU4CpxV5HxEr",
       "images": [],
       "videos": [
@@ -1361,6 +1361,44 @@
           "height": null,
           "alt": "Polaris RZR Pro R Ultimate, video",
           "file": "AQMvn5bgh3a3VdXM6D9WyU2_yHuctbYktg2y-flFU9zBe2e91QC0dvmMdiuX3nmzQLR9DlB59EtiE5dOmsuOeK6iQUNjWkOJJiHpGqA.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "canestrari-178-con-motor-suzuki-140",
+      "name": "Canestrari 178 Con Motor Suzuki 140",
+      "category": "lanchas",
+      "folderId": "1nFWimPBs6m4Jl2lhIHGm-33csGBAWYAW",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/canestrari-178-con-motor-suzuki-140/1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU.mp4",
+          "poster": "/publicidad/canestrari-178-con-motor-suzuki-140/1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU.poster.jpg",
+          "driveId": "1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU",
+          "checksum": "public:1BAI21pNPK-yK0vy1bTyz87Muar4XeIMU:igexport-DRQNc_Bgb9L.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Canestrari 178 Con Motor Suzuki 140, video",
+          "file": "igexport-DRQNc_Bgb9L.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "canestrari-245-con-volvo-280-hp-duoprop",
+      "name": "Canestrari 245 Con Volvo 280 Hp DuoProp",
+      "category": "lanchas",
+      "folderId": "1VZ3HtTN1e7hnn4IRivfvyw9l65xXnZY_",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/canestrari-245-con-volvo-280-hp-duoprop/1XHZRL3yOMgbhIS3XxuCIenjeToolenMt.mp4",
+          "poster": "/publicidad/canestrari-245-con-volvo-280-hp-duoprop/1XHZRL3yOMgbhIS3XxuCIenjeToolenMt.poster.jpg",
+          "driveId": "1XHZRL3yOMgbhIS3XxuCIenjeToolenMt",
+          "checksum": "public:1XHZRL3yOMgbhIS3XxuCIenjeToolenMt:igexport-DBcVs3wPXEC.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Canestrari 245 Con Volvo 280 Hp DuoProp, video",
+          "file": "igexport-DBcVs3wPXEC.mp4"
         }
       ]
     },
