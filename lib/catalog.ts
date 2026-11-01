@@ -1,6 +1,6 @@
 /**
  * Catálogo de modelos para la portada.
- * Fuente: data/catalog.json (lo escribe `npm run sync:drive` desde Google Drive).
+ * Fuente: data/catalog.json (lo escribe `npm run sync:drive` desde Google Drive; trae `products` y `publicidad`).
  * Mientras ese archivo esté vacío, usa el catálogo de demostración de lib/products.ts.
  */
 import driveCatalog from "@/data/catalog.json"
@@ -26,17 +26,35 @@ export type CatalogProduct = {
   url: string
 }
 
+type DriveMedia = {
+  images: { src: string; alt: string }[]
+  videos?: { src: string; poster: string | null; alt: string }[]
+}
+
 type DriveCatalog = {
   source: string
   syncedAt: string | null
-  products: {
+  products: (DriveMedia & {
     slug: string
     name: string
     category: string
     description: string | null
-    images: { src: string; alt: string }[]
-    videos?: { src: string; poster: string | null; alt: string }[]
-  }[]
+  })[]
+  /** Piezas de la carpeta PUBLICIDAD de Drive: videos e imágenes para la portada, no modelos. */
+  publicidad?: (DriveMedia & { slug: string; name: string; category: string })[]
+}
+
+/** Una pieza de publicidad para la portada (video o foto). Si coincide con un modelo, `url` es su ficha. */
+export type AdPiece = {
+  slug: string
+  name: string
+  category: Category
+  kind: string
+  images: CatalogImage[]
+  /** Ficha del modelo con el mismo nombre, si existe; si no, consulta por WhatsApp. */
+  url: string
+  /** Texto del enlace: "ver ficha" o "consultar". */
+  cta: string
 }
 
 const consult = (name: string) => whatsappLink(`Hola Edunor! Quiero consultar por el modelo ${name}.`)
@@ -45,22 +63,27 @@ const pageFor = (slug: string) => `/modelos/${slug}`
 
 const KIND: Record<Category, string> = { lanchas: "Lancha", cuatriciclos: "Cuatriciclo / UTV" }
 
+const toCategory = (c: string): Category => (c === "cuatriciclos" ? "cuatriciclos" : "lanchas")
+
+/** Galería: portada, después los videos y el resto de las fotos. Sin fotos, el primer video es la portada. */
+function toImages(m: DriveMedia): CatalogImage[] {
+  const photos = m.images.map((i) => ({ src: i.src, alt: i.alt }))
+  const videos = (m.videos ?? []).map((v) => ({ src: v.poster ?? "", alt: v.alt, video: v.src }))
+  return [...photos.slice(0, 1), ...videos, ...photos.slice(1)]
+}
+
 function fromDrive(c: DriveCatalog): CatalogProduct[] {
   return c.products
     .filter((p) => p.images.length > 0 || (p.videos ?? []).some((v) => v.poster))
     .map((p) => {
-      const category: Category = p.category === "cuatriciclos" ? "cuatriciclos" : "lanchas"
-      const photos = p.images.map((i) => ({ src: i.src, alt: i.alt }))
-      const videos = (p.videos ?? []).map((v) => ({ src: v.poster ?? "", alt: v.alt, video: v.src }))
-      // Galería: portada, después los videos y el resto de las fotos. Sin fotos, el primer video es la portada.
-      const images = [...photos.slice(0, 1), ...videos, ...photos.slice(1)]
+      const category = toCategory(p.category)
       return {
         slug: p.slug,
         name: p.name,
         category,
         kind: KIND[category],
         description: p.description,
-        images,
+        images: toImages(p),
         href: consult(p.name),
         url: pageFor(p.slug),
       }
@@ -97,8 +120,10 @@ export const catalogSyncedAt = (driveCatalog as DriveCatalog).syncedAt
  * van al final, también por nombre. Para forzar otro orden, editá RANK_OVERRIDE.
  */
 const RANK_OVERRIDE: Record<string, number> = {
-  // Abre el carrusel de modelos: es la que tiene la portada más linda.
-  "285-fb": 1000,
+  // Abre el carrusel de modelos de la portada (pedido de Edunor).
+  "245-df": 1000,
+  // Segunda: es la que tiene la portada más linda.
+  "285-fb": 999,
 }
 const hullSize = (name: string) => Number(name.match(/\d{2,4}/)?.[0] ?? 0)
 /** Prioridad comercial de Edunor: primero lanchas, después cuatriciclos/UTV. */
@@ -132,3 +157,21 @@ export const lanchas = catalog.filter((p) => p.category === "lanchas")
 export const cuatriciclos = catalog.filter((p) => p.category === "cuatriciclos")
 
 export const getProduct = (slug: string) => catalog.find((p) => p.slug === slug)
+
+/**
+ * Publicidad: lo que hay en CANESTRARI/LANCHAS/PUBLICIDAD en Drive (videos de Instagram, fotos de campaña).
+ * Va a la portada, no al catálogo. Una pieza con el mismo nombre que un modelo enlaza a su ficha.
+ */
+export const publicidad: AdPiece[] = ((driveCatalog as DriveCatalog).publicidad ?? []).map((p) => {
+  const category = toCategory(p.category)
+  const model = getProduct(p.slug)
+  return {
+    slug: p.slug,
+    name: p.name,
+    category,
+    kind: KIND[category],
+    images: toImages(p),
+    url: model?.url ?? consult(p.name),
+    cta: model ? "ver ficha" : "consultar",
+  }
+})

@@ -1,5 +1,5 @@
 /**
- * Piezas compartidas por las páginas del sitio (portada y empresa):
+ * Piezas compartidas por las páginas del sitio (portada y fichas):
  * títulos fantasma, citas, botones de acción, navegación y pie.
  */
 import { EdunorLogo } from "@/components/edunor-logo"
@@ -13,7 +13,7 @@ export const WHATSAPP = whatsappLink()
 export const NAV = [
   { href: "/#modelos", label: "Modelos" },
   { href: "/#utv", label: "UTV y Cuatris" },
-  { href: "/empresa", label: "La Empresa" },
+  { href: "/#videos", label: "Videos" },
   { href: "/#showroom", label: "Showroom" },
   { href: "/#galeria", label: "Galería" },
   { href: "/#contacto", label: "Contacto" },

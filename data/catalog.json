@@ -2,7 +2,7 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-11-01T00:27:49.547Z",
+  "syncedAt": "2026-11-01T02:29:18.515Z",
   "products": [
     {
       "slug": "polaris-pro-r-2026",
@@ -1304,6 +1304,103 @@
         }
       ],
       "videos": []
+    }
+  ],
+  "publicidad": [
+    {
+      "slug": "bermuda-safari-con-evinrude-etec-60-hp",
+      "name": "Bermuda Safari Con Evinrude Etec 60 Hp",
+      "category": "cuatriciclos",
+      "folderId": "1vAS6Yfk9V3H0ofLIvl44DU4CpxV5HxEr",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/bermuda-safari-con-evinrude-etec-60-hp/1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH.mp4",
+          "poster": "/publicidad/bermuda-safari-con-evinrude-etec-60-hp/1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH.poster.jpg",
+          "driveId": "1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH",
+          "checksum": "public:1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH:igexport-DSTWfnrgcPB.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Bermuda Safari Con Evinrude Etec 60 Hp, video",
+          "file": "igexport-DSTWfnrgcPB.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "polaris-rzr-200",
+      "name": "Polaris RZR 200",
+      "category": "cuatriciclos",
+      "folderId": "1JTxQf7b3Y3e4y__tZfHPyk4HAM6RhVXd",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/polaris-rzr-200/10JDJI3BhGtBxqg6_R1H5VYkr-4QJJUoI.mp4",
+          "poster": "/publicidad/polaris-rzr-200/10JDJI3BhGtBxqg6_R1H5VYkr-4QJJUoI.poster.jpg",
+          "driveId": "10JDJI3BhGtBxqg6_R1H5VYkr-4QJJUoI",
+          "checksum": "public:10JDJI3BhGtBxqg6_R1H5VYkr-4QJJUoI:igexport-DdwLWVIsikr.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR 200, video",
+          "file": "igexport-DdwLWVIsikr.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "polaris-rzr-pro-r-ultimate",
+      "name": "Polaris RZR Pro R Ultimate",
+      "category": "cuatriciclos",
+      "folderId": "14LzRjlg-3bgVA-N-cmD3IG4VxmDPOv8c",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/polaris-rzr-pro-r-ultimate/1QnROY7uCb0V2uyUyHQJ3Xjhrhf3vqhg-.mp4",
+          "poster": "/publicidad/polaris-rzr-pro-r-ultimate/1QnROY7uCb0V2uyUyHQJ3Xjhrhf3vqhg-.poster.jpg",
+          "driveId": "1QnROY7uCb0V2uyUyHQJ3Xjhrhf3vqhg-",
+          "checksum": "public:1QnROY7uCb0V2uyUyHQJ3Xjhrhf3vqhg-:AQMvn5bgh3a3VdXM6D9WyU2_yHuctbYktg2y-flFU9zBe2e91QC0dvmMdiuX3nmzQLR9DlB59EtiE5dOmsuOeK6iQUNjWkOJJiHpGqA.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Polaris RZR Pro R Ultimate, video",
+          "file": "AQMvn5bgh3a3VdXM6D9WyU2_yHuctbYktg2y-flFU9zBe2e91QC0dvmMdiuX3nmzQLR9DlB59EtiE5dOmsuOeK6iQUNjWkOJJiHpGqA.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs",
+      "name": "Eclipse 20 Sport Con Mercury 150 Hp 2015 Con 250 Hs",
+      "category": "lanchas",
+      "folderId": "1EFMxHelCEXF97hU_k9F5CmCPSGrPNYWZ",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs/1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG.mp4",
+          "poster": "/publicidad/eclipse-20-sport-con-mercury-150-hp-2015-con-250-hs/1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG.poster.jpg",
+          "driveId": "1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG",
+          "checksum": "public:1vomFMmUPRrQBH9yoep2bvy0dnxInW_cG:igexport-DfA25oEJn_c.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Eclipse 20 Sport Con Mercury 150 Hp 2015 Con 250 Hs, video",
+          "file": "igexport-DfA25oEJn_c.mp4"
+        }
+      ]
+    },
+    {
+      "slug": "semirrigido-edunor-520-con-motor-mercury-60-hp",
+      "name": "Semirrígido Edunor 520 Con Motor Mercury 60 Hp",
+      "category": "lanchas",
+      "folderId": "1CxjJ9Zaljs4U6FHIcO29SyhAOQxlakFZ",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/semirrigido-edunor-520-con-motor-mercury-60-hp/1_0b_dVVakJKHJTH9txQo422eaBPICPQB.mp4",
+          "poster": "/publicidad/semirrigido-edunor-520-con-motor-mercury-60-hp/1_0b_dVVakJKHJTH9txQo422eaBPICPQB.poster.jpg",
+          "driveId": "1_0b_dVVakJKHJTH9txQo422eaBPICPQB",
+          "checksum": "public:1_0b_dVVakJKHJTH9txQo422eaBPICPQB:igexport-DZGO8iEBZAK.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Semirrígido Edunor 520 Con Motor Mercury 60 Hp, video",
+          "file": "igexport-DZGO8iEBZAK.mp4"
+        }
+      ]
     }
   ]
 }

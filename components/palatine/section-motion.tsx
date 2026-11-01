@@ -13,7 +13,7 @@ const CLEAR = "transform,opacity,visibility,filter,clipPath"
  * Movimiento de las secciones de la portada, en la misma clave "velocidad" que el hero:
  * - Títulos fantasma: se desplazan de costado mientras la sección pasa (scrub).
  * - Títulos de sección y "Visita"/"WhatsApp": entran derrapando desde la derecha.
- * - Fotos (modelos, generador, pila de UTV, taller): se abren con un corte diagonal.
+ * - Fotos (modelos, generador, pila de UTV): se abren con un corte diagonal.
  * - Tarjetas, pasos, listas y botones: suben en tanda, uno detrás del otro.
  * - Sellos: entran girando.
  * No renderiza nada: busca los elementos por clase dentro de la portada.
@@ -44,7 +44,7 @@ export function SectionMotion() {
       })
 
       // Títulos de sección y llamados grandes: derrape desde la derecha.
-      all(".pal-utv__title, .pal-about__title, .pal-shop__title, .pal-contact__title, .pal-callout__big").forEach((el) => {
+      all(".pal-utv__title, .pal-about__title, .pal-chapter__title, .pal-video__title, .pal-contact__title, .pal-callout__big").forEach((el) => {
         gsap.from(el, {
           x: 160,
           skewX: -22,
@@ -58,7 +58,7 @@ export function SectionMotion() {
       })
 
       // Fotos: corte diagonal + se alejan un poco.
-      all(".pal-models__slider, .pal-gen__media, .pal-utv__stage > :last-child, .pal-shop__portrait").forEach((el) => {
+      all(".pal-models__slider, .pal-gen__media, .pal-utv__stage > :last-child").forEach((el) => {
         gsap.fromTo(
           el,
           { clipPath: "polygon(0 0, 0 0, -25% 100%, -25% 100%)", scale: 1.06 },
@@ -78,16 +78,17 @@ export function SectionMotion() {
         [
           ".pal-utv__intro > p",
           ".pal-utv__models li",
+          ".pal-video__head p",
+          ".pal-vgrid__card",
           ".pal-gen__copy .pal-bubble",
           ".pal-gen__arrows",
           ".pal-about__lead",
           ".pal-about__intro > p:not(.pal-about__lead)",
           ".pal-about__intro .pal-signs",
-          ".pal-about__steps-title",
-          ".pal-about__steps li",
+          ".pal-chapter__kicker",
+          ".pal-chapter__text p",
+          ".pal-story__voices .pal-quote",
           ".pal-place__card",
-          ".pal-shop__role",
-          ".pal-shop__list dt",
           ".pal-contact__card li",
           ".pal-callout__small",
           ".pal-album__filters",
@@ -99,10 +100,6 @@ export function SectionMotion() {
         once: true,
         onEnter: (batch) =>
           gsap.to(batch, { y: 0, autoAlpha: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, clearProps: CLEAR }),
-      })
-      // Las descripciones del taller acompañan a su título.
-      all(".pal-shop__list dd").forEach((dd) => {
-        gsap.from(dd, { autoAlpha: 0, x: -20, duration: 0.8, ease: "power3.out", clearProps: CLEAR, scrollTrigger: once(dd, "top 90%") })
       })
 
       // Sellos: giran y caen en su lugar.
@@ -128,10 +125,22 @@ export function SectionMotion() {
           gsap.to(batch, { autoAlpha: 1, y: 0, scale: 1, duration: 0.8, ease: "power3.out", stagger: 0.06, clearProps: CLEAR }),
       })
 
-      // Las fotos cargan sin tamaño fijo: al terminar se recalculan las posiciones.
-      const refresh = () => ScrollTrigger.refresh()
-      window.addEventListener("load", refresh)
-      return () => window.removeEventListener("load", refresh)
+      // Las fotos y los videos cargan sin tamaño fijo: cuando cambia la altura de la página se recalculan
+      // las posiciones (si no, al entrar directo por un ancla los disparadores quedan corridos).
+      let raf = 0
+      const refresh = () => {
+        cancelAnimationFrame(raf)
+        raf = requestAnimationFrame(() => ScrollTrigger.refresh())
+      }
+      if (document.readyState === "complete") refresh()
+      else window.addEventListener("load", refresh)
+      const ro = new ResizeObserver(refresh)
+      ro.observe(page)
+      return () => {
+        window.removeEventListener("load", refresh)
+        ro.disconnect()
+        cancelAnimationFrame(raf)
+      }
     })
   })
 
