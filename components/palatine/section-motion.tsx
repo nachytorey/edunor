@@ -79,7 +79,7 @@ export function SectionMotion() {
           ".pal-utv__intro > p",
           ".pal-utv__models li",
           ".pal-video__head p",
-          ".pal-reel__card",
+          ".pal-vgrid__card",
           ".pal-gen__copy .pal-bubble",
           ".pal-gen__arrows",
           ".pal-about__lead",

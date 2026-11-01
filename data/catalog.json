@@ -2,7 +2,7 @@
   "source": "drive",
   "folderId": "17jFiWFdEk4QG6NqpGCMOKow9uKnT573V",
   "folderName": "CANESTRARI",
-  "syncedAt": "2026-11-01T02:12:38.912Z",
+  "syncedAt": "2026-11-01T02:29:18.515Z",
   "products": [
     {
       "slug": "polaris-pro-r-2026",
@@ -1307,6 +1307,25 @@
     }
   ],
   "publicidad": [
+    {
+      "slug": "bermuda-safari-con-evinrude-etec-60-hp",
+      "name": "Bermuda Safari Con Evinrude Etec 60 Hp",
+      "category": "cuatriciclos",
+      "folderId": "1vAS6Yfk9V3H0ofLIvl44DU4CpxV5HxEr",
+      "images": [],
+      "videos": [
+        {
+          "src": "/publicidad/bermuda-safari-con-evinrude-etec-60-hp/1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH.mp4",
+          "poster": "/publicidad/bermuda-safari-con-evinrude-etec-60-hp/1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH.poster.jpg",
+          "driveId": "1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH",
+          "checksum": "public:1k9LW31rm7rg4SP3amVfVDgW9-D_9n9OH:igexport-DSTWfnrgcPB.mp4",
+          "width": null,
+          "height": null,
+          "alt": "Bermuda Safari Con Evinrude Etec 60 Hp, video",
+          "file": "igexport-DSTWfnrgcPB.mp4"
+        }
+      ]
+    },
     {
       "slug": "polaris-rzr-200",
       "name": "Polaris RZR 200",
