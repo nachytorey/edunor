@@ -18,7 +18,6 @@ import {
   MailIcon,
   PhoneIcon,
   PinIcon,
-  Workshop,
 } from "@/components/palatine/ornaments"
 import { cuatriciclos, lanchas } from "@/lib/catalog"
 import { company, contact, equipment, generators, service } from "@/lib/edunor"
@@ -104,7 +103,12 @@ export default function PalatinePage() {
           <div className="pal-hero__text">
             <h1 id="pal-hero-title" className="pal-hero__title">
               {/* Palabras sueltas (no <Caps>): la entrada las anima una por una. */}
-              <span className="pal-hero__word">Edunor</span> <span className="pal-hero__word">Náutica</span>
+              {"Tu lancha te está esperando".split(" ").map((w, n) => (
+                <Fragment key={n}>
+                  {n > 0 && " "}
+                  <span className="pal-hero__word">{w}</span>
+                </Fragment>
+              ))}
             </h1>
             <p className="pal-hero__sub">Lanchas, cuatriciclos y service oficial desde {company.founded}</p>
           </div>
@@ -118,26 +122,27 @@ export default function PalatinePage() {
           <Fader label="Modelos de lanchas" className="pal-models__slider">
             {featured.map((p) => (
               <article key={p.slug} className="pal-model">
-                <div className="pal-model__story">
-                  <div className="pal-bubble">
-                    <h3 className="pal-model__name">
-                      <Caps text={p.name} />
-                    </h3>
-                    <p>
-                      {p.description ??
-                        `${p.kind} ${p.name}, lista en el showroom. Vení a subirte, mirá los acabados y consultanos por motorización, equipamiento y entrega.`}
-                    </p>
-                  </div>
-                </div>
-                <Signs
-                  items={[
-                    { href: p.href, label: "consultar", external: true },
-                    { href: fichaHref(p.slug), label: "ver ficha" },
-                  ]}
-                />
+                {/* La foto manda: ancho completo; el texto va en un panel encima de su esquina. */}
                 <a href={fichaHref(p.slug)} className="pal-frame pal-model__image">
-                  <img src={p.images[0].src} alt={p.images[0].alt || `Lancha ${p.name}`} loading="lazy" />
+                  <span className="pal-model__photo">
+                    <img src={p.images[0].src} alt={p.images[0].alt || `Lancha ${p.name}`} loading="lazy" />
+                  </span>
                 </a>
+                <div className="pal-bubble pal-model__story">
+                  <h3 className="pal-model__name">
+                    <Caps text={p.name} />
+                  </h3>
+                  <p>
+                    {p.description ??
+                      `${p.kind} ${p.name}, lista en el showroom. Vení a subirte, mirá los acabados y consultanos por motorización, equipamiento y entrega.`}
+                  </p>
+                  <Signs
+                    items={[
+                      { href: p.href, label: "consultar", external: true },
+                      { href: fichaHref(p.slug), label: "ver ficha" },
+                    ]}
+                  />
+                </div>
               </article>
             ))}
           </Fader>
@@ -295,11 +300,6 @@ export default function PalatinePage() {
 
         {/* ── Taller (en el lugar de las biografías) ── */}
         <section className="pal-shop" aria-labelledby="pal-shop-title">
-          <div className="pal-shop__portrait">
-            <div className="pal-shop__oval">
-              <Workshop />
-            </div>
-          </div>
           <div className="pal-shop__text">
             <h2 id="pal-shop-title" className="pal-shop__title">
               <Caps text="Taller propio" />

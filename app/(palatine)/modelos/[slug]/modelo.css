@@ -45,7 +45,7 @@
 .pal .pd-viewer.is-full { position: fixed; inset: 0; z-index: 100; }
 .pal .pd-stage {
   position: relative; aspect-ratio: 4 / 3; overflow: hidden; cursor: zoom-in;
-  touch-action: pan-y; user-select: none; -webkit-user-select: none; background: var(--pal-ink);
+  touch-action: pan-y; user-select: none; -webkit-user-select: none; background: var(--pal-paper);
 }
 .pal .pd-stage.is-zoomed { cursor: grab; touch-action: none; }
 .pal .pd-stage.is-zoomed:active { cursor: grabbing; }
@@ -66,7 +66,9 @@
   object-fit: cover; filter: blur(40px) saturate(1.1); opacity: 0.4;
 }
 .pal .pd-slide__zoom { position: absolute; inset: 0; transform-origin: 50% 50%; will-change: transform; }
-.pal .pd-slide__img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.pal .pd-slide__img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+/* En la ficha cada foto llena el escenario (se recorta, sin franjas); a pantalla completa se ve entera. */
+.pal .pd-viewer.is-full .pd-slide__img:not(.pd-slide__video) { object-fit: contain; }
 /*
  * Videos: siempre grabados con el celular, así que van en 9:16, centrados, con su propio marco
  * entintado (el del escenario se apaga). El video sí recibe el puntero: sus controles nativos son la interacción.
