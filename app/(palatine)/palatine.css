@@ -614,9 +614,8 @@ a:hover > .pal-play { transform: translateX(8px); }
 
 
 /* ── Videos: mosaico de 12 columnas con empaquetado denso (components/palatine/video-reel.tsx) ──
-   El ancho de cada tarjeta lo da un ciclo de 8 spans (grandes y chicas mezcladas); el alto lo pone el JS en
-   filas de 8px según la proporción del video. Antes de que corra el JS (.is-ready) las filas son automáticas
-   y la tarjeta usa su aspect-ratio: se ve una grilla simple, sin huecos raros. */
+   El ancho de cada tarjeta (span de columnas) y su alto (filas de 8px según la proporción del video) los pone
+   el JS. Antes de que corra (.is-ready) todas miden lo mismo y usan su aspect-ratio: una grilla simple. */
 .pal-video { padding-top: clamp(80px, 12vw, 160px); }
 .pal-video__head { display: grid; justify-items: start; gap: 14px; max-width: 1240px; margin: 0 auto 32px; padding: 0 var(--pal-gutter); }
 .pal-video__title { margin: 0; font-size: clamp(44px, 4.6vw, 72px); line-height: 0.92; }
@@ -628,18 +627,9 @@ a:hover > .pal-play { transform: translateX(8px); }
 .pal-vgrid.is-ready { grid-auto-rows: 8px; }
 .pal-vgrid.is-ready .pal-vgrid__card { aspect-ratio: auto !important; }
 .pal-vgrid__card {
-  position: relative; margin: 0; isolation: isolate; min-width: 0;
+  position: relative; grid-column: span 4; margin: 0; isolation: isolate; min-width: 0;
   background: var(--pal-panel); border: 1px solid var(--pal-line); overflow: hidden;
 }
-/* Ciclo de anchos: 5 · 3 · 4 · 4 · 3 · 5 · 3 · 4 columnas. La primera (publicidad) arranca grande. */
-.pal-vgrid__card:nth-child(8n + 1) { grid-column: span 5; }
-.pal-vgrid__card:nth-child(8n + 2) { grid-column: span 3; }
-.pal-vgrid__card:nth-child(8n + 3) { grid-column: span 4; }
-.pal-vgrid__card:nth-child(8n + 4) { grid-column: span 4; }
-.pal-vgrid__card:nth-child(8n + 5) { grid-column: span 3; }
-.pal-vgrid__card:nth-child(8n + 6) { grid-column: span 5; }
-.pal-vgrid__card:nth-child(8n + 7) { grid-column: span 3; }
-.pal-vgrid__card:nth-child(8n + 8) { grid-column: span 4; }
 .pal-vgrid__card video { display: block; width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
 .pal-vgrid__card::after {
   content: ""; position: absolute; inset: auto 0 0; height: 46%; pointer-events: none;
@@ -665,20 +655,13 @@ a:hover > .pal-play { transform: translateX(8px); }
   transition: color 0.2s;
 }
 .pal-vgrid__caption a:hover span { color: var(--pal-ink); }
-/* Las tarjetas chicas (3 columnas) no tienen lugar para el botón y el título juntos: el botón se achica. */
-.pal-vgrid__card:nth-child(8n + 2) .pal-vgrid__sound, .pal-vgrid__card:nth-child(8n + 5) .pal-vgrid__sound, .pal-vgrid__card:nth-child(8n + 7) .pal-vgrid__sound { padding: 4px 8px; font-size: 10px; }
+/* Tarjetas angostas (menos de 200px): botón y título más chicos para que entren. */
+.pal-vgrid__card.is-small .pal-vgrid__sound { top: 8px; right: 8px; padding: 4px 8px; font-size: 10px; }
+.pal-vgrid__card.is-small .pal-vgrid__caption strong { font-size: 13px; }
+.pal-vgrid__card.is-small .pal-vgrid__caption span { font-size: 10px; }
 @media (max-width: 900px) {
-  /* 6 columnas: ciclo 4 · 2 · 3 · 3 · 2 · 4 (sigue desparejo, pero cada video conserva un ancho legible). */
   .pal-vgrid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .pal-vgrid__card:nth-child(6n + 1) { grid-column: span 4; }
-  .pal-vgrid__card:nth-child(6n + 2) { grid-column: span 2; }
-  .pal-vgrid__card:nth-child(6n + 3) { grid-column: span 3; }
-  .pal-vgrid__card:nth-child(6n + 4) { grid-column: span 3; }
-  .pal-vgrid__card:nth-child(6n + 5) { grid-column: span 2; }
-  .pal-vgrid__card:nth-child(6n + 6) { grid-column: span 4; }
-  /* Un video apaisado en 2 columnas queda de 80px de alto: los apaisados ocupan al menos 4. */
-  .pal-vgrid__card.is-wide { grid-column: span 4; }
+  .pal-vgrid__card { grid-column: span 3; }
   .pal-vgrid__sound { padding: 4px 8px; font-size: 10px; }
   .pal-vgrid__caption strong { font-size: 15px; }
-  .pal-vgrid__card:nth-child(6n + 2) .pal-vgrid__caption strong, .pal-vgrid__card:nth-child(6n + 5) .pal-vgrid__caption strong { font-size: 13px; }
 }

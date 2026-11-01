@@ -16,6 +16,16 @@ export type ReelVideo = {
 
 /** Alto de una fila de la grilla en px (ver .pal-vgrid). Cuanto más chico, más fino encaja cada video. */
 const ROW = 8
+/**
+ * Anchos (en columnas) de los videos verticales, por grupos que llenan el ancho: en 12 columnas cada grupo
+ * es una fila (5 + 3 + 4); en 6, "4 + 2 + 2" es uno grande con dos chicos apilados al lado. Si al final
+ * quedan menos verticales que el grupo, `tail` reparte los que hay para no dejar una franja vacía.
+ * Los apaisados no entran en el ciclo: miden siempre `wide` para no quedar ni enanos ni gigantes.
+ */
+const SPANS: Record<6 | 12, { groups: number[][]; tail: Record<number, number[]>; wide: number }> = {
+  12: { groups: [[5, 3, 4], [4, 3, 5], [3, 4, 5]], tail: { 1: [4], 2: [4, 4] }, wide: 3 },
+  6: { groups: [[4, 2, 2], [3, 3], [2, 2, 4]], tail: { 1: [6], 2: [3, 3] }, wide: 6 },
+}
 
 /**
  * Mosaico de videos: una grilla de 12 columnas con empaquetado denso. El ancho de cada tarjeta lo da
@@ -29,16 +39,33 @@ export function VideoReel({ videos, label }: { videos: ReelVideo[]; label: strin
   const grid = useRef<HTMLDivElement>(null)
   const [loud, setLoud] = useState<string | null>(null)
 
-  /** Cada tarjeta ocupa tantas filas como su alto real pida para el ancho que le tocó. */
+  /**
+   * Reparte los anchos según el ciclo y, con el ancho ya aplicado, da a cada tarjeta tantas filas como pida
+   * su proporción. Se repite en cada cambio de tamaño (ResizeObserver).
+   */
   const layout = useCallback(() => {
     const root = grid.current
     if (!root) return
-    const gap = parseFloat(getComputedStyle(root).rowGap) || 0
-    root.querySelectorAll<HTMLElement>(".pal-vgrid__card").forEach((card) => {
+    const style = getComputedStyle(root)
+    const cols = style.gridTemplateColumns.split(" ").length === 6 ? 6 : 12
+    const { groups, tail, wide } = SPANS[cols]
+    const gap = parseFloat(style.rowGap) || 0
+    const cards = [...root.querySelectorAll<HTMLElement>(".pal-vgrid__card")]
+    const isWide = (card: HTMLElement) => (Number(card.dataset.ratio) || 1) > 1
+    for (const card of cards.filter(isWide)) card.style.gridColumn = `span ${wide}`
+    const vertical = cards.filter((c) => !isWide(c))
+    for (let i = 0, g = 0; i < vertical.length; g++) {
+      const left = vertical.length - i
+      const next = groups[g % groups.length]
+      const group = left < next.length ? (tail[left] ?? next) : next
+      for (const span of group) if (i < vertical.length) vertical[i++].style.gridColumn = `span ${span}`
+    }
+    for (const card of cards) {
       const ratio = Number(card.dataset.ratio) || 1
       const height = card.clientWidth / ratio
       card.style.gridRowEnd = `span ${Math.max(1, Math.round((height + gap) / (ROW + gap)))}`
-    })
+      card.classList.toggle("is-small", card.clientWidth < 200)
+    }
     root.classList.add("is-ready")
   }, [])
 
@@ -82,7 +109,7 @@ export function VideoReel({ videos, label }: { videos: ReelVideo[]; label: strin
   return (
     <div ref={grid} className="pal-vgrid" role="region" aria-label={label}>
       {videos.map((v) => (
-        <figure key={v.src} className={`pal-vgrid__card${v.ratio > 1 ? " is-wide" : ""}`} data-ratio={v.ratio} style={{ aspectRatio: String(v.ratio) }}>
+        <figure key={v.src} className="pal-vgrid__card" data-ratio={v.ratio} style={{ aspectRatio: String(v.ratio) }}>
           <video
             data-src={v.src}
             src={v.src}
