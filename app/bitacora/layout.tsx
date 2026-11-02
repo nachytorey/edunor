@@ -57,6 +57,8 @@ export const metadata: Metadata = {
     apple: [{ url: "/bitacora-apple-icon.png", sizes: "180x180" }],
   },
   alternates: { canonical: "/bitacora" },
+  // Es una maqueta de revista con fotos de stock: que no compita con la portada en Google.
+  robots: { index: false, follow: false },
 }
 
 export const viewport: Viewport = {

@@ -8,7 +8,7 @@ import "./palatine.css"
 const display = Barlow({ subsets: ["latin"], weight: ["400", "600", "900"], style: ["normal", "italic"], variable: "--font-pal-display", display: "swap" })
 const sans = Barlow_Condensed({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-pal-sans", display: "swap" })
 
-const title = "Edunor Náutica — Lanchas, cuatriciclos y service desde 1963"
+const title = "Edunor Náutica — Lanchas, cuatriciclos y service oficial en Témperley"
 const description =
   "Concesionario náutico desde 1963: lanchas Canestrari, semirrígidos, cuatriciclos Polaris y generadores GENERAC, con service oficial en Témperley y Canning."
 

@@ -117,7 +117,7 @@ export function VideoReel({ videos, label }: { videos: ReelVideo[]; label: strin
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             aria-label={`Video de ${v.kind} ${v.name}`}
             onClick={(e) => {
               const el = e.currentTarget

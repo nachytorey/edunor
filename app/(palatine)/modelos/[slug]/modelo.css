@@ -20,6 +20,8 @@
   gap: clamp(40px, 5vw, 80px); padding: 0 var(--pal-gutter); max-width: 1500px; margin: 0 auto;
 }
 .pal-pd__gallery { position: relative; isolation: isolate; }
+/* A pantalla completa se suelta el aislamiento: si no, el z-index del visor queda encerrado y la tarjeta de info (sticky) lo tapa. */
+.pal-pd__gallery:has(.pd-viewer.is-full) { isolation: auto; }
 .pal-pd__gallery::before {
   content: ""; position: absolute; inset: -10px; z-index: -1; border: 1px solid var(--pal-line);
 }
@@ -87,28 +89,25 @@
 .pal-pd__gallery::before, .pal-pd__gallery::after { transition: opacity 0.4s ease; }
 .pal-pd__gallery:has(.pd-viewer.has-video)::before, .pal-pd__gallery:has(.pd-viewer.has-video)::after { opacity: 0; }
 .pal .pd-viewer.only-video:not(.is-full) .pd-stage { aspect-ratio: 9 / 16; max-height: min(78vh, 760px); }
-.pal .pd-tools.is-video { opacity: 0; pointer-events: none; }
 
-/* Flechas y herramientas en placas rectas, como el resto de la portada. */
+/* Flechas y herramientas en placas rectas, como el resto de la portada. Viven en la barra, nunca sobre la foto. */
 .pal .pd-arrow, .pal .pd-tool {
   display: grid; place-items: center; border: 0; padding: 0; font: inherit; cursor: pointer;
   transition: background 0.25s, color 0.25s, opacity 0.25s;
 }
 .pal .pd-arrow {
-  position: absolute; top: 50%; z-index: 5; width: 52px; height: 52px; margin-top: -26px;
+  width: 44px; height: 44px; flex: none;
   background: var(--pal-paper); color: var(--pal-ink); border: 1px solid var(--pal-line);
 }
-.pal .pd-arrow--prev { left: 16px; }
-.pal .pd-arrow--next { right: 16px; }
 .pal .pd-arrow:hover, .pal .pd-tool:hover:not(:disabled) { background: var(--pal-ink); color: var(--pal-paper); }
-.pal .pd-stage.is-zoomed .pd-arrow { opacity: 0; pointer-events: none; }
 .pal .pd-arrow:focus-visible, .pal .pd-tool:focus-visible, .pal .pd-thumb:focus-visible { outline: 2px solid var(--pal-accent); outline-offset: 2px; }
 
 .pal .pd-tools {
-  position: absolute; left: 50%; bottom: 14px; z-index: 6; display: flex; align-items: center;
-  gap: 2px; padding: 4px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 2px; padding: 4px;
   background: var(--pal-paper); border: 1px solid var(--pal-line);
+  transition: opacity 0.3s;
 }
+.pal .pd-tools.is-video { opacity: 0; pointer-events: none; }
 .pal .pd-tool { width: 40px; height: 40px; background: transparent; color: var(--pal-ink); }
 .pal .pd-tool:disabled { opacity: 0.35; cursor: default; }
 .pal .pd-tools__value {
@@ -129,12 +128,24 @@
   border: 2px solid var(--pal-accent); box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.5);
 }
 
-/* Contador en la tipografía del logo + leyenda condensada. */
-.pal .pd-bar { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 16px 18px 4px; }
-.pal .pd-bar__count { margin: 0; font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 32px; line-height: 1; overflow: hidden; }
+/* Barra de controles: paginación (flechas + contador) a la izquierda, zoom a la derecha, leyenda abajo. */
+.pal .pd-bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 12px 16px; padding: 14px 18px 4px;
+}
+.pal .pd-bar__nav { display: flex; align-items: center; gap: 12px; }
+.pal .pd-bar__count { margin: 0; min-width: 118px; text-align: center; font-family: var(--f-display); font-style: italic; font-weight: 900; font-size: 32px; line-height: 1; overflow: hidden; }
 .pal .pd-bar__current { display: inline-block; color: var(--pal-accent); }
 .pal .pd-bar__total { font-size: 18px; opacity: 0.6; }
-.pal .pd-bar__hint { margin: 0; font-family: var(--f-sans); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; text-align: right; }
+.pal .pd-bar__hint {
+  flex-basis: 100%; margin: 0; font-family: var(--f-sans); font-weight: 600; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7;
+}
+@media (max-width: 520px) {
+  .pal .pd-bar { padding-inline: 12px; }
+  .pal .pd-bar__count { min-width: 96px; font-size: 26px; }
+  .pal .pd-tools__value { min-width: 44px; font-size: 13px; }
+}
 
 .pal .pd-thumbs { position: relative; padding: 10px 18px 18px; }
 .pal .pd-thumbs__list { display: flex; gap: 10px; overflow-x: auto; list-style: none; margin: 0; padding: 0; scrollbar-width: none; }

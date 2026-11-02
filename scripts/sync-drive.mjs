@@ -51,7 +51,7 @@
 import { createSign } from "node:crypto"
 import { mkdir, readFile, readdir, writeFile, rm } from "node:fs/promises"
 import { existsSync } from "node:fs"
-import { optimizeImage } from "./optimize-images.mjs"
+import { ensureVariants, optimizeImage, VARIANT_RE, writeVariants } from "./optimize-images.mjs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -498,7 +498,10 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
         const { bytes, ext } = await drive.download(file)
         // Nombre por ID de Drive: estable aunque cambie el orden (no pisa fotos reutilizadas).
         const name = `${file.id}.${ext}`
-        await writeFile(path.join(dir, name), await optimizeImage(bytes, ext))
+        const optimized = await optimizeImage(bytes, ext)
+        await writeFile(path.join(dir, name), optimized)
+        // Variantes WebP responsive (<id>.w480.webp, …) para el srcset; la foto cambió, así que se rehacen.
+        await writeVariants(path.join(dir, name), optimized, { force: true })
         src = `/${base}/${p.slug}/${name}`
         log(`   ↓ ${p.name} · ${file.name}`)
       }
@@ -542,8 +545,11 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
       })
     }
     // Borra fotos y videos viejos de este modelo que ya no forman parte de la galería.
+    // Las variantes WebP (<id>.w480.webp) se quedan mientras quede su foto.
     const keepFiles = new Set([...images, ...videos].flatMap((m) => [m.src, m.poster]).filter(Boolean).map((s) => path.basename(s)))
-    for (const f of await readdir(dir)) if (!keepFiles.has(f)) await rm(path.join(dir, f), { force: true })
+    const keepStems = new Set([...keepFiles].map((f) => f.replace(/\.[^.]+$/, "")))
+    const isKeptVariant = (f) => keepStems.has(f.match(VARIANT_RE)?.[1] ?? "")
+    for (const f of await readdir(dir)) if (!keepFiles.has(f) && !isKeptVariant(f)) await rm(path.join(dir, f), { force: true })
     return { images, videos }
   }
 
@@ -577,6 +583,9 @@ export async function sync({ env = process.env, dryRun = false, log = console.lo
   }
   await sweep(OUT_IMG_DIR, products, previous?.products ?? [])
   await sweep(OUT_AD_DIR, publicidad, previous?.publicidad ?? [])
+  // Fotos reutilizadas (no se volvieron a bajar) que todavía no tienen variantes WebP.
+  const made = await ensureVariants([OUT_IMG_DIR, OUT_AD_DIR])
+  if (made) log(`→ ${made} variantes WebP generadas para fotos ya existentes.`)
 
   const catalog = { source: "drive", folderId, folderName: rootName, syncedAt: new Date().toISOString(), products, publicidad }
   await mkdir(path.dirname(OUT_JSON), { recursive: true })

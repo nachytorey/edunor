@@ -102,7 +102,7 @@
 /* ── Piezas compartidas ── */
 .pal-ghost { position: relative; padding-inline: var(--pal-gutter); pointer-events: none; }
 .pal-ghost__title {
-  margin: 0; line-height: 0.88; font-size: clamp(72px, 14vw, 200px); white-space: nowrap;
+  display: block; margin: 0; line-height: 0.88; font-size: clamp(72px, 14vw, 200px); white-space: nowrap;
   color: transparent; -webkit-text-stroke: 1.5px rgba(255, 214, 10, 0.35);
 }
 .pal-ghost--right .pal-ghost__title { text-align: right; }
