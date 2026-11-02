@@ -159,19 +159,22 @@ public/
   palatine/, images/, og/, brand/   fotos fijas de la portada, imagen para compartir, favicons
 scripts/
   sync-drive.mjs         sync con Drive (ver arriba)
-  optimize-images.mjs    achica y recomprime fotos; el sync lo usa, y se puede correr a mano
+  optimize-images.mjs    achica y recomprime fotos y genera sus variantes WebP; el sync lo usa, y se puede correr a mano
 ```
 
 ### Optimizar fotos a mano
 
-El sync ya optimiza cada foto al bajarla. Para las fotos fijas de la portada o si querés repasar lo que hay en `public/`:
+El sync ya optimiza cada foto al bajarla. Si querés repasar lo que hay en `public/` (por ejemplo, después de clonar el repo o de subir fotos a mano):
 
 ```bash
-node scripts/optimize-images.mjs                 # public/catalog y public/palatine
+node scripts/optimize-images.mjs                 # public/catalog y public/publicidad
 node scripts/optimize-images.mjs public/otra     # otra carpeta
 ```
 
 Mantiene nombre y extensión, así las rutas de `data/catalog.json` no cambian, y solo pisa el archivo si queda más liviano.
+Además deja junto a cada foto sus variantes responsive en WebP (`foto.w480.webp`, `foto.w960.webp`, `foto.w1440.webp`,
+solo las más chicas que el original). El sitio las usa en el `srcset` de cada `<img>` (`imageSrcSet` en `lib/image-dims.ts`),
+así el celular baja la de 480px y no el JPEG de 1600px. Las variantes que faltan se generan; las que ya están, se dejan.
 
 ## Deploy
 
