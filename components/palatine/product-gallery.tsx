@@ -24,6 +24,7 @@ const pad = (n: number) => String(n).padStart(2, "0")
 /**
  * Galería de la ficha de producto.
  * - Carrusel: las fotos se funden con un leve desenfoque y deriva lateral (GSAP).
+ * - Controles (flechas, zoom, pantalla completa) en la barra debajo de la foto: el escenario queda limpio.
  * - Zoom: botones, rueda (con Ctrl o ya ampliada), pellizco, doble click/toque.
  *   Ampliada, se arrastra para recorrerla y un mini-mapa marca qué parte se ve.
  * - Pantalla completa con Flip: el mismo visor se expande sin cortar la transición.
@@ -259,9 +260,8 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
 
   /* ── Gestos: arrastrar (mueve la foto ampliada o pasa de foto), pellizcar, doble toque ── */
   const onPointerDown = contextSafe((e: PointerEvent<HTMLDivElement>) => {
-    // Sobre flechas y herramientas no hay gesto: capturar el puntero les robaría el click.
-    // Sobre un video, el gesto es de sus controles (play, barra de tiempo).
-    if ((e.pointerType === "mouse" && e.button !== 0) || (e.target as Element).closest("button, video")) return
+    // Sobre un video no hay gesto: la interacción es de sus controles nativos (play, barra de tiempo).
+    if ((e.pointerType === "mouse" && e.button !== 0) || (e.target as Element).closest("video")) return
     e.currentTarget.setPointerCapture(e.pointerId)
     points.current.set(e.pointerId, { x: e.clientX, y: e.clientY })
     const pts = [...points.current.values()]
@@ -379,7 +379,10 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
             aria-hidden={i !== index}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            {im.src && !im.video && <img className="pd-slide__ambient" src={im.src} alt="" aria-hidden="true" />}
+            {/* Fondo desenfocado (blur 40px): alcanza con la variante más chica. */}
+            {im.src && !im.video && (
+              <img className="pd-slide__ambient" src={im.src} srcSet={im.srcSet} sizes={im.srcSet && "320px"} alt="" aria-hidden="true" />
+            )}
             <div
               ref={(el) => {
                 if (el) layers.current[i] = el
@@ -405,6 +408,9 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
                 <img
                   className="pd-slide__img"
                   src={im.src}
+                  srcSet={im.srcSet}
+                  // El escenario llega a ~1150px de ancho en escritorio (min(78vh, 860px) × 4/3); en el celular ocupa todo.
+                  sizes={im.srcSet && "(max-width: 900px) 100vw, 1150px"}
                   alt={im.alt}
                   draggable={false}
                   loading={i === 0 ? "eager" : "lazy"}
@@ -416,16 +422,33 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
           </div>
         ))}
 
-        {many && (
-          <>
+        <span className={`pd-map${zoomed ? " is-on" : ""}`} aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={active?.src} srcSet={active?.srcSet} sizes={active?.srcSet && "200px"} alt="" />
+          <span ref={mapRect} className="pd-map__rect" />
+        </span>
+      </div>
+
+      {/* Controles debajo de la foto: paginación a la izquierda, zoom y pantalla completa a la derecha. La foto queda limpia. */}
+      <div className="pd-bar">
+        <div className="pd-bar__nav" role="group" aria-label="Fotos">
+          {many && (
             <button type="button" className="pd-arrow pd-arrow--prev" onClick={() => go(current.current - 1, -1)} aria-label="Foto anterior">
               <Icon d="M15 5l-7 7 7 7" />
             </button>
+          )}
+          <p className="pd-bar__count" aria-live="polite">
+            <span ref={counter} className="pd-bar__current">
+              {pad(index + 1)}
+            </span>
+            <span className="pd-bar__total"> / {pad(images.length)}</span>
+          </p>
+          {many && (
             <button type="button" className="pd-arrow pd-arrow--next" onClick={() => go(current.current + 1, 1)} aria-label="Foto siguiente">
               <Icon d="M9 5l7 7-7 7" />
             </button>
-          </>
-        )}
+          )}
+        </div>
 
         <div className={`pd-tools${isVideo ? " is-video" : ""}`} role="toolbar" aria-label="Zoom">
           <ToolButton label="Alejar" onClick={() => zoomBy(1 / STEP)} disabled={!zoomed}>
@@ -446,20 +469,6 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
           </ToolButton>
         </div>
 
-        <span className={`pd-map${zoomed ? " is-on" : ""}`} aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={active?.src} alt="" />
-          <span ref={mapRect} className="pd-map__rect" />
-        </span>
-      </div>
-
-      <div className="pd-bar">
-        <p className="pd-bar__count" aria-live="polite">
-          <span ref={counter} className="pd-bar__current">
-            {pad(index + 1)}
-          </span>
-          <span className="pd-bar__total"> / {pad(images.length)}</span>
-        </p>
         <p className="pd-bar__hint">
           {isVideo
             ? "Tocá el video para activar el sonido"
@@ -485,7 +494,11 @@ export function ProductGallery({ images, name }: { images: CatalogImage[]; name:
                   aria-current={i === index}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  {im.src ? <img src={im.src} alt="" loading="lazy" /> : <span className="pd-thumb__blank" />}
+                  {im.src ? (
+                    <img src={im.src} srcSet={im.srcSet} sizes={im.srcSet && "96px"} alt="" loading="lazy" decoding="async" />
+                  ) : (
+                    <span className="pd-thumb__blank" />
+                  )}
                   {im.video && (
                     <span className="pd-thumb__play" aria-hidden="true">
                       <Icon d="M8 5l11 7-11 7z" />

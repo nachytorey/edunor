@@ -4,13 +4,17 @@
  * Mientras ese archivo esté vacío, usa el catálogo de demostración de lib/products.ts.
  */
 import driveCatalog from "@/data/catalog.json"
+import { imageSrcSet } from "@/lib/image-dims"
 import { products as demoProducts } from "@/lib/products"
 import { whatsappLink } from "@/lib/site"
 
 export type Category = "lanchas" | "cuatriciclos"
 
-/** Una pieza de la galería. Si trae `video`, `src` es su póster (o vacío si Drive no generó uno). */
-export type CatalogImage = { src: string; alt: string; video?: string }
+/**
+ * Una pieza de la galería. Si trae `video`, `src` es su póster (o vacío si Drive no generó uno).
+ * `srcSet` son las variantes WebP responsive de la foto (ver lib/image-dims.ts); cada <img> pone su `sizes`.
+ */
+export type CatalogImage = { src: string; alt: string; video?: string; srcSet?: string }
 
 export type CatalogProduct = {
   slug: string
@@ -67,7 +71,7 @@ const toCategory = (c: string): Category => (c === "cuatriciclos" ? "cuatriciclo
 
 /** Galería: portada, después los videos y el resto de las fotos. Sin fotos, el primer video es la portada. */
 function toImages(m: DriveMedia): CatalogImage[] {
-  const photos = m.images.map((i) => ({ src: i.src, alt: i.alt }))
+  const photos = m.images.map((i) => ({ src: i.src, alt: i.alt, srcSet: imageSrcSet(i.src) }))
   const videos = (m.videos ?? []).map((v) => ({ src: v.poster ?? "", alt: v.alt, video: v.src }))
   return [...photos.slice(0, 1), ...videos, ...photos.slice(1)]
 }

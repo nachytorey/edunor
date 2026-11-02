@@ -7,7 +7,13 @@ import { Triangle } from "@/components/palatine/ornaments"
 
 gsap.registerPlugin(useGSAP)
 
-export type DeckPhoto = { href: string; src: string; alt: string; name: string }
+export type DeckPhoto = { href: string; src: string; srcSet?: string; alt: string; name: string }
+
+/**
+ * Ancho que ocupa la foto en pantalla, para el srcset: la mesa mide hasta 640px y la foto va
+ * ampliada ×1.45 (ZOOM), así que necesita ~930px; en el celular, 1.45 veces el ancho de la pantalla.
+ */
+const SIZES = "(max-width: 680px) 145vw, 930px"
 
 /** Las fotos de Drive están sacadas de lejos: arrancan ampliadas y siguen acercándose mientras están arriba. */
 const ZOOM = 1.45
@@ -164,7 +170,7 @@ export function PhotoDeck({ photos, label, autoplay = 5000 }: { photos: DeckPhot
           >
             <span className="pal-deck__print">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={p.src} alt={p.alt} loading="lazy" draggable={false} />
+              <img src={p.src} srcSet={p.srcSet} sizes={p.srcSet && SIZES} alt={p.alt} loading="lazy" decoding="async" draggable={false} />
             </span>
             <span className="pal-deck__caption">{p.name}</span>
           </a>

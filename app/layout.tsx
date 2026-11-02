@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Red_Hat_Display, Red_Hat_Text } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { JsonLd, organizationJsonLd } from "@/lib/seo"
 import { OG_IMAGE, SITE_URL } from "@/lib/site"
 import "./globals.css"
 
@@ -71,7 +72,11 @@ export const metadata: Metadata = {
     description: "Concesionario familiar desde 1963. Service oficial de las mejores marcas.",
     images: [OG_IMAGE.url],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
   alternates: { canonical: "/" },
 }
 
@@ -81,54 +86,13 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
-const businessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Edunor Náutica",
-  description:
-    "Concesionario familiar fundado en 1963. Lanchas, semirrígidos, cuatriciclos y UTVs. Representantes oficiales de Zodiac, Mercury, Yamaha, Sea Doo, Polaris y más.",
-  url: SITE_URL,
-  foundingDate: "1963",
-  logo: `${SITE_URL}/images/edunor-logo.png`,
-  image: `${SITE_URL}/og/edunor-portada.jpg`,
-  location: [
-    {
-      "@type": "Place",
-      name: "Edunor Náutica — Témperley",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Av. Antártida Argentina 101",
-        addressLocality: "Témperley, Lomas de Zamora",
-        addressRegion: "Buenos Aires",
-        addressCountry: "AR",
-      },
-      telephone: "+54 11 4298 9291",
-    },
-    {
-      "@type": "Place",
-      name: "Edunor Náutica — Canning",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Mariano Castex 560",
-        addressLocality: "Canning",
-        postalCode: "B1842",
-        addressRegion: "Buenos Aires",
-        addressCountry: "AR",
-      },
-    },
-  ],
-}
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${display.variable} ${text.variable}`}>
       <body>
         {children}
-        {/* <script> común y no next/script: así el JSON-LD sale en el HTML del servidor y lo leen los crawlers. */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
-        />
+        {/* Empresa, locales y sitio en schema.org: sale en el HTML del servidor para que lo lean los crawlers. */}
+        <JsonLd data={organizationJsonLd()} />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>

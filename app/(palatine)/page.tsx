@@ -7,6 +7,7 @@
  * Los testimonios son inventados (relleno realista) hasta tener los reales. Se reemplazan y listo.
  */
 import { Fragment } from "react"
+import { preload } from "react-dom"
 import { fichaHref, GhostTitle, PalFooter, Signs, WHATSAPP } from "@/components/palatine/blocks"
 import { Caps, Fader, PalNav } from "@/components/palatine/interactive"
 import { HeroMotion } from "@/components/palatine/hero-motion"
@@ -38,12 +39,25 @@ const NAV = [
 /** Años de Edunor (se recalcula en cada build). */
 const YEARS = new Date().getFullYear() - company.founded
 
+/**
+ * Foto del hero: es la imagen LCP de la portada. Variantes de scripts/hero-variants.mjs; el celular baja la de 640px
+ * y no la de 1672px. El preload la pide antes de que el navegador llegue al <img> (va lejos en el HTML).
+ */
+const HERO = {
+  src: "/palatine/portada.webp",
+  srcSet: "/palatine/portada-640.webp 640w, /palatine/portada-1024.webp 1024w, /palatine/portada-1400.webp 1400w, /palatine/portada.webp 1672w",
+  sizes: "100vw",
+  width: 1672,
+  height: 941,
+}
+const genDims = imageDims(generators.image.src)
+
 
 const featured = lanchas.slice(0, 6)
 /** UTV/cuatris: una foto por modelo (su portada). Solo fotos: los modelos que solo tienen video quedan para la ficha. */
 const utvPhotos = cuatriciclos.flatMap((p) => {
   const photo = p.images.find((m) => !m.video && m.src)
-  return photo ? [{ href: fichaHref(p.slug), src: photo.src, alt: photo.alt || `${p.kind} ${p.name}`, name: p.name }] : []
+  return photo ? [{ href: fichaHref(p.slug), src: photo.src, srcSet: photo.srcSet, alt: photo.alt || `${p.kind} ${p.name}`, name: p.name }] : []
 })
 /** Cinta de videos: primero los de publicidad (hechos para mostrar), después los de las fichas de los modelos. */
 const toReel = (images: { src: string; video?: string }[], name: string, kind: string, ficha: string, cta?: string): ReelVideo[] =>
@@ -60,6 +74,7 @@ const reel: ReelVideo[] = [
 ]
 
 export default function PalatinePage() {
+  preload(HERO.src, { as: "image", imageSrcSet: HERO.srcSet, imageSizes: HERO.sizes, fetchPriority: "high" })
   return (
     <div id="top" className="pal-page">
       <PalNav links={NAV} whatsapp={WHATSAPP} />
@@ -70,9 +85,14 @@ export default function PalatinePage() {
           <div className="pal-hero__art">
             <div className="pal-hero__porthole">
               <img
-                src="/palatine/portada.webp"
+                src={HERO.src}
+                srcSet={HERO.srcSet}
+                sizes={HERO.sizes}
+                width={HERO.width}
+                height={HERO.height}
                 alt="Local de Edunor con lanchas en el salón y dos cuatriciclos Polaris en la vereda"
                 fetchPriority="high"
+                decoding="async"
               />
               <span className="pal-hero__flash" aria-hidden="true" />
             </div>
@@ -153,7 +173,16 @@ export default function PalatinePage() {
                 {/* La foto manda: ancho completo; el texto va en un panel encima de su esquina. */}
                 <a href={fichaHref(p.slug)} className="pal-frame pal-model__image">
                   <span className="pal-model__photo">
-                    <img src={p.images[0].src} alt={p.images[0].alt || `Lancha ${p.name}`} loading="lazy" />
+                    <img
+                      src={p.images[0].src}
+                      srcSet={p.images[0].srcSet}
+                      // La foto va de gutter a gutter: casi todo el ancho de la pantalla.
+                      sizes={p.images[0].srcSet && "100vw"}
+                      alt={p.images[0].alt || `Lancha ${p.name}`}
+                      loading="lazy"
+                      decoding="async"
+                      {...imageDims(p.images[0].src)}
+                    />
                   </span>
                 </a>
                 <div className="pal-bubble pal-model__story">
@@ -211,8 +240,11 @@ export default function PalatinePage() {
         </section>
 
         {/* ── Generadores ── */}
-        <section id="generadores" className="pal-gen">
+        <section id="generadores" className="pal-gen" aria-labelledby="pal-gen-title">
           <GhostTitle side="right">Generadores</GhostTitle>
+          <h2 id="pal-gen-title" className="pal-sr">
+            Generadores {generators.brand}
+          </h2>
           <div className="pal-gen__grid">
             <div className="pal-gen__copy">
               <div className="pal-bubble pal-bubble--right">
@@ -221,7 +253,7 @@ export default function PalatinePage() {
               </div>
             </div>
             <div className="pal-gen__media">
-              <img className="pal-gen__product" src={generators.image.src} alt={generators.image.alt} loading="lazy" />
+              <img className="pal-gen__product" src={generators.image.src} alt={generators.image.alt} loading="lazy" decoding="async" {...genDims} />
               <div className="pal-gen__arrows">
                 <a href={whatsappLink(`Hola Edunor! Quiero consultar por generadores ${generators.brand}.`)} target="_blank" rel="noreferrer">
                   Consultar
@@ -249,10 +281,13 @@ export default function PalatinePage() {
         )}
 
         {/* ── Showroom ── */}
-        <section id="showroom" className="pal-show">
+        <section id="showroom" className="pal-show" aria-labelledby="pal-show-title">
           <GhostTitle side="left">
             Showroom
           </GhostTitle>
+          <h2 id="pal-show-title" className="pal-sr">
+            Showroom en Témperley y Canning
+          </h2>
           <div className="pal-show__grid">
             <ul className="pal-show__list">
               {locations.map((l, n) => (

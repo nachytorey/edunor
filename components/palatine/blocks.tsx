@@ -24,11 +24,15 @@ export const fichaHref = (slug: string) => `/modelos/${slug}`
 
 const allBrands =[...new Set(brands.flatMap((b) => b.names))]
 
-/** Título fantasma de sección: palabra gigante calada, con el corte de velocidad del logo. */
+/**
+ * Título fantasma de sección: palabra gigante calada, con el corte de velocidad del logo.
+ * Es decoración (la sección tiene su propio h2), por eso no es un heading y se esconde a lectores de pantalla:
+ * si fuera un h2, Google y los lectores verían títulos duplicados o sueltos como "Tierra" o "Flota".
+ */
 export function GhostTitle({ children, side = "right" }: { children: string; side?: "left" | "right" }) {
   return (
-    <div className={`pal-ghost pal-ghost--${side}`}>
-      <h2 className="pal-ghost__title">{children}</h2>
+    <div className={`pal-ghost pal-ghost--${side}`} aria-hidden="true">
+      <span className="pal-ghost__title">{children}</span>
     </div>
   )
 }

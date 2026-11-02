@@ -9,6 +9,8 @@ import { fichaHref, GhostTitle, NAV, PalFooter, Signs } from "@/components/palat
 import { Caps, PalNav } from "@/components/palatine/interactive"
 import { PinIcon, Triangle } from "@/components/palatine/ornaments"
 import { catalog, getProduct } from "@/lib/catalog"
+import { imageDims } from "@/lib/image-dims"
+import { breadcrumbJsonLd, JsonLd, productJsonLd } from "@/lib/seo"
 import { locations, mapsLink, shareMeta, whatsappLink } from "@/lib/site"
 import "./modelo.css"
 
@@ -34,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       path: fichaHref(product.slug),
-      image: photo ? { url: photo.src, alt: photo.alt || product.name } : undefined,
+      image: photo ? { url: photo.src, alt: photo.alt || product.name, ...imageDims(photo.src) } : undefined,
     }),
   }
 }
@@ -53,6 +55,14 @@ export default async function PalatineModeloPage({ params }: Props) {
 
   return (
     <div id="top" className="pal-page pal-pd-page">
+      <JsonLd data={productJsonLd(product)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Edunor Náutica", path: "/" },
+          { name: lineLabel, path: product.category === "lanchas" ? "/#modelos" : "/#utv" },
+          { name: product.name, path: product.url },
+        ])}
+      />
       <PalNav links={NAV} whatsapp={product.href} home="/" />
 
       <main>
@@ -151,7 +161,16 @@ export default async function PalatineModeloPage({ params }: Props) {
               {more.map((p) => (
                 <li key={p.slug} className="pal-media__item">
                   <a href={fichaHref(p.slug)} className="pal-frame">
-                    <img src={p.images[0]?.src} alt={p.images[0]?.alt || p.name} loading="lazy" />
+                    <img
+                      src={p.images[0]?.src}
+                      srcSet={p.images[0]?.srcSet}
+                      // Tarjetas de la grilla: de 280px a ~420px; en el celular, una por fila.
+                      sizes={p.images[0]?.srcSet && "(max-width: 600px) 100vw, 420px"}
+                      alt={p.images[0]?.alt || p.name}
+                      loading="lazy"
+                      decoding="async"
+                      {...(p.images[0]?.src ? imageDims(p.images[0].src) : {})}
+                    />
                   </a>
                   <p className="pal-plaque">
                     {p.name} <span aria-hidden="true">–</span> {p.kind}
