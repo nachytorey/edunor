@@ -1,8 +1,9 @@
 /**
- * Piezas compartidas de la v2: barra superior negra (como el bosquejo), título de sección en franja negra
- * y pie. El menú del celular es un <details>: anda sin JavaScript.
+ * Piezas compartidas de la v2: barra superior (transparente sobre el hero, negra después), título de sección
+ * y pie. El menú es el de la v1: botón inclinado y panel a pantalla completa (components/v2/menu.tsx).
  */
 import { EdunorLogo } from "@/components/edunor-logo"
+import { V2Menu } from "@/components/v2/menu"
 import { contact } from "@/lib/edunor"
 import { locations, siteConfig, whatsappLink } from "@/lib/site"
 import { categories, V2 } from "@/lib/v2"
@@ -31,23 +32,7 @@ export function V2Header() {
           </a>
         ))}
       </nav>
-      <details className="v2-menu">
-        <summary aria-label="Menú">
-          <span />
-          <span />
-          <span />
-        </summary>
-        <nav className="v2-menu__panel" aria-label="Menú">
-          {MENU.map((l) => (
-            <a key={l.href} href={l.href}>
-              {l.label}
-            </a>
-          ))}
-          <a href={WHATSAPP_V2} target="_blank" rel="noreferrer" className="v2-menu__cta">
-            Escribinos por WhatsApp
-          </a>
-        </nav>
-      </details>
+      <V2Menu links={MENU} whatsapp={WHATSAPP_V2} />
     </header>
   )
 }

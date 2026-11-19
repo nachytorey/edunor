@@ -39,10 +39,13 @@ export function ReviewsTrack({ reviews }: { reviews: Review[] }) {
       <ul ref={track} className="v2-reviews__track" aria-label="Reseñas de clientes en Google">
         {reviews.map((r) => (
           <li key={`${r.author}-${r.date}`} className="v2-review">
-            <p className="v2-review__stars" aria-label={`${r.rating} de 5 estrellas`}>
-              {"★".repeat(r.rating)}
-              <span aria-hidden="true">{"★".repeat(5 - r.rating)}</span>
-            </p>
+            <div className="v2-review__top">
+              <p className="v2-review__stars" aria-label={`${r.rating} de 5 estrellas`}>
+                {"★".repeat(r.rating)}
+                <span aria-hidden="true">{"★".repeat(5 - r.rating)}</span>
+              </p>
+              <p className="v2-review__date">{r.date}</p>
+            </div>
             <blockquote className="v2-review__text">
               {r.text.split("\n").filter(Boolean).map((line, n) => (
                 <p key={n}>{line}</p>
@@ -68,7 +71,7 @@ export function ReviewsTrack({ reviews }: { reviews: Review[] }) {
               <span>
                 <strong>{r.author}</strong>
                 <small>
-                  {PLACE[r.location]} · {r.date}
+                  Reseña de Google · {PLACE[r.location]}
                 </small>
               </span>
               <GoogleG />
