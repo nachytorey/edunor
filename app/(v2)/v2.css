@@ -166,7 +166,7 @@
 .v2-more[open] summary { margin-bottom: 18px; }
 .v2-more__body { padding: 18px 22px; border-radius: var(--v2-radius); background: var(--v2-surface); }
 .v2-about__photo { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--v2-radius); }
-.v2-about__photo img { width: 100%; height: 100% !important; object-fit: cover; }
+.v2-about__photo img { width: 100%; height: 100% !important; object-fit: cover; object-position: center 55%; }
 .v2-placeholder {
   display: grid; place-items: center; height: 100%;
   border: 2px dashed #c9c9c5; border-radius: var(--v2-radius); background: var(--v2-surface);
