@@ -1,19 +1,20 @@
 "use client"
 
 /**
- * El menú de la v1 (components/palatine/interactive.tsx → PalNav) en la v2: el mismo botón inclinado y el mismo
- * panel a pantalla completa, negro con la malla hexagonal del logo, links gigantes en itálica con el corte de
- * velocidad y el llamado a WhatsApp. Se cierra con Escape, con la X o al elegir un link; mientras está abierto,
- * la página no scrollea. Los estilos están en app/(v2)/v2.css (.v2-burger, .v2-fullmenu).
+ * Menú de la v2: botón píldora "Menú" que abre un panel a pantalla completa en dos columnas.
+ * - Izquierda: los links en filas (número, nombre, flecha), separadas por líneas finas.
+ * - Derecha: una foto que cambia según el link señalado (mouse o foco) y, abajo, el contacto (`aside`,
+ *   que llega armado desde el servidor). En el celular: una sola columna, sin foto.
+ * Se cierra con el botón, con Escape o al elegir un link; mientras está abierto la página no scrollea.
+ * Estilos en app/(v2)/v2.css (.v2-menubtn, .v2-fullmenu).
  */
-import { useEffect, useRef, useState } from "react"
-import { Caps } from "@/components/palatine/interactive"
-import { ChatIcon } from "@/components/palatine/ornaments"
+import { useEffect, useRef, useState, type ReactNode } from "react"
 
-type Link = { href: string; label: string }
+export type MenuLink = { href: string; label: string; image: { src: string; alt: string } }
 
-export function V2Menu({ links, whatsapp }: { links: Link[]; whatsapp: string }) {
+export function V2Menu({ links, aside }: { links: MenuLink[]; aside: ReactNode }) {
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState(0)
   const btnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
@@ -41,28 +42,56 @@ export function V2Menu({ links, whatsapp }: { links: Link[]; whatsapp: string })
       <button
         ref={btnRef}
         type="button"
-        className="v2-burger"
+        className="v2-menubtn"
         aria-expanded={open}
         aria-controls="v2-fullmenu"
-        aria-label={open ? "Cerrar menú" : "Abrir menú"}
         onClick={() => setOpen((o) => !o)}
       >
-        <span />
-        <span />
+        <span className="v2-menubtn__label">{open ? "Cerrar" : "Menú"}</span>
+        <span className="v2-menubtn__icon" aria-hidden="true">
+          <span />
+          <span />
+        </span>
       </button>
-      <nav id="v2-fullmenu" className="v2-fullmenu" aria-label="Secciones" hidden={!open}>
-        {links.map((l) => (
-          <a key={l.href} href={l.href} className="v2-fullmenu__link" onClick={() => setOpen(false)}>
-            <Caps text={l.label} />
-          </a>
-        ))}
-        <a href={whatsapp} target="_blank" rel="noreferrer" className="v2-fullmenu__cta">
-          <ChatIcon />
-          <span>
-            no te olvides del <strong>WhatsApp</strong>
-          </span>
-        </a>
-      </nav>
+
+      <div id="v2-fullmenu" className="v2-fullmenu" hidden={!open}>
+        <div className="v2-fullmenu__inner">
+          <nav className="v2-fullmenu__nav" aria-label="Secciones">
+            <ol className="v2-fullmenu__list">
+              {links.map((l, n) => (
+                <li key={l.href} style={{ "--i": n } as React.CSSProperties}>
+                  <a
+                    href={l.href}
+                    className="v2-fullmenu__link"
+                    data-active={n === active || undefined}
+                    onMouseEnter={() => setActive(n)}
+                    onFocus={() => setActive(n)}
+                    onClick={() => setOpen(false)}
+                  >
+                    <span className="v2-fullmenu__num" aria-hidden="true">
+                      {String(n + 1).padStart(2, "0")}
+                    </span>
+                    <span className="v2-fullmenu__label">{l.label}</span>
+                    <span className="v2-fullmenu__arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div className="v2-fullmenu__side">
+            <div className="v2-fullmenu__media" aria-hidden="true">
+              {links.map((l, n) => (
+                <img key={l.href} src={l.image.src} alt="" data-on={n === active || undefined} loading="lazy" decoding="async" />
+              ))}
+              <span className="v2-fullmenu__caption">{links[active]?.label}</span>
+            </div>
+            <div className="v2-fullmenu__aside">{aside}</div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
