@@ -12,7 +12,7 @@ import { ReviewsTrack } from "@/components/v2/reviews-track"
 import { VideoReel, type ReelVideo } from "@/components/palatine/video-reel"
 import { catalog, publicidad } from "@/lib/catalog"
 import { company } from "@/lib/edunor"
-import { imageDims } from "@/lib/image-dims"
+import { imageDims, imageSrcSet } from "@/lib/image-dims"
 import { locations, mapsLink } from "@/lib/site"
 import { categories, familyPhoto, googlePlaces, heroSlides, officialBrands, reviews, stats, V2, v2Ficha } from "@/lib/v2"
 
@@ -87,7 +87,15 @@ export default function V2Page() {
         </div>
         <figure className="v2-about__photo">
           {familyPhoto ? (
-            <img src={familyPhoto.src} alt={familyPhoto.alt} loading="lazy" decoding="async" {...imageDims(familyPhoto.src)} />
+            <img
+              src={familyPhoto.src}
+              srcSet={imageSrcSet(familyPhoto.src)}
+              sizes="(max-width: 900px) 100vw, 50vw"
+              alt={familyPhoto.alt}
+              loading="lazy"
+              decoding="async"
+              {...imageDims(familyPhoto.src)}
+            />
           ) : (
             <div className="v2-placeholder">Foto de la familia</div>
           )}
