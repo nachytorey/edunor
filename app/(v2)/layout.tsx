@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from "next"
 import { Barlow, Barlow_Condensed, Instrument_Serif } from "next/font/google"
 import { V2Footer, V2Header } from "@/components/v2/chrome"
 import { V2Motion } from "@/components/v2/motion"
+import { NavState } from "@/components/v2/nav-state"
 import "./v2.css"
 
 const display = Barlow({ subsets: ["latin"], weight: ["400", "600", "900"], style: ["normal", "italic"], variable: "--font-v2-display", display: "swap" })
@@ -26,6 +27,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <V2Footer />
       <V2Motion />
+      <NavState />
       <noscript>
         <style>{".v2-hero__text{visibility:visible}"}</style>
       </noscript>
