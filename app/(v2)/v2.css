@@ -90,89 +90,45 @@
 }
 .v2-bar__nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
 
-/* ── Menú: botón píldora + panel a pantalla completa en dos columnas (links | foto + contacto) ── */
+/* ── Menú: botón redondo + panel blanco angosto que entra desde la derecha ── */
 .v2-menubtn {
-  position: relative; z-index: 2; flex: none; display: inline-flex; align-items: center; gap: 10px;
-  height: 40px; padding: 0 8px 0 18px; border: 1.5px solid currentColor; border-radius: var(--v2-pill);
-  background: transparent; color: inherit; cursor: pointer;
-  font-family: var(--f-sans); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;
-  transition: background 200ms, color 200ms, border-color 200ms;
+  flex: none; display: grid; place-content: center; gap: 6px; width: 44px; height: 44px; padding: 0;
+  border: 1.5px solid currentColor; border-radius: 50%; background: transparent; color: inherit; cursor: pointer;
+  transition: background 200ms;
 }
-.v2-menubtn__icon { display: grid; gap: 5px; place-content: center; width: 28px; height: 28px; border-radius: 50%; background: currentColor; }
-.v2-menubtn__icon span { display: block; width: 12px; height: 2px; border-radius: 2px; background: var(--v2-ink); transition: transform 0.3s ease; }
+.v2-menubtn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; }
 .v2-menubtn:hover { background: rgba(255, 255, 255, 0.14); }
-.v2-menubtn[aria-expanded="true"] .v2-menubtn__icon span:first-child { transform: translateY(3.5px) rotate(45deg); }
-.v2-menubtn[aria-expanded="true"] .v2-menubtn__icon span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 .v2-menubtn:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
-/* Panel. z-index -1 dentro de la barra: tapa el fondo de la barra pero queda debajo del logo y del botón. */
-.v2-fullmenu {
-  position: fixed; inset: 0; z-index: -1; overflow-y: auto; overscroll-behavior: contain;
-  background: var(--v2-bg); color: var(--v2-ink);
-  animation: v2-menu-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+/* El panel vive en el <body> con la clase .v2 (tipografía y reset); acá se le saca el fondo blanco y el alto mínimo de .v2. */
+.v2.v2-drawer { position: fixed; inset: 0; z-index: 60; min-height: 0; background: transparent; overflow: visible; }
+.v2.v2-drawer[hidden] { display: none; }
+.v2-drawer__backdrop { position: absolute; inset: 0; border: 0; padding: 0; background: rgba(10, 10, 11, 0.45); cursor: pointer; animation: v2-fade 0.25s ease both; }
+.v2-drawer__panel {
+  position: absolute; top: 10px; right: 10px; bottom: 10px; width: min(380px, calc(100% - 20px));
+  display: flex; flex-direction: column; gap: 24px; padding: 64px 28px 28px; overflow-y: auto;
+  background: #fff; color: var(--v2-ink); border-radius: var(--v2-radius);
+  animation: v2-slide 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.v2-fullmenu[hidden] { display: none; }
-@keyframes v2-menu-in { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
-.v2-fullmenu__inner {
-  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px);
-  width: min(100% - 2 * var(--v2-gutter), var(--v2-max)); min-height: 100%; margin-inline: auto;
-  padding-block: 96px 40px; align-items: center;
+@keyframes v2-fade { from { opacity: 0; } }
+@keyframes v2-slide { from { transform: translateX(24px); opacity: 0; } }
+.v2-drawer__close {
+  position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border: 0; border-radius: 50%;
+  background: var(--v2-surface); color: var(--v2-ink); font-size: 1rem; cursor: pointer;
 }
-.v2-fullmenu__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--v2-line); }
-.v2-fullmenu__list li { border-bottom: 1px solid var(--v2-line); animation: v2-row-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(0.12s + var(--i) * 0.04s); }
-@keyframes v2-row-in { from { opacity: 0; transform: translateY(14px); } }
-.v2-fullmenu__link {
-  display: grid; grid-template-columns: 3ch 1fr auto; align-items: center; gap: 16px;
-  padding-block: clamp(10px, 1.9vh, 18px); text-decoration: none;
-}
-.v2-fullmenu__num { font-family: var(--f-sans); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.12em; color: var(--v2-soft); }
-.v2-fullmenu__label {
-  font-style: italic; font-weight: 900; text-transform: uppercase; letter-spacing: -0.005em;
-  font-size: clamp(24px, min(3.4vw, 5vh), 44px); line-height: 1; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s;
-}
-.v2-fullmenu__arrow {
-  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--v2-line);
-  font-size: 1.05rem; transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.v2-fullmenu__link[data-active] .v2-fullmenu__label { transform: translateX(10px); }
-.v2-fullmenu__link[data-active] .v2-fullmenu__num { color: var(--v2-ink); }
-.v2-fullmenu__link[data-active] .v2-fullmenu__arrow { background: var(--v2-ink); border-color: var(--v2-ink); color: #fff; transform: rotate(-45deg); }
+.v2-drawer__close:hover { background: var(--v2-line); }
+.v2-drawer__list { margin: 0; padding: 0; list-style: none; }
+.v2-drawer__list li + li { border-top: 1px solid var(--v2-line); }
+.v2-drawer__list a { display: block; padding: 14px 0; font-size: 1.15rem; font-weight: 600; text-decoration: none; transition: color 150ms, padding 150ms; }
+.v2-drawer__list a:hover { color: var(--v2-soft); padding-left: 4px; }
+.v2-drawer__wa { margin-top: auto; justify-content: center; }
 
-.v2-fullmenu__side { display: grid; gap: 22px; align-content: center; }
-.v2-fullmenu__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--v2-radius); background: var(--v2-surface); }
-.v2-fullmenu__media img { position: absolute; inset: 0; width: 100%; height: 100% !important; object-fit: cover; opacity: 0; transition: opacity 0.45s ease; }
-.v2-fullmenu__media img[data-on] { opacity: 1; }
-.v2-fullmenu__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0, 0, 0, 0.45), transparent 45%); }
-.v2-fullmenu__caption {
-  position: absolute; left: 18px; bottom: 14px; z-index: 1; color: #fff;
-  font-family: var(--f-serif); font-style: italic; font-size: clamp(1.4rem, 1rem + 1vw, 2rem); line-height: 1;
-}
-.v2-fullmenu__aside { display: grid; gap: 14px; justify-items: start; font-size: 0.95rem; }
-.v2-fullmenu__wa { margin-bottom: 4px; }
-.v2-fullmenu__contact, .v2-fullmenu__places { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
-.v2-fullmenu__contact a, .v2-fullmenu__places a { text-decoration: none; color: var(--v2-soft); }
-.v2-fullmenu__contact a:hover, .v2-fullmenu__places a:hover { color: var(--v2-ink); text-decoration: underline; text-underline-offset: 3px; }
-.v2-fullmenu__places strong { font-family: var(--f-sans); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin-right: 8px; }
-.v2-fullmenu__social { display: flex; gap: 18px; margin: 0; }
-.v2-fullmenu__social a { font-family: var(--f-sans); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; text-decoration: none; }
-.v2-fullmenu__social a:hover { text-decoration: underline; text-underline-offset: 4px; }
-
-/* Menú abierto: la barra toma la tinta oscura (logo y botón legibles sobre blanco). */
-.v2-bar[data-menu] { color: var(--v2-ink); box-shadow: none; }
-.v2-bar[data-menu] .v2-bar__nav { visibility: hidden; }
-.v2-bar[data-menu] .v2-menubtn__icon span { background: #fff; }
-.v2-bar[data-menu] .v2-menubtn:hover { background: var(--v2-surface); }
-
-@media (max-width: 860px) {
-  .v2-fullmenu__inner { grid-template-columns: 1fr; align-items: start; padding-top: 84px; }
-  .v2-fullmenu__media { display: none; }
-}
 @media (max-width: 720px) {
   .v2-bar__nav { display: none; }
   .v2-menubtn { margin-left: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .v2-fullmenu, .v2-fullmenu__list li { animation: none; }
+  .v2-drawer__backdrop, .v2-drawer__panel { animation: none; }
 }
 
 /* ── Hero con fotos rotando ── */
