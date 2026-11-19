@@ -3,9 +3,9 @@
 import { useEffect } from "react"
 
 /**
- * Barra transparente sobre el hero: mientras el hero está debajo de la barra, le pone data-over-hero
- * y el CSS la deja transparente; cuando el hero termina de pasar, se lo saca y vuelve a ser negra.
- * Sin hero (categorías, fichas) o sin JavaScript, la barra queda negra. No renderiza nada.
+ * La barra de la portada nace transparente desde el CSS (`.v2:has(.v2-hero) .v2-bar:not([data-solid])`),
+ * así no parpadea al cargar. Acá solo se le pone data-solid cuando el hero terminó de pasar por debajo
+ * (y se le saca al volver), y el CSS la pasa a negra. Sin hero, el CSS ya la deja negra. No renderiza nada.
  */
 export function NavState() {
   useEffect(() => {
@@ -15,15 +15,15 @@ export function NavState() {
     // El margen superior negativo es el alto de la barra: el hero "sale" cuando su borde inferior pasa por debajo de ella.
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) bar.dataset.overHero = ""
-        else delete bar.dataset.overHero
+        if (entry.isIntersecting) delete bar.dataset.solid
+        else bar.dataset.solid = ""
       },
       { rootMargin: `-${bar.offsetHeight}px 0px 0px 0px` },
     )
     io.observe(hero)
     return () => {
       io.disconnect()
-      delete bar.dataset.overHero
+      delete bar.dataset.solid
     }
   }, [])
   return null

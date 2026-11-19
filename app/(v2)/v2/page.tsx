@@ -8,12 +8,13 @@ import { preload } from "react-dom"
 import { EdunorLogo } from "@/components/edunor-logo"
 import { SectionTitle, WHATSAPP_V2 } from "@/components/v2/chrome"
 import { HeroSlides } from "@/components/v2/hero-slides"
+import { ReviewsTrack } from "@/components/v2/reviews-track"
 import { VideoReel, type ReelVideo } from "@/components/palatine/video-reel"
 import { catalog, publicidad } from "@/lib/catalog"
 import { company } from "@/lib/edunor"
 import { imageDims } from "@/lib/image-dims"
 import { locations, mapsLink } from "@/lib/site"
-import { categories, familyPhoto, heroSlides, officialBrands, reviews, stats, V2, v2Ficha } from "@/lib/v2"
+import { categories, familyPhoto, googlePlaces, heroSlides, officialBrands, reviews, stats, V2, v2Ficha } from "@/lib/v2"
 
 export const metadata: Metadata = {
   title: { absolute: "Edunor Náutica — Embarcaciones, Polaris y Generac desde 1963" },
@@ -186,31 +187,29 @@ export default function V2Page() {
         </ul>
       </section>
 
-      {/* ── Reseñas de Google: solo reales, cargadas en lib/v2.ts ── */}
-      <section className="v2-reviews v2-wrap" aria-labelledby="v2-reviews-title">
-        <SectionTitle id="v2-reviews-title" kicker="Reseñas">
-          Lo que dicen <em>nuestros clientes</em>
-        </SectionTitle>
-        {reviews.length > 0 && (
-          <ul className="v2-reviews__list">
-            {reviews.map((r) => (
-              <li key={`${r.author}-${r.date}`} className="v2-review">
-                <p className="v2-review__stars" aria-label={`${r.rating} de 5 estrellas`}>
-                  {"★".repeat(r.rating)}
-                  <span aria-hidden="true">{"★".repeat(5 - r.rating)}</span>
-                </p>
-                <blockquote>{r.text}</blockquote>
-                <p className="v2-muted">
-                  {r.author} · {r.date}
-                </p>
+      {/* ── Reseñas de Google: reales, textuales (lib/v2.ts), en una cinta horizontal ── */}
+      <section className="v2-reviews" aria-labelledby="v2-reviews-title">
+        <div className="v2-wrap v2-reviews__head">
+          <SectionTitle id="v2-reviews-title" kicker="Reseñas de Google">
+            Lo que dicen <em>nuestros clientes</em>
+          </SectionTitle>
+          <ul className="v2-reviews__scores">
+            {Object.values(googlePlaces).map((g) => (
+              <li key={g.name}>
+                <strong>{g.rating}</strong>
+                <span className="v2-review__stars" aria-hidden="true">★★★★★</span>
+                <a href={g.url} target="_blank" rel="noreferrer">
+                  {g.count} reseñas en {g.name}
+                </a>
               </li>
             ))}
           </ul>
-        )}
-        <div className="v2-reviews__ctas">
-          {locations.map((l) => (
-            <a key={l.id} href={mapsLink(`Edunor Náutica ${l.mapsQuery}`)} target="_blank" rel="noreferrer" className="v2-btn v2-btn--outline">
-              Reseñas de {l.name} en Google
+        </div>
+        {reviews.length > 0 && <ReviewsTrack reviews={reviews} />}
+        <div className="v2-wrap v2-reviews__ctas">
+          {Object.values(googlePlaces).map((g) => (
+            <a key={g.name} href={g.url} target="_blank" rel="noreferrer" className="v2-btn v2-btn--outline">
+              Ver todas las de {g.name}
             </a>
           ))}
         </div>

@@ -95,9 +95,98 @@ export const stats = [
   { value: "+2.000", label: "Metros cuadrados" },
 ]
 
+/** Perfiles de Google Maps de cada local (para "Ver todas las reseñas"). */
+export const googlePlaces = {
+  temperley: {
+    name: "Témperley",
+    rating: "4,6",
+    count: 283,
+    url: "https://www.google.com/maps/place/Edunor+N%C3%A1utica/data=!4m8!3m7!1s0x95bcd30476c55245:0x7e8399f160f2a84d!8m2!3d-34.7899613!4d-58.4099142!9m1!1b1",
+  },
+  canning: {
+    name: "Canning",
+    rating: "5,0",
+    count: 13,
+    url: "https://www.google.com/maps/place/Edunor+Nautica+Canning/data=!4m8!3m7!1s0x95bcd1617cfc14f7:0xd9db554b7653dbda!8m2!3d-34.8507804!4d-58.5038225!9m1!1b1",
+  },
+} as const
+
 /**
- * Reseñas de Google: se copian a mano desde el perfil de cada local (nombre, estrellas, texto, fecha).
- * Nunca inventadas. Con la lista vacía, la sección muestra solo los botones para verlas en Google.
+ * Reseñas de Google, REALES y textuales (autor tal cual figura, estrellas y comentario completo), copiadas el
+ * 19/11/2026 de los perfiles de Maps de Témperley ("Edunor Náutica") y Canning ("Edunor Nautica Canning").
+ * Google muestra fechas relativas ("hace 6 meses"): `date` es el mes aproximado contado desde ese día.
+ * Ordenadas de la más nueva a la más vieja. Para actualizarlas, se vuelven a copiar de Maps; nunca se inventan.
  */
 export type Review = { author: string; rating: 1 | 2 | 3 | 4 | 5; text: string; date: string; location: "temperley" | "canning" }
-export const reviews: Review[] = []
+export const reviews: Review[] = [
+  {
+    author: "Mariano D",
+    rating: 5,
+    date: "oct. 2026",
+    location: "canning",
+    text: "Excelente atencion , el mejor precio en cascos motores y accesorios y muy buena post venta.  Servcio de Primera.",
+  },
+  {
+    author: "Sergio Alvarez",
+    rating: 5,
+    date: "jul. 2026",
+    location: "temperley",
+    text: "Muy buena atención, todo según lo pactado en tiempo y en calidad.",
+  },
+  {
+    author: "Javier cuman",
+    rating: 5,
+    date: "jul. 2026",
+    location: "canning",
+    text: "El mejor concesionario. Leandro Crack.\nIba a comprar usado pero Leandro me hizo una oferta tremenda\nCompré un Rzr Nuevo !!!!",
+  },
+  {
+    author: "Eduardo ourens",
+    rating: 5,
+    date: "may. 2026",
+    location: "canning",
+    text: "Recomendables un 100%! Desde el primer contacto para consultar, hasta el último detalle al momento de entregar el cuatriciclo, fue todo excelente. Vivo a 150 Km y coordinamos todo con una facilidad increíble. Leandro tuvo un trato conmigo y mi familia que hace tiempo no recibíamos como clientes! Gracias por todo y éxitos!!",
+  },
+  {
+    author: "Lucas Lizzi",
+    rating: 5,
+    date: "abr. 2026",
+    location: "canning",
+    text: "EXCELENTE ATENCIÓN LA VERDAD MUY RECOMENDABLE, TODO EN TIEMPO Y FORMA!!..\nrecomendable 100%",
+  },
+  {
+    author: "Damián Ghibaudo",
+    rating: 5,
+    date: "abr. 2026",
+    location: "canning",
+    text: "Muy buena experiencia en Edunor Canning.. La atención es realmente personalizada, se toman el tiempo para explicarte todo y ayudarte a elegir..\n\nSe nota que saben mucho del tema y trabajan con marcas de calidad como Canestrari y Polaris, lo cual da mucha confianza.\n\nEs un lugar totalmente recomendable!!",
+  },
+  {
+    author: "Dario Florek",
+    rating: 5,
+    date: "ene. 2026",
+    location: "temperley",
+    text: "Brillante atención, años q estoy en la náutica y nunca nadie cumplió como ellos. El día q compré la lancha me dijieron día q me entregaba. Y cumplieron con entrega, instalacion de accesorios, todo.\nLo recomiendo 100%",
+  },
+  {
+    author: "dario sandez",
+    rating: 5,
+    date: "2025",
+    location: "temperley",
+    text: "Bueno paso a contar mi experiencia, me atendió Leandro siempre dispuesto a evacuar mis dudas , no entiendo absolutamente nada de embarcaciones, no tengo experiencia previa y me fue asesorando sobre las distintas opciones , me prometio entrega inmediata y me Cumplió, no me dio ni media vuelta , fui , pague y me entregaron todo como me dijeron, dejo este comentario no solo en agradecimiento si no para ayudar a otras personas que pudieran estar en mi situación, me cance de renegar buscando , nadie tiene tiempo, todos te dan vueltas , aca fui , pague y me entregaron en 2 dias mi embarcacion .",
+  },
+  {
+    author: "francisco nitzke",
+    rating: 5,
+    date: "2024",
+    location: "temperley",
+    text: "Compre un cuatriciclo polaris 570cc. Excelente maquina! Gracias leandro por impecable servicio y atención. Muy recomendable!",
+  },
+  {
+    author: "Luca Molinari",
+    rating: 5,
+    date: "2022",
+    location: "temperley",
+    text: "Feliz con haber encontrado a Edunor para la compra de mi primer bote. Les compré un semirrígido 6mts/115hp usado (fabricado por ellos).\n\nMe ayudaron con todo, mucha paciencia y super profesionales. Me dieron la tranquilidad que buscaba a la hora de hacer una compra importante como esta, más todavía siendo primerizo.\n\nLa calidad del bote es de primera, excelentes terminaciones y funcionamiento. Inclusive el precio, después de haber investigado bastante estoy seguro de que sería muy difícil encontrar algo así de bueno por este precio.\n\nCualquier necesidad que tuve la resolvieron rápidamente, con transparencia. Inclusive hicimos la operación en tiempo récord porque yo tenía que viajar, y me hicieron el aguante.\n\nTambién sus chalecos salvavidas muy buenos.\n\nLos recomendaré siempre y estoy seguro que volveremos a encarar nuevos proyectos juntos.",
+  },
+]
