@@ -52,7 +52,7 @@ export function V2Motion() {
       // ── Bloques: fundido corto hacia arriba, el bloque entero ──
       all(
         [
-          ".v2-about__copy > p, .v2-more",
+          ".v2-about__copy > p, .v2-more, .v2-about__photo",
           ".v2-cats",
           ".v2-brands__row",
           ".v2-stats dl",

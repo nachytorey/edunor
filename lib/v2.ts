@@ -24,6 +24,15 @@ export const heroSlides = [
   .filter((s): s is { src: string; alt: string } => Boolean(s?.src))
   .map((s) => ({ src: s.src, alt: s.alt, srcSet: imageSrcSet(s.src) }))
 
+/**
+ * Foto de la familia para "Nosotros" (la del bosquejo). Cuando el cliente la pase, va a /public/v2/familia.jpg
+ * y se pone acá: { src: "/v2/familia.jpg", alt: "…" }. Mientras sea null se ve un recuadro de reemplazo.
+ */
+export const familyPhoto: { src: string; alt: string } | null = {
+  src: "/v2/nosotros/familia.jpg",
+  alt: "La familia Edunor navegando en una lancha con tres motores Mercury Verado",
+}
+
 /** Las tres categorías del bloque "Productos". Cada una abre /v2/<slug> con todos sus productos. */
 export type CategorySlug = "embarcaciones" | "polaris" | "generac"
 
