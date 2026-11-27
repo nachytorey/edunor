@@ -6,28 +6,28 @@ import { EdunorLogo } from "@/components/edunor-logo"
 import { V2Menu } from "@/components/v2/menu"
 import { contact } from "@/lib/edunor"
 import { locations, siteConfig, whatsappLink } from "@/lib/site"
-import { categories, V2 } from "@/lib/v2"
+import { categories } from "@/lib/v2"
 
 export const WHATSAPP_V2 = whatsappLink()
 
 const MENU = [
-  ...categories.map((c) => ({ href: `${V2}/${c.slug}`, label: c.label })),
-  { href: `${V2}/modelos`, label: "Todos los modelos" },
-  { href: `${V2}#videos`, label: "Videos" },
-  { href: `${V2}#nosotros`, label: "Nosotros" },
-  { href: `${V2}#locales`, label: "Locales" },
-  { href: `${V2}#contacto`, label: "Contacto" },
+  ...categories.map((c) => ({ href: `/${c.slug}`, label: c.label })),
+  { href: `/modelos`, label: "Todos los modelos" },
+  { href: `/#videos`, label: "Videos" },
+  { href: `/#nosotros`, label: "Nosotros" },
+  { href: `/#locales`, label: "Locales" },
+  { href: `/#contacto`, label: "Contacto" },
 ]
 
 export function V2Header() {
   return (
     <header className="v2-bar">
-      <a href={V2} className="v2-bar__logo" aria-label="Edunor Náutica, inicio">
+      <a href="/" className="v2-bar__logo" aria-label="Edunor Náutica, inicio">
         <EdunorLogo mono />
       </a>
       <nav className="v2-bar__nav" aria-label="Principal">
         {categories.map((c) => (
-          <a key={c.slug} href={`${V2}/${c.slug}`}>
+          <a key={c.slug} href={`/${c.slug}`}>
             {c.label}
           </a>
         ))}

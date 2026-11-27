@@ -10,7 +10,7 @@ const display = Red_Hat_Display({
   weight: ["900"],
   variable: "--font-display",
   display: "swap",
-  // La portada usa Barlow (app/(palatine)/layout.tsx): que no baje esta de entrada.
+  // El sitio usa Archivo (app/(v2)/layout.tsx): que no baje esta de entrada.
   preload: false,
 })
 

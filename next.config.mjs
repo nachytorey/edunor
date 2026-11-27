@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 /** Carpetas de /public con fotos, videos y marca. Vercel las sirve sin caché en el navegador si no se le dice. */
-const MEDIA = ["catalog", "publicidad", "palatine", "og", "brand", "images"]
+const MEDIA = ["catalog", "publicidad", "palatine", "v2", "og", "brand", "images"]
 
 const nextConfig = {
   turbopack: {
@@ -13,6 +13,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+  },
+  /* La v2 (portada blanca) vivió en /v2 mientras se comparaba con la anterior; desde el 27/11/2026 es "/".
+     Solo las rutas de páginas: /v2/marcas y /v2/nosotros son fotos de /public y tienen que seguir sirviéndose. */
+  async redirects() {
+    return [
+      { source: "/v2", destination: "/", permanent: true },
+      { source: "/v2/modelos", destination: "/modelos", permanent: true },
+      { source: "/v2/modelos/:slug", destination: "/modelos/:slug", permanent: true },
+      { source: "/v2/:categoria(embarcaciones|polaris|generac)", destination: "/:categoria", permanent: true },
+    ]
   },
   async headers() {
     return [

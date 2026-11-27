@@ -1,6 +1,6 @@
 /**
- * /v2/modelos/[slug] — ficha de modelo en la versión blanca.
- * Reutiliza la galería de la ficha actual (zoom, pantalla completa, miniaturas, videos) con la paleta clara:
+ * /modelos/[slug] — ficha de modelo.
+ * Reutiliza la galería de components/palatine/product-gallery.tsx (zoom, pantalla completa, miniaturas, videos) con la paleta clara:
  * su CSS (modelo.css) cuelga de `.pal` y de variables --pal-*, que acá se redefinen en .v2-pd.
  * Abajo: dónde verla, anterior/siguiente y más modelos de la línea.
  */
@@ -10,9 +10,10 @@ import { ProductGallery } from "@/components/palatine/product-gallery"
 import { SectionTitle } from "@/components/v2/chrome"
 import { catalog, getProduct } from "@/lib/catalog"
 import { imageDims } from "@/lib/image-dims"
-import { locations, mapsLink, whatsappLink } from "@/lib/site"
-import { V2, v2Ficha } from "@/lib/v2"
-import "../../../../(palatine)/modelos/[slug]/modelo.css"
+import { breadcrumbJsonLd, JsonLd, productJsonLd } from "@/lib/seo"
+import { locations, mapsLink, shareMeta, whatsappLink } from "@/lib/site"
+import { v2Ficha } from "@/lib/v2"
+import "./modelo.css"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -23,8 +24,22 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const p = getProduct((await params).slug)
-  return p ? { title: { absolute: `${p.name} — ${p.kind} | Edunor Náutica` }, description: p.description ?? undefined } : {}
+  const product = getProduct((await params).slug)
+  if (!product) return {}
+  const title = `${product.name} — ${product.kind} | Edunor Náutica`
+  const description = product.description ?? `${product.name}: fotos, detalles y consulta directa con Edunor Náutica.`
+  // Primera foto real (los videos sin póster traen src vacío); si no hay, queda la miniatura general.
+  const photo = product.images.find((i) => i.src)
+  return {
+    title: { absolute: title },
+    description,
+    ...shareMeta({
+      title,
+      description,
+      path: v2Ficha(product.slug),
+      image: photo ? { url: photo.src, alt: photo.alt || product.name, ...imageDims(photo.src) } : undefined,
+    }),
+  }
 }
 
 export default async function V2ModeloPage({ params }: Props) {
@@ -41,10 +56,18 @@ export default async function V2ModeloPage({ params }: Props) {
 
   return (
     <div className="v2-pd pal v2-wrap">
+      <JsonLd data={productJsonLd(product)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Edunor Náutica", path: "/" },
+          { name: cat.label, path: `/${cat.slug}` },
+          { name: product.name, path: v2Ficha(product.slug) },
+        ])}
+      />
       <nav className="v2-crumbs" aria-label="Ruta">
-        <a href={V2}>Inicio</a>
+        <a href="/">Inicio</a>
         <span aria-hidden="true">/</span>
-        <a href={`${V2}/${cat.slug}`}>{cat.label}</a>
+        <a href={`/${cat.slug}`}>{cat.label}</a>
         <span aria-hidden="true">/</span>
         <span aria-current="page">{product.name}</span>
       </nav>

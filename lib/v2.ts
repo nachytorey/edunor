@@ -1,14 +1,13 @@
 /**
- * Datos de la portada v2 (la versión blanca del bosquejo del cliente, en /v2).
+ * Datos de la portada (la versión blanca del bosquejo del cliente, antes en /v2 y hoy en "/").
  * Todo lo que el cliente tiene que completar o confirmar está acá: números, logos, foto de la familia y reseñas.
  */
 import { cuatriciclos, lanchas, type CatalogProduct } from "@/lib/catalog"
 import { company } from "@/lib/edunor"
 import { imageSrcSet } from "@/lib/image-dims"
 
-export const V2 = "/v2"
-/** Ficha v2 de un modelo (lanchas y Polaris). */
-export const v2Ficha = (slug: string) => `${V2}/modelos/${slug}`
+/** Ficha de un modelo (lanchas y Polaris). */
+export const v2Ficha = (slug: string) => `/modelos/${slug}`
 
 /** Fotos que rotan en el hero. La primera es la imagen LCP: tiene que ser la mejor. */
 const cover = (p: CatalogProduct | undefined) => p?.images.find((i) => i.src && !i.video)
@@ -33,7 +32,7 @@ export const familyPhoto: { src: string; alt: string } | null = {
   alt: "La familia Edunor navegando en una lancha con tres motores Mercury Verado",
 }
 
-/** Las tres categorías del bloque "Productos". Cada una abre /v2/<slug> con todos sus productos. */
+/** Las tres categorías del bloque "Productos". Cada una abre /<slug> con todos sus productos. */
 export type CategorySlug = "embarcaciones" | "polaris" | "generac"
 
 export const categories: { slug: CategorySlug; label: string; title: string; intro: string; image: { src: string; alt: string } }[] = [
