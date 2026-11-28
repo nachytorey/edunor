@@ -208,7 +208,7 @@ export default function V2Page() {
                 <strong>{g.rating}</strong>
                 <span className="v2-review__stars" aria-hidden="true">★★★★★</span>
                 <a href={g.url} target="_blank" rel="noreferrer">
-                  {g.count} reseñas en {g.name}
+                  Reseñas en {g.name}
                 </a>
               </li>
             ))}

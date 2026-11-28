@@ -103,13 +103,13 @@ export const googlePlaces = {
     name: "Témperley",
     rating: "4,6",
     count: 283,
-    url: "https://www.google.com/maps/place/Edunor+N%C3%A1utica/data=!4m8!3m7!1s0x95bcd30476c55245:0x7e8399f160f2a84d!8m2!3d-34.7899613!4d-58.4099142!9m1!1b1",
+    url: "https://www.google.com/maps/place/Edunor+N%C3%A1utica/@-34.7899569,-58.4124891,626m/data=!3m1!1e3!4m8!3m7!1s0x95bcd30476c55245:0x7e8399f160f2a84d!8m2!3d-34.7899613!4d-58.4099142!9m1!1b1!16s%2Fg%2F1tg7t65n?entry=ttu&g_ep=EgoyMDI2MTEyMy4wIKXMDSoASAFQAw%3D%3D",
   },
   canning: {
     name: "Canning",
     rating: "5,0",
     count: 13,
-    url: "https://www.google.com/maps/place/Edunor+Nautica+Canning/data=!4m8!3m7!1s0x95bcd1617cfc14f7:0xd9db554b7653dbda!8m2!3d-34.8507804!4d-58.5038225!9m1!1b1",
+    url: "https://www.google.com/maps/place/Edunor+Nautica+Canning/@-34.850776,-58.5063974,626m/data=!3m1!1e3!4m8!3m7!1s0x95bcd1617cfc14f7:0xd9db554b7653dbda!8m2!3d-34.8507804!4d-58.5038225!9m1!1b1!16s%2Fg%2F11z12jmpjt?entry=ttu&g_ep=EgoyMDI2MTEyMy4wIKXMDSoASAFQAw%3D%3D",
   },
 } as const
 
