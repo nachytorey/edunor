@@ -4,7 +4,7 @@
  */
 import type { Metadata, Viewport } from "next"
 import { Archivo } from "next/font/google"
-import { V2Footer, V2Header } from "@/components/v2/chrome"
+import { V2Footer, V2Header, V2WhatsAppFab } from "@/components/v2/chrome"
 import { V2Motion } from "@/components/v2/motion"
 import { NavState } from "@/components/v2/nav-state"
 import "./v2.css"
@@ -23,6 +23,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
       <V2Header />
       <main>{children}</main>
       <V2Footer />
+      <V2WhatsAppFab />
       <V2Motion />
       <NavState />
       <noscript>
