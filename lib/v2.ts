@@ -1,14 +1,13 @@
 /**
- * Datos de la portada v2 (la versión blanca del bosquejo del cliente, en /v2).
+ * Datos de la portada (la versión blanca del bosquejo del cliente, antes en /v2 y hoy en "/").
  * Todo lo que el cliente tiene que completar o confirmar está acá: números, logos, foto de la familia y reseñas.
  */
 import { cuatriciclos, lanchas, type CatalogProduct } from "@/lib/catalog"
 import { company } from "@/lib/edunor"
 import { imageSrcSet } from "@/lib/image-dims"
 
-export const V2 = "/v2"
-/** Ficha v2 de un modelo (lanchas y Polaris). */
-export const v2Ficha = (slug: string) => `${V2}/modelos/${slug}`
+/** Ficha de un modelo (lanchas y Polaris). */
+export const v2Ficha = (slug: string) => `/modelos/${slug}`
 
 /** Fotos que rotan en el hero. La primera es la imagen LCP: tiene que ser la mejor. */
 const cover = (p: CatalogProduct | undefined) => p?.images.find((i) => i.src && !i.video)
@@ -18,7 +17,6 @@ export const heroSlides = [
   pick(lanchas, "245-df"),
   pick(cuatriciclos, "polaris-rzr-xp-1000-premium"),
   pick(lanchas, "285-fb"),
-  { src: "/palatine/generac/instalados.jpg", alt: "Generador GENERAC instalado en una casa" },
   pick(lanchas, "348"),
 ]
   .filter((s): s is { src: string; alt: string } => Boolean(s?.src))
@@ -33,7 +31,7 @@ export const familyPhoto: { src: string; alt: string } | null = {
   alt: "La familia Edunor navegando en una lancha con tres motores Mercury Verado",
 }
 
-/** Las tres categorías del bloque "Productos". Cada una abre /v2/<slug> con todos sus productos. */
+/** Las tres categorías del bloque "Productos". Cada una abre /<slug> con todos sus productos. */
 export type CategorySlug = "embarcaciones" | "polaris" | "generac"
 
 export const categories: { slug: CategorySlug; label: string; title: string; intro: string; image: { src: string; alt: string } }[] = [
@@ -104,13 +102,13 @@ export const googlePlaces = {
     name: "Témperley",
     rating: "4,6",
     count: 283,
-    url: "https://www.google.com/maps/place/Edunor+N%C3%A1utica/data=!4m8!3m7!1s0x95bcd30476c55245:0x7e8399f160f2a84d!8m2!3d-34.7899613!4d-58.4099142!9m1!1b1",
+    url: "https://www.google.com/maps/place/Edunor+N%C3%A1utica/@-34.7899569,-58.4124891,626m/data=!3m1!1e3!4m8!3m7!1s0x95bcd30476c55245:0x7e8399f160f2a84d!8m2!3d-34.7899613!4d-58.4099142!9m1!1b1!16s%2Fg%2F1tg7t65n?entry=ttu&g_ep=EgoyMDI2MTEyMy4wIKXMDSoASAFQAw%3D%3D",
   },
   canning: {
     name: "Canning",
     rating: "5,0",
     count: 13,
-    url: "https://www.google.com/maps/place/Edunor+Nautica+Canning/data=!4m8!3m7!1s0x95bcd1617cfc14f7:0xd9db554b7653dbda!8m2!3d-34.8507804!4d-58.5038225!9m1!1b1",
+    url: "https://www.google.com/maps/place/Edunor+Nautica+Canning/@-34.850776,-58.5063974,626m/data=!3m1!1e3!4m8!3m7!1s0x95bcd1617cfc14f7:0xd9db554b7653dbda!8m2!3d-34.8507804!4d-58.5038225!9m1!1b1!16s%2Fg%2F11z12jmpjt?entry=ttu&g_ep=EgoyMDI2MTEyMy4wIKXMDSoASAFQAw%3D%3D",
   },
 } as const
 

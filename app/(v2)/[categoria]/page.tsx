@@ -1,5 +1,5 @@
 /**
- * /v2/[categoria] — todos los productos de una categoría (embarcaciones, polaris, generac).
+ * /[categoria] — todos los productos de una categoría (embarcaciones, polaris, generac).
  * Arriba, las tres categorías como pestañas que se deslizan de costado para saltar de una a otra.
  * Lanchas y Polaris abren la ficha existente (/modelos/<slug>); los generadores van directo a la consulta.
  */
@@ -8,8 +8,8 @@ import { notFound } from "next/navigation"
 import { SectionTitle } from "@/components/v2/chrome"
 import { cuatriciclos, lanchas, type CatalogProduct } from "@/lib/catalog"
 import { imageDims } from "@/lib/image-dims"
-import { whatsappLink } from "@/lib/site"
-import { categories, generacLines, getCategory, V2, v2Ficha } from "@/lib/v2"
+import { shareMeta, whatsappLink } from "@/lib/site"
+import { categories, generacLines, getCategory, v2Ficha } from "@/lib/v2"
 
 type Props = { params: Promise<{ categoria: string }> }
 
@@ -21,7 +21,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategory((await params).categoria)
-  return cat ? { title: { absolute: `${cat.title} | Edunor Náutica` }, description: cat.intro } : {}
+  if (!cat) return {}
+  const title = `${cat.title} | Edunor Náutica`
+  return { title: { absolute: title }, description: cat.intro, ...shareMeta({ title, description: cat.intro, path: `/${cat.slug}` }) }
 }
 
 const products: Record<string, CatalogProduct[]> = { embarcaciones: lanchas, polaris: cuatriciclos }
@@ -35,7 +37,7 @@ export default async function V2CategoryPage({ params }: Props) {
     <div className="v2-catpage v2-wrap">
       <nav className="v2-tabs" aria-label="Categorías">
         {categories.map((c) => (
-          <a key={c.slug} href={`${V2}/${c.slug}`} aria-current={c.slug === cat.slug ? "page" : undefined}>
+          <a key={c.slug} href={`/${c.slug}`} aria-current={c.slug === cat.slug ? "page" : undefined}>
             {c.label}
           </a>
         ))}

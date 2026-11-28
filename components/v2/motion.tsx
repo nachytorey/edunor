@@ -30,7 +30,11 @@ export function V2Motion() {
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const all = (sel: string) => gsap.utils.toArray<HTMLElement>(sel)
-      const once = (trigger: Element, start = "top 88%") => ({ trigger, start, once: true })
+      // Se reproduce una vez y nunca vuelve atrás. NO usar `once: true`: ese trigger se mata solo al dispararse y,
+      // si pasa mientras ScrollTrigger recalcula la lista (p. ej. al recargar con la página scrolleada), la lista
+      // se achica a mitad del recorrido → "Cannot read properties of undefined (reading 'end')" y las animaciones
+      // siguientes (reseñas, locales…) quedan invisibles.
+      const once = (trigger: Element, start = "top 88%") => ({ trigger, start, toggleActions: "play none none none" })
 
       // ── Hero: entrada del texto, una sola vez ──
       if (document.querySelector(".v2-hero")) {
@@ -86,6 +90,19 @@ export function V2Motion() {
           },
         })
       })
+
+      // Si la página cambia de alto después de armar los triggers (la grilla de videos se acomoda con JS,
+      // cargan fotos), recalcular dónde arranca cada uno; si no, lo de abajo aparece tarde o nunca.
+      let raf = 0
+      const ro = new ResizeObserver(() => {
+        cancelAnimationFrame(raf)
+        raf = requestAnimationFrame(() => ScrollTrigger.refresh())
+      })
+      ro.observe(document.body)
+      return () => {
+        cancelAnimationFrame(raf)
+        ro.disconnect()
+      }
     })
   })
 

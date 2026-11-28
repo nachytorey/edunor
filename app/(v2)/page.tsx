@@ -1,5 +1,5 @@
 /**
- * /v2 — portada blanca, armada sobre el bosquejo del cliente (19/11/2026):
+ * / — portada blanca, armada sobre el bosquejo del cliente (19/11/2026):
  * Hero con fotos rotando → Nosotros con foto → Productos (3 categorías) → Representantes oficiales →
  * Números → Locales con mapa → Reseñas de Google.
  */
@@ -13,13 +13,14 @@ import { VideoReel, type ReelVideo } from "@/components/palatine/video-reel"
 import { catalog, publicidad } from "@/lib/catalog"
 import { company } from "@/lib/edunor"
 import { imageDims, imageSrcSet } from "@/lib/image-dims"
-import { locations, mapsLink } from "@/lib/site"
-import { categories, familyPhoto, googlePlaces, heroSlides, officialBrands, reviews, stats, V2, v2Ficha } from "@/lib/v2"
+import { locations, mapsLink, shareMeta } from "@/lib/site"
+import { categories, familyPhoto, googlePlaces, heroSlides, officialBrands, reviews, stats, v2Ficha } from "@/lib/v2"
 
-export const metadata: Metadata = {
-  title: { absolute: "Edunor Náutica — Embarcaciones, Polaris y Generac desde 1963" },
-  description: "Empresa familiar desde 1963: embarcaciones nuevas en stock, cuatriciclos y UTV Polaris y generadores GENERAC. Locales en Témperley y Canning.",
-}
+const title = "Edunor Náutica — Embarcaciones, Polaris y Generac desde 1963"
+const description =
+  "Empresa familiar desde 1963: embarcaciones nuevas en stock, cuatriciclos y UTV Polaris y generadores GENERAC. Locales en Témperley y Canning."
+
+export const metadata: Metadata = { title: { absolute: title }, description, ...shareMeta({ title, description, path: "/" }) }
 
 const YEARS = new Date().getFullYear() - company.founded
 /** Videos: primero los de publicidad (hechos para mostrar), después los de las fichas. Los links van a la ficha v2. */
@@ -48,7 +49,7 @@ export default function V2Page() {
           Embarcaciones, Polaris y Generac <span>desde {company.founded}</span>
         </h1>
         <div className="v2-hero__ctas">
-          <a href={`${V2}#productos`} className="v2-btn v2-btn--light">
+          <a href={`/#productos`} className="v2-btn v2-btn--light">
             Ver productos
           </a>
           <a href={WHATSAPP_V2} target="_blank" rel="noreferrer" className="v2-btn v2-btn--ghost">
@@ -90,7 +91,7 @@ export default function V2Page() {
             <img
               src={familyPhoto.src}
               srcSet={imageSrcSet(familyPhoto.src)}
-              sizes="(max-width: 900px) 100vw, 50vw"
+              sizes="(max-width: 820px) 100vw, 60vw"
               alt={familyPhoto.alt}
               loading="lazy"
               decoding="async"
@@ -112,7 +113,7 @@ export default function V2Page() {
         <ul className="v2-cats" aria-label="Categorías">
           {categories.map((c) => (
             <li key={c.slug}>
-              <a href={`${V2}/${c.slug}`} className="v2-cat">
+              <a href={`/${c.slug}`} className="v2-cat">
                 <img src={c.image.src} alt={c.image.alt} loading="lazy" decoding="async" {...imageDims(c.image.src)} />
                 <span className="v2-cat__label">{c.label}</span>
                 <span className="v2-cat__go">Ver todos →</span>
@@ -207,7 +208,7 @@ export default function V2Page() {
                 <strong>{g.rating}</strong>
                 <span className="v2-review__stars" aria-hidden="true">★★★★★</span>
                 <a href={g.url} target="_blank" rel="noreferrer">
-                  {g.count} reseñas en {g.name}
+                  Reseñas en {g.name}
                 </a>
               </li>
             ))}
