@@ -91,7 +91,7 @@ export default function V2Page() {
             <img
               src={familyPhoto.src}
               srcSet={imageSrcSet(familyPhoto.src)}
-              sizes="(max-width: 900px) 100vw, 50vw"
+              sizes="(max-width: 820px) 100vw, 60vw"
               alt={familyPhoto.alt}
               loading="lazy"
               decoding="async"

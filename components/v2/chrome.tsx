@@ -1,6 +1,6 @@
 /**
  * Piezas compartidas de la v2: barra superior (transparente sobre el hero, negra después), título de sección
- * y pie. El menú (components/v2/menu.tsx) es un panel simple que entra desde la derecha.
+ * y pie. El menú (components/v2/menu.tsx) es un panel negro que entra desde la derecha.
  */
 import { EdunorLogo } from "@/components/edunor-logo"
 import { V2Menu } from "@/components/v2/menu"
@@ -10,13 +10,19 @@ import { categories } from "@/lib/v2"
 
 export const WHATSAPP_V2 = whatsappLink()
 
-const MENU = [
+const MENU_PRIMARY = [
   ...categories.map((c) => ({ href: `/${c.slug}`, label: c.label })),
   { href: `/modelos`, label: "Todos los modelos" },
+]
+const MENU_SECONDARY = [
   { href: `/#videos`, label: "Videos" },
   { href: `/#nosotros`, label: "Nosotros" },
   { href: `/#locales`, label: "Locales" },
   { href: `/#contacto`, label: "Contacto" },
+]
+const MENU_SOCIAL = [
+  { href: siteConfig.social.instagram, label: "Instagram" },
+  { href: contact.facebook, label: "Facebook" },
 ]
 
 export function V2Header() {
@@ -32,7 +38,7 @@ export function V2Header() {
           </a>
         ))}
       </nav>
-      <V2Menu links={MENU} whatsapp={WHATSAPP_V2} />
+      <V2Menu primary={MENU_PRIMARY} secondary={MENU_SECONDARY} social={MENU_SOCIAL} whatsapp={WHATSAPP_V2} />
     </header>
   )
 }
