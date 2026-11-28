@@ -17,7 +17,6 @@ export const heroSlides = [
   pick(lanchas, "245-df"),
   pick(cuatriciclos, "polaris-rzr-xp-1000-premium"),
   pick(lanchas, "285-fb"),
-  { src: "/palatine/generac/instalados.jpg", alt: "Generador GENERAC instalado en una casa" },
   pick(lanchas, "348"),
 ]
   .filter((s): s is { src: string; alt: string } => Boolean(s?.src))
